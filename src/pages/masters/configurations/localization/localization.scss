@@ -1,0 +1,37 @@
+.localization-table {
+    .table-header {
+        .element:nth-child(1) {
+            width: 10%;
+        }
+
+        .element:nth-child(2),
+        .element:nth-child(3)
+       
+         {
+            width: 45%;
+        }       
+    }
+
+    .table-body {
+        .element:nth-child(1) {
+            width: 10%;
+        }
+
+        .element:nth-child(2),
+        .element:nth-child(3)
+       
+         {
+            width: 45%;
+        }       
+        .element:nth-child(3) {
+            text-align: right;
+            label.MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd {
+                margin: 0;
+            }
+        }
+    }
+}
+ 
+.arabic-text {
+    direction: rtl;
+}

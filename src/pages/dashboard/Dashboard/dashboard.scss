@@ -1,0 +1,236 @@
+.dashboard {
+    &-title {
+        padding: .8rem 1rem;
+    }
+
+    &-content {
+        padding: 1rem;
+        overflow: auto;
+        max-height: calc(100vh - 10rem);
+        background: #F3F3F9;
+    }
+}
+
+.scroll-widget {
+    height: calc((100vh - 280px) / 2);
+    overflow: auto;
+    padding: 5px 10px;
+    margin: 0 0px;
+}
+
+.wrap-card-content {
+    padding: 10px;
+}
+
+.widget-card-content {
+    padding: 10px 0px !important;
+}
+
+.scroll-widget-task {
+    padding: 5px 10px;
+    margin: 0 0px;
+    height: calc((100vh - 235px)/2);
+    overflow: auto;
+}
+
+.scrollbar-dashboard {
+    &::-webkit-scrollbar {
+        width: 4px;
+        height: 8px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #adaaaa;
+    }
+}
+
+
+
+
+
+
+/* New UI Design */
+
+.dashboard-main-wrapper {
+    background-color: #ffffff;
+
+    h5.page-name {
+        color: var(--main-blue);
+    }
+}
+
+.dashboard-body-scroll {
+    height: calc(100vh - 180px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.dashboard-body-scroll::-webkit-scrollbar {
+    width: 0;
+}
+
+.greeting {
+    .user-greeting {
+        font-weight: 500;
+        font-size: 1.2rem;
+        color: #003a5d;
+
+        span.user_name {
+            text-transform: capitalize;
+            font-weight: 700;
+        }
+    }
+
+    .user-sub-greeting {
+        font-weight: 400;
+        font-size: 0.7rem;
+        color: #ffa114;
+
+        span {
+            text-transform: capitalize;
+        }
+    }
+
+    img {
+        height: 45px;
+        width: auto;
+    }
+}
+
+.chart-wrapper {
+    /* background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 3px #ededed; */
+    background: #ecedf5;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 3px #ededed;
+    border: 1px solid #c7c9dc;
+    height: 100%;
+    overflow: hidden;
+}
+
+.static-card-dashboard {
+    background-color: #e7f6ff;
+    padding: 10px 0;
+    box-shadow: -1px 0 2px #c6dce8;
+
+    .widget-card-wrap {
+        background: #e7f6ff;
+        box-shadow: none;
+    }
+
+    .widgetWrap {
+        border-radius: 15px;
+        border: none;
+        box-shadow: 0 2px 4px #a8a8a8;
+    }
+}
+
+p.widget-title {
+    color: #000;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.static__card {
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px 1px #c2c2c2;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (max-width: 900px) {
+        min-width: 10rem;
+    }
+
+    .card__row {
+        z-index: 9;
+    }
+
+    &:before {
+        /* content: "";
+        position: absolute;
+        width: 210px;
+        height: 210px;
+        background: rgb(216 217 231);
+        border-radius: 50%;
+        top: -125px;
+        right: -15px;
+        opacity: 0.5; */
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border: 2px solid #d6c69c;
+        opacity: 0.21;
+        border-radius: 50%;
+        top: -97px;
+        right: -3px;
+    }
+
+    &:after {
+        /* content: "";
+        position: absolute;
+        width: 210px;
+        height: 210px;
+        background: rgb(220 222 234);
+        border-radius: 50%;
+        top: -85px;
+        right: -95px; */
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border: 35px solid rgb(241 220 168);
+        opacity: 0.4;
+        border-radius: 50%;
+        top: -72px;
+        right: -63px;
+    }
+
+    .card__row {
+        h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        p.count {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #000000;
+        }
+    }
+}
+
+.data-wrap {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #93c4e0;
+}
+
+h4.tab-label-head {
+    color: #000;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: capitalize;
+
+    .MuiBadge-badge {
+        margin: -10px -6px 0px 0;
+        background: #003a5d;
+    }
+}
+
+.block-height {
+    .widget-card-wrap {
+        margin-bottom: 0px !important;
+    }
+}

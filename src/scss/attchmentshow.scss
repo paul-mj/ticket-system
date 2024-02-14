@@ -1,0 +1,119 @@
+.image-list-wrap {
+    width: 100%;
+    border-radius: 5px;
+
+    .selected_cont {
+        min-height: 37px;
+        line-height: 37px;
+    }
+}
+
+.image-list-sec {
+    &.border-box {
+        padding: 4px 10px;
+        background: #7F8FA6;
+        border-radius: 5px;
+        border: 2px solid#7F8FA6;
+        min-height: 126px;
+    }
+}
+
+.selected_doc_corrs {
+    .each-img {
+        background: #ffffff;
+        //background: #ffffff;
+        margin-bottom: 8px !important;
+        border-radius: 6px;
+        border: 1px solid #7f8fa6; 
+        //border-radius: 5px;
+        //box-shadow: 0 2px 3px #b6b6b6;
+        //box-shadow: 0 1px 3px #b6b6b6;
+        //border-bottom: 1px solid #b6b6b6;
+
+        .sel-items-wrap {
+            // height: 70px;
+            // width: 70px;
+            height: 2rem;
+            width: 2rem;
+            position: relative;
+            overflow: hidden;
+            // border-radius: 5px;
+            //box-shadow: 3px 3px 7px #aeaeae;
+
+            .sel-items {
+                position: absolute;
+                top: 0;
+                left: 0;
+                // width: 70%;
+                // height: 70%;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                // margin: 11px;
+            }
+        }
+
+        .img-wrpp {
+            img {
+                background: #afcffa;
+                border-radius: 50%;
+                padding: 5px;
+            }
+        }
+    }
+
+    p.filename {
+        word-break: break-all;
+        line-height: 19px;
+        overflow: hidden;
+        display: block;
+        max-height: 4.4rem;
+        -webkit-line-clamp: 1;
+        display: box;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        white-space: normal;
+        text-transform: capitalize !important;
+        font-size: 0.8rem;
+    }
+}
+
+.view-eye svg {
+    height: 18px;
+    width: 18px;
+    color: var(--main-blue);
+}
+
+
+
+@keyframes slowTransition {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.crr-icons {
+    display: flex;
+    gap: 2rem;
+}
+
+.preview-icon {
+    height: 2rem;
+    width: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

@@ -1,0 +1,180 @@
+.contact-card {
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: .5rem;
+    margin: .5rem 0;
+
+    >li {
+        display: grid;
+        border: 0.5px solid #707070;
+        border-radius: 11px;
+        overflow: hidden;
+        padding: .5rem;
+        grid-template-columns: 12rem auto;
+        position: relative;
+        box-shadow: 0 1px 2px 1px rgb(0 0 0 / 30%);
+
+        @media only screen and (max-width:768px) {
+            grid-template-columns: 100%;
+        }
+    }
+
+    &-desig {
+        &-icon-wrap {
+            display: flex;
+            gap: .2rem;
+            align-items: baseline;
+        }
+
+        &-name {
+            font-size: 16px;
+            padding-left: 1.3rem;
+        }
+    }
+
+    &-details {
+        &-user-info {
+            ul {
+                display: flex;
+                justify-content: end;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                gap: .7rem;
+            }
+
+            &-value {
+                display: flex;
+                align-items: center;
+                gap: .2rem;
+            }
+
+            &-label {
+                color: #b1b1b4;
+                font-size: .8rem;
+            }
+        }
+
+        &-user-contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: .4rem;
+
+            ul {
+                padding: 0;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                list-style: none;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    gap: .2rem;
+                }
+            }
+        }
+    }
+
+    .edit-btn {
+        background-color: var(--main-blue);
+
+        svg {
+            fill: #fff
+        }
+
+        &:hover {
+            svg {
+                fill: #2f83f2
+            }
+        }
+
+    }
+
+    .status-wrapper {
+        min-width: 5rem;
+        justify-content: center;
+    }
+
+    .addnl-desig-count {
+        width: 25px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid;
+        border-radius: 50%;
+        cursor: pointer;
+        color: var(--main-blue);
+        box-shadow: 0 1px 2px 1px rgb(47 131 242 / 49%);
+    }
+
+    .addnlDesigPanel {
+        transition: .5s ease;
+        transform: translateY(101%);
+        visibility: hidden;
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        // box-shadow: 0 -1px 2px 1px rgb(0 0 0 / 30%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .0;
+        // background: linear-gradient(rgb(0 58 93 / 60%), rgb(0 58 93 / 80%));
+        background: var(--main-blue);
+        color: #ffffff;
+        backdrop-filter: blur(1px);
+
+        &.active {
+            transform: translateY(0%);
+            visibility: visible;
+        }
+
+        &-overlay {
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            top: 0;
+            background: rgb(0 58 93 / 40%);
+            // backdrop-filter: blur(1px);
+            transition: opacity .5s ease;
+            opacity: 0;
+            visibility: hidden;
+
+            &.active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        ul {
+            padding: .7rem 0.5rem;
+            display: flex;
+            list-style: none;
+            margin: 0;
+            gap: .5rem;
+            overflow: auto;
+            max-height: 100%;
+            white-space: nowrap;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            
+
+            li {
+                border: 1px solid #ffffff;
+                border-radius: 20px;
+                padding: .2rem .5rem;
+            }
+        }
+        &-close{
+            color: #ffffff;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+    .title-box {
+        &-wrapper {
+            border: 1px solid #D0DFF3;
+            border-radius: .8rem;
+        }
+
+        &-header {
+            background: #ECEDF6;
+            border-radius: 0.8rem 0.8rem 0 0;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        &-body,
+        &-header {
+            padding: 0 .5rem;
+        }
+
+        &-group {
+            display: flex;
+            align-items: center;
+            flex: 1
+        }
+
+        &-actions {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+    }
+
+    body.rtl {
+        .title-box-actions {
+            margin-right: auto;
+            margin-left: 0px !important;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+    }

@@ -1,0 +1,33 @@
+.upload-sec {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    .upload-btn-wrap {
+        border: 1px solid var(--main-blue);
+        color: #ffffff;
+        width: 140px;
+        height: 36px;
+        border-radius: 5px;
+        font-size: 13px;
+        background: var(--main-blue);
+        &:hover {
+            background-color: var(--main-yellow);
+            border: 1px solid var(--main-yellow);
+        }
+    }
+
+    .download-btn-wrap {
+        border: 1px solid #c4c4c4;
+        color: #333;
+        border-radius: 5px;
+        font-size: 13px;
+        width: 140px;
+        height: 36px;
+        background: #ecedf6;
+    }
+
+    .file-name {
+        margin-bottom: 0em;
+    }
+}

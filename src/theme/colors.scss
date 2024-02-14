@@ -1,0 +1,46 @@
+$primary-colors: (
+  "white": #ffffff,
+  "blue": #000000,
+  "yellow":#d6c69c,
+  "orange": #FFA114,
+);
+$button-colors: (
+  "blue": #000000,
+);
+$secondary-colors: (
+  "approved-green" : #67db76,
+  "draft-navy" : #000000,
+  "submitted-orange":#ffbe5d,
+  "published-green":#09a71d,
+  "revoked-red":#f66d6d,
+  "blue":#88d2d8,
+  "light-sky-blue":#ecedf6,
+);
+$text-colors: (
+  "gray":#989898,
+);
+$chart-colors: (
+  "green":#00e396,
+  "yellow":map.get($primary-colors, "yellow"),
+  "blue":map.get($primary-colors, "blue"),
+  "orange":map.get($primary-colors, "orange"),
+  "red":map.get($secondary-colors, "revoked-red"),
+  "w-gray":#B2BEC3,
+  "w-blue":#0984E3,
+  "w-green":#55EFC4,
+  "w-green-100":#00CEC9,
+  "w-green-200":#00B894,
+  "w-purple":#A29BFE,
+  "w-orange":#FF7675,
+  "w-orange-100":#FAB1A0,
+);
+$statusText-colors:(
+  "Red": #ff6b6b,
+  "Orange": #ffa114,
+  "Green": #2ecc71,
+  "SkyBlue": #01a3a4,
+  "Yellow": #f9ca24,
+  "Blue": #54a0ff,
+  "White": #fff,
+  "DarkBlue": #000000,
+);

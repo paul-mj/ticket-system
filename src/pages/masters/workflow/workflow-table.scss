@@ -1,0 +1,60 @@
+/* Sajin 19-03-2023 */
+
+.workflow-table {
+    .table-header {
+        .element:nth-child(1) {
+            width: 6%;
+        }
+
+        .element:nth-child(2),
+        .element:nth-child(3),
+        .element:nth-child(4),
+        .element:nth-child(6),
+        .element:nth-child(7) {
+            width: 16%;
+        }
+
+        .element:nth-child(5),
+        .element:nth-child(8) {
+            width: 7%;
+        }
+        .element:nth-child(5) {
+            text-align: center;
+        }
+    }
+
+    .table-body {
+        .element:nth-child(1) {
+            width: 6%;
+        }
+
+        .element:nth-child(2),
+        .element:nth-child(3),
+        .element:nth-child(4),
+        .element:nth-child(6),
+        .element:nth-child(7) {
+            width: 16%;
+        }
+
+        .element:nth-child(5),
+        .element:nth-child(8) {
+            width: 7%;
+        }
+        .element:nth-child(5) {
+            text-align: center;
+            label.MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd {
+                margin: 0;
+            }
+        }
+    }
+}
+ 
+.arabic-text {
+    direction: rtl;
+}
+
+.row-action-btns {
+    button {
+        padding: 3px;
+    }
+}

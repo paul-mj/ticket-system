@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="41.732" height="44" viewBox="0 0 41.732 44">
+  <g id="TaskOutlined" transform="translate(-294 -349)">
+    <g id="Rectangle_190" data-name="Rectangle 190" transform="translate(294 352)" fill="none" stroke="#003a5d" stroke-width="2">
+      <rect width="35" height="41" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="33" height="39" rx="4" fill="none"/>
+    </g>
+    <g id="Ellipse_13" data-name="Ellipse 13" transform="translate(300 362.539)" fill="none" stroke="#f66d6d" stroke-width="2">
+      <circle cx="2" cy="2" r="2" stroke="none"/>
+      <circle cx="2" cy="2" r="1" fill="none"/>
+    </g>
+    <g id="Ellipse_15" data-name="Ellipse 15" transform="translate(300 370.539)" fill="none" stroke="#f66d6d" stroke-width="2">
+      <circle cx="2" cy="2" r="2" stroke="none"/>
+      <circle cx="2" cy="2" r="1" fill="none"/>
+    </g>
+    <line id="Line_80" data-name="Line 80" x2="14" transform="translate(309.5 364.539)" fill="none" stroke="#003a5d" stroke-width="2"/>
+    <path id="Path_87" data-name="Path 87" d="M0,0H14" transform="translate(309.5 372.039)" fill="none" stroke="#003a5d" stroke-width="2"/>
+    <line id="Line_82" data-name="Line 82" x2="14" transform="translate(309.5 381.039)" fill="none" stroke="#003a5d" stroke-width="2"/>
+    <g id="Rectangle_196" data-name="Rectangle 196" transform="translate(303 352)" fill="#fff" stroke="#003a5d" stroke-width="2">
+      <rect width="17" height="6" rx="2" stroke="none"/>
+      <rect x="1" y="1" width="15" height="4" rx="1" fill="none"/>
+    </g>
+    <g id="Ellipse_14" data-name="Ellipse 14" transform="translate(310 349)" fill="#fff" stroke="#003a5d" stroke-width="1">
+      <circle cx="2" cy="2" r="2" stroke="none"/>
+      <circle cx="2" cy="2" r="1.5" fill="none"/>
+    </g>
+    <path id="Path_60" data-name="Path 60" d="M5220.11,8825.405l1.584,1.584,3.922-3.922" transform="translate(-4920 -8444.528)" fill="none" stroke="#47d668" stroke-linecap="round" stroke-width="2"/>
+    <g id="Path_61" data-name="Path 61" transform="translate(332.017 368.249) rotate(42)" fill="#d6c69c">
+      <path d="M 2.372275352478027 22.51596641540527 L 0.5 19.93575859069824 L 0.5 0.4999965727329254 L 4.5 0.4999965727329254 L 4.5 19.98948097229004 C 4.141603946685791 20.43920516967773 2.978605270385742 21.88787269592285 2.372275352478027 22.51596641540527 Z" stroke="none"/>
+      <path d="M 1 0.9999961853027344 L 1 19.7734546661377 L 2.416171312332153 21.72509384155273 C 2.928392648696899 21.14039611816406 3.592607975006104 20.32387542724609 4 19.81466674804688 L 4 0.9999961853027344 L 1 0.9999961853027344 M 0 -3.814697265625e-06 L 5 -3.814697265625e-06 L 5 20.16393661499023 C 5 20.16393661499023 3.371089935302734 22.22552680969238 2.65625 22.94039726257324 C 2.65625 22.94039726257324 2.449219942092896 23.18945693969727 2.34375 23.18945693969727 C 2.238280057907104 23.18945693969727 2.0625 22.94039726257324 2.0625 22.94039726257324 L 0 20.09804725646973 L 0 -3.814697265625e-06 Z" stroke="none" fill="#d6c69c"/>
+    </g>
+  </g>
+</svg>

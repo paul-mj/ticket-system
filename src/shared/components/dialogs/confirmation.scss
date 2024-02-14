@@ -1,0 +1,175 @@
+.confirm__dialog {
+    z-index: 999999 !important;
+    .confirm-heading {
+        .action-icon svg {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            padding: 9px;
+        }
+
+        h4 {
+            font-weight: 600;
+            font-size: 17px;
+        }
+    }
+
+    .confirm-body {
+        background: #ecedf6; 
+
+        p {
+            span.action { color: #ff5722; }
+            span.code { color: #ff5722; }
+        }
+    }
+
+    .confirm-footer {
+        button {
+            &.yes {
+                min-width: 90px;
+            }
+
+            &.no {
+                min-width: 90px;
+            }
+        }
+    }
+
+    .confirm-footer-buttons {
+        background: #ecedf6;
+
+        button {
+            padding: 10px 0;
+            color: #ffffff;
+            text-transform: capitalize;
+            
+            svg {
+                height: 17px;
+                width: 17px;
+            }
+
+        }
+    }
+
+    &.delete {
+        .confirm-heading {
+            .action-icon svg {
+                background: #ffd0d7;
+                fill: #ff5c72;
+            }
+        }
+
+        .confirm-footer-buttons {
+            button {
+                &.yes {
+                    border: 1px solid #ff7083;
+                    color: #ffffff;
+                    background-color: #ff5c72;
+                }
+
+                &.no {
+                    border: 1px solid #ffffff;
+                    color: #000000;
+                    background: #ffffff;
+                    box-shadow: 0 3px 10px #b4b4b4;
+                }
+            }
+        }
+    }
+
+    &.warning {
+        .confirm-heading {
+            .action-icon svg {
+                background: rgb(238 74 22 / 33%);
+                fill: #FF5722;
+            }
+        }
+
+        .confirm-footer-buttons {
+            button {
+                &.yes {
+                    border: 1px solid #FF5722;
+                    color: #ffffff;
+                    background-color: #FF5722;
+                }
+
+                &.no {
+                    border: 1px solid #ffffff;
+                    color: #000000;
+                    background: #ffffff;
+                    box-shadow: 0 3px 10px #b4b4b4;
+                }
+            }
+        }
+    }
+
+    &.confirmation {
+        .confirm-heading {
+            .action-icon svg {
+                background: #d0e4ff;
+                fill: var(--main-blue);
+            }
+        }
+
+        .confirm-footer-buttons {
+            button { 
+                &.yes {
+                    border: 1px solid var(--main-blue);
+                    color: #ffffff;
+                    background-color: var(--main-blue);
+                }
+
+                &.no {
+                    border: 1px solid #ffffff;
+                    color: #000000;
+                    background: #ffffff;
+                    box-shadow: 0 3px 10px #b4b4b4;
+                }
+            }
+        }
+    }
+
+    &.success  { 
+        .action-icon {
+            svg {
+                background-color: #147314;
+                fill: #ffffff;
+            }
+        }
+        .confirm-body {
+            background-color: #ecedf5;
+            p {
+                color: #000000;
+            }
+        }
+        .confirm-footer-buttons { 
+            background-color: #ecedf5;
+            button {
+                background: #147314;
+                color: #ffffff;
+            }
+        }
+    }
+    &.error  { 
+        .action-icon {
+            svg {
+                background-color: #ef5a14;
+                fill: #ffffff;
+            }
+        }
+        .confirm-body {
+            background-color: #ef5a14;
+            p {
+                color: #ffffff;
+            }
+        }
+        .confirm-footer-buttons { 
+            background-color: #ef5a14;
+            button {
+                background: white;
+                color: #ef5a14;
+            }
+        }
+    }
+
+}

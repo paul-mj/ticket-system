@@ -1,0 +1,30 @@
+@keyframes slowTransition {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.crr-icons {
+    display: flex;
+    gap: 2rem;
+}
+
+.preview-icon {
+    height: 2rem;
+    width: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

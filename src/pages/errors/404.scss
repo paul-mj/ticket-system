@@ -1,0 +1,31 @@
+.notfound-wrapper { 
+    .not-found-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        h2 {
+            font-size: 6.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        h5 {
+            font-weight: 500;
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 0.6rem;
+            width: 300px;
+        }
+        button {
+            background: var(--main-blue); 
+            width: 150px;
+            height: 45px;
+            line-height: 45px;
+            color: #fff;
+        }
+    }
+}

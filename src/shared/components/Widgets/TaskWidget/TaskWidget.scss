@@ -1,0 +1,100 @@
+/* .task-widget{
+    font-size: .8rem;
+}
+.due-date{
+    border: 1px solid var(--main-blue);
+    border-radius: 1rem;
+    padding: .2rem 1rem;
+}
+.status-count{
+    color: var(--action-widget-text);
+    font-size: 1rem;
+}
+.text-orange{
+    color: var(--action-widget-text);
+} */
+
+.task_widget_wrapper {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 2px #88abba;
+    background: #d5eaf7;
+
+    &:before {
+        content: "";
+        position: absolute;
+        width: 210px;
+        height: 210px;
+        background: linear-gradient(140.9deg, rgb(144, 202, 249) -14.02%, rgba(144, 202, 249, 0) 77.58%);
+        border-radius: 50%;
+        top: -160px;
+        right: -130px;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        width: 210px;
+        height: 210px;
+        background: linear-gradient(210.04deg, rgb(144, 202, 249) -50.94%, rgba(144, 202, 249, 0) 83.49%);
+        border-radius: 50%;
+        top: -30px;
+        right: -180px;
+    }
+
+    &:hover {
+        scale: 1.02;
+    }
+
+    .w-info {
+        &-title {
+            color: var(--text-blue);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 0 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            display: inline-block;
+            text-transform: capitalize;
+        }
+
+        &-label {
+            color: var(--text-dull);
+            font-size: 13px;
+            text-transform: capitalize;
+        }
+
+        &-content {
+            color: var(--text-blue);
+            font-size: 13px;
+            font-weight: 500;
+            padding: 0 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    svg.send_outlined {
+        height: 16px;
+        width: 16px;
+    }
+
+    svg.eye_outlined {
+        height: 19px;
+        width: 19px;
+    }
+
+    span.trans_no {
+        color: var(--main-blue);
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+}

@@ -1,0 +1,44 @@
+.report-viewer {
+    &-layout {
+        background: #F3F6FF;
+        height: 100%;
+        padding: 1rem;
+
+        .dx-datagrid,
+        .dx-datagrid-header-panel .dx-datagrid .dx-row>td {
+            font-size: 0.75rem;
+        }
+        .dx-datagrid-nowrap .dx-header-row>td>.dx-datagrid-text-content {
+            white-space: normal;
+        }   
+        .dx-pivotgrid-fields-container .dx-header-filter {
+            color: #959595;
+            font: 10px/1 DXIcons;
+            width: 14px;
+        }
+
+        .dx-area-field {
+            border-radius: 8px;
+            min-width: 5rem;
+            color: var(--main-blue);
+        }
+
+        .dx-pivotgrid-fields-container .dx-area-field.dx-area-box {
+            padding: 4px 7px !important;
+            font-size: 13px;
+        }
+
+        .dx-pivotgrid-fields-container .dx-column-indicators {
+            line-height: 16px !important;
+        }
+    }
+}
+.report-language-icon{
+    img{
+        width: 1.5rem;
+    }
+}
+.filter-right-drawer .MuiPaper-root.MuiDrawer-paper.MuiDrawer-paperAnchorLeft {
+    right: auto;
+    left: 0;
+}

@@ -1,0 +1,40 @@
+.extra-list {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        font-size: .9rem;
+
+        img {
+            width: 1.2rem;
+        }
+    }
+}
+
+.dialog-header-common {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-top: .5rem;
+
+    &-close {
+        margin-left: auto;
+        cursor: pointer;
+    }
+}
+
+body.rtl {
+    .dialog-header-common-close {
+        margin-left: 0px;
+        cursor: pointer;
+        margin-right: auto;
+    }
+}

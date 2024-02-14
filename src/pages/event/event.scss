@@ -1,0 +1,214 @@
+.frm-event-calender {
+    .fc-dayGridMonth-view.fc-view.fc-daygrid {
+        background: #ffffff;
+    }
+
+    .fc .fc-toolbar.fc-header-toolbar {
+        margin-bottom: 10px;
+    }
+
+    .fc .fc-col-header-cell-cushion,
+    .fc .fc-daygrid-day-number {
+        color: #333333 !important;
+        text-decoration: none;
+        padding: 8px;
+    }
+
+    .fc .fc-col-header-cell-cushion {
+        font-weight: 500;
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: 22px;
+        font-weight: 500;
+    }
+
+    .fc-button-group {
+        button {
+            font-size: 14px;
+            background-color: #575353;
+            border-color: #575353;
+        }
+    }
+
+    .fc .fc-button-primary:hover,
+    .fc .fc-button-primary:not(:disabled).fc-button-active,
+    .fc .fc-button-primary:not(:disabled):active {
+        background: var(--main-blue);
+        border-color: var(--main-blue);
+    }
+
+    .fc .fc-button-primary {
+        &:focus {
+            box-shadow: none !important;
+        }
+    }
+
+    .fc .fc-daygrid-body-balanced .fc-daygrid-day-events {
+        margin: 0 3px;
+
+        .fc-h-event {
+            border: none;
+        }
+
+        p.event-para {
+            outline: none;
+            padding: 2px 3px;
+            border-radius: 3px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 100%;
+            white-space: nowrap;
+            font-size: 11px;
+        }
+
+        .fc-daygrid-dot-event.fc-event-mirror,
+        .fc-daygrid-dot-event:hover {
+            background: none;
+        }
+    }
+
+    .fc .fc-daygrid-day.fc-day-today {
+        background-color: transparent;
+    }
+
+    .fc .fc-col-header th {
+        border-left-color: transparent;
+        border-right-color: transparent;
+        padding: 10px 0;
+        background-color: white;
+    }
+
+    .fc-daygrid-more-link {
+        color: var(--main-blue) !important;
+        text-decoration: none;
+    }
+
+    .fc-v-event {
+        color: var(--main-blue) !important;
+    }
+
+    button.fc-today-button {
+        text-transform: capitalize !important;
+        font-size: 14px !important;
+        background: var(--main-blue) !important;
+        border-color: var(--main-blue) !important;
+    }
+
+    button.fc-filterButton-button {
+        text-transform: capitalize !important;
+        font-size: 14px !important;
+        background: rgb(183, 29, 24) !important;
+        opacity: 1 !important;
+        border-color: rgb(183, 29, 24) !important;
+    }
+
+}
+
+.cal-heading-sec {
+    padding: 15px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    .cal {
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+        padding-left: 10px;
+    }
+
+    button {
+        text-transform: capitalize;
+    }
+
+}
+
+.cal-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+
+    .cal-sec {
+        display: flex;
+        gap: 1em;
+
+        button {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            font-size: 15px;
+            color: gray;
+            text-transform: capitalize;
+            padding: 0;
+
+            &.active {
+                color: #ffffff;
+                background: var(--main-blue);
+            }
+        }
+
+        button:hover {
+            background-color: none;
+            box-shadow: none;
+        }
+
+        .today-btn {
+            color: white;
+            background-color: red;
+            text-transform: capitalize;
+            font-size: 11px;
+            padding: 5px 0px;
+        }
+
+        .cal-view {
+            padding: 5px 0px;
+            border: 1px solid #eaecee;
+            background-color: #eaecee;
+            font-size: 13px;
+            padding: 5px 13px;
+            color: black;
+        }
+    }
+
+    .cal-middle-sec {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap: 20px;
+        padding-right: 6em;
+
+        button:hover {
+            background-color: none !important;
+            box-shadow: none;
+        }
+    }
+
+    .cal-arrow {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        font-size: 1em;
+        color: gray;
+
+        &:hover {
+            background-color: none !important;
+            box-shadow: none;
+        }
+    }
+}
+
+button.cal-arrow:hover {
+    background: none;
+}
+
+.add-filter {
+    filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(100deg) brightness(100%) contrast(100%);
+}

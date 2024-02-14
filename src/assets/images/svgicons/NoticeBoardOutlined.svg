@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="33.003" height="30.752" viewBox="0 0 33.003 30.752">
+  <g id="NoticeBoardOutlined" transform="translate(-283 -255)">
+    <g id="Rectangle_274" data-name="Rectangle 274" transform="translate(283 255)" fill="none" stroke="#003a5d" stroke-width="2">
+      <rect width="33.003" height="22.217" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="31.003" height="20.217" rx="4" fill="none"/>
+    </g>
+    <g id="Group_135" data-name="Group 135">
+      <line id="Line_120" data-name="Line 120" y2="9" transform="translate(299.59 260.38)" fill="none" stroke="#003a5d" stroke-width="1"/>
+      <path id="Path_88" data-name="Path 88" d="M0,0-.142,1.668-.758,8.9" transform="translate(300.389 260.38)" fill="#003a5d" stroke="#003a5d" stroke-width="1"/>
+      <path id="Path_89" data-name="Path 89" d="M-.758,0l.129,1.668L-.071,8.9" transform="translate(299.549 260.38)" fill="#003a5d" stroke="#003a5d" stroke-width="1"/>
+      <g id="Ellipse_28" data-name="Ellipse 28" transform="translate(298.59 270.46)" fill="#003a5d" stroke="#003a5d" stroke-width="1">
+        <circle cx="1" cy="1" r="1" stroke="none"/>
+        <circle cx="1" cy="1" r="0.5" fill="none"/>
+      </g>
+    </g>
+    <line id="Line_121" data-name="Line 121" x2="27" transform="translate(286.549 278.38)" fill="none" stroke="#003a5d" stroke-width="1.5"/>
+    <line id="Line_122" data-name="Line 122" x1="4" y1="7" transform="translate(307.771 278.38)" fill="none" stroke="#003a5d" stroke-width="1.5"/>
+    <line id="Line_123" data-name="Line 123" y1="7" x2="4" transform="translate(289.771 278.38)" fill="none" stroke="#003a5d" stroke-width="1.5"/>
+  </g>
+</svg>

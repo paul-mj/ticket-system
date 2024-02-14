@@ -1,0 +1,38 @@
+.grid-toolbar {
+    display: flex;
+    justify-content: space-between;
+
+    &-menu {
+        padding: 0;
+        list-style: none;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+}
+
+.report-grid-filter {
+    height: 100%;
+
+    .filter-control-wrap {
+        grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    }
+
+    .filter-control-outer-wrap {
+        align-content: space-between;
+        height: 100%;
+    }
+}
+.option-menu-item{
+    font-size: .8rem;
+    .MuiCheckbox-root{
+        padding: 0 .5rem;
+    }
+}
+
+.filter-bg {
+    background: #ecedf6;
+    padding: 11px !important;
+}
+

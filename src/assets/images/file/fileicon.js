@@ -1,0 +1,6 @@
+export { default as Doc } from './doc.png'  
+export { default as jpeg } from './jpeg.png'  
+export { default as Jpg } from './jpg.png'  
+export { default as Pdf } from './pdf.png'  
+export { default as Png } from './png.png'  
+export { default as Xlsx } from './xlsx.png'  

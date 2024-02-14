@@ -1,0 +1,66 @@
+.login-wrapper {
+    background-image: url('../../../assets/images/png/auth.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    position: relative;
+    overflow: auto;
+}
+
+.login-form {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background: #ffffff;
+    min-height: 150px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 10px #cacaca;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.forgot-para {
+    text-align: right;
+    font-size: 12px;
+    margin: 5px 0px 10px 0;
+}
+
+button.login-bttn {
+    background-color: var(--main-blue);
+    color: #ffffff;
+
+    &:hover {
+        background-color: var(--main-yellow);
+        color: var(--main-blue);
+        border-color: var(--main-yellow);
+    }
+}
+
+span.login-loader {
+    color: white;
+}
+.otp{
+    &-text{
+        font-size: .8rem;
+    }
+    &-resent{
+        cursor: pointer;
+        font-size: .9rem;
+        font-weight: 600;
+        transition: font-weight .5s ease;
+    }
+    &-disableText{
+        cursor: not-allowed;
+        pointer-events: none;
+        color: #a3a3a3;
+        font-weight: 600;
+    }
+}
+.otpInput{
+    .MuiInputBase-input{
+        height: 3rem;
+        padding: 0;
+    }
+}

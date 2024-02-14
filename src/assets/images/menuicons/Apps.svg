@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42" height="41" viewBox="0 0 42 41">
+  <g id="Apps" transform="translate(-47 -206)">
+    <g id="Rectangle_184" data-name="Rectangle 184" transform="translate(47 206)" fill="#fff" stroke="#ffa114" stroke-width="3">
+      <rect width="18" height="18" rx="5" stroke="none"/>
+      <rect x="1.5" y="1.5" width="15" height="15" rx="3.5" fill="none"/>
+    </g>
+    <g id="Rectangle_185" data-name="Rectangle 185" transform="translate(71 206)" fill="#fff" stroke="#45425f" stroke-width="3">
+      <rect width="18" height="18" rx="5" stroke="none"/>
+      <rect x="1.5" y="1.5" width="15" height="15" rx="3.5" fill="none"/>
+    </g>
+    <g id="Rectangle_186" data-name="Rectangle 186" transform="translate(47 229)" fill="#fff" stroke="#45425f" stroke-width="3">
+      <rect width="18" height="18" rx="5" stroke="none"/>
+      <rect x="1.5" y="1.5" width="15" height="15" rx="3.5" fill="none"/>
+    </g>
+    <line id="Line_50" data-name="Line 50" x2="10" transform="translate(75 238)" fill="none" stroke="#ffa114" stroke-linecap="round" stroke-width="3"/>
+    <line id="Line_51" data-name="Line 51" y2="10" transform="translate(80 233)" fill="none" stroke="#ffa114" stroke-linecap="round" stroke-width="3"/>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+@mixin statusStyle($background, $color) {
+    background: $background;
+    color: $color;
+
+    &-Outline {
+        background: transparent;
+        border: 1px solid $background;
+        color: $color;
+    }
+}
+
+.status {
+    border-radius: 12px;
+    padding: 0.2rem 0.5rem;
+    font-size: 12px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &.table-cell-status {
+        max-width: 6rem; //fallback
+        max-width: max-content;
+    }
+
+    &-Active,
+    &-Low,
+    &-30502 {
+        @include statusStyle(#91EE8E, #183A68);
+    }
+
+    &-Normal,
+    &-30501 {
+        @include statusStyle(#ffa500, #183A68);
+    }
+
+    &-High,
+    &-30503 {
+        @include statusStyle(#d43f3a, #fff);
+
+        &-Outline {
+            color: #183A68;
+        }
+    }
+
+    &-Inactive {
+        @include statusStyle(#ccc, #183A68);
+    }
+
+}

@@ -1,0 +1,20 @@
+.report-toolbar-title{
+    color: #fff;
+}
+.report-filter-page-wrap{
+    max-width: 50rem;
+    flex: 1;
+    background: #fff;
+}
+.report-grid-layout{
+    height: calc(100vh - 200px) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20vh !important;
+    overflow: auto !important;
+    background-image: url('../../../../assets/images/png/auth.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}

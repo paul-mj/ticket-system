@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="41.5" height="46.18" viewBox="0 0 41.5 46.18">
+  <defs>
+    <filter id="Path_25" x="1.946" y="0" width="32.628" height="33.577" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Report" transform="translate(-48 -112)">
+    <g id="Rectangle_185" data-name="Rectangle 185" transform="translate(48.153 118)" fill="none" stroke="#45425f" stroke-width="3">
+      <rect width="21.587" height="21.587" rx="10.793" stroke="none"/>
+      <rect x="1.5" y="1.5" width="18.587" height="18.587" rx="9.293" fill="none"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 48, 112)" filter="url(#Path_25)">
+      <g id="Path_25-2" data-name="Path 25" transform="translate(25.82 10.12) rotate(112)" fill="#ffa114">
+        <path d="M 10.70301151275635 10.00950527191162 L 1.085076451301575 10.00950527191162 C 1.224802494049072 8.79704475402832 1.585051536560059 6.743947505950928 2.495851755142212 5.133975505828857 C 3.385114908218384 3.562087059020996 4.843532562255859 2.342644929885864 5.755192279815674 1.68179714679718 L 10.70301151275635 10.00950527191162 Z" stroke="none"/>
+        <path d="M 5.477019786834717 3.171366691589355 C 4.748287677764893 3.79468297958374 3.926043510437012 4.636828899383545 3.366231918334961 5.626375198364258 C 2.771309852600098 6.677976131439209 2.433167457580566 7.956255912780762 2.242071151733398 9.009505271911621 L 8.945688247680664 9.009505271911621 L 5.477019786834717 3.171366691589355 M 6.077561855316162 0.2666053771972656 L 12.46034145355225 11.00950527191162 L 1.9073486328125e-06 11.00950527191162 C 1.9073486328125e-06 11.00950527191162 0.1060914993286133 7.327315330505371 1.625481605529785 4.641585350036621 C 3.144871711730957 1.955855369567871 6.077561855316162 0.2666053771972656 6.077561855316162 0.2666053771972656 Z" stroke="none" fill="#ffa114"/>
+      </g>
+    </g>
+    <path id="Path_28" data-name="Path 28" d="M0,5.541v7.39" transform="translate(50.5 145.248)" fill="none" stroke="#ffa114" stroke-width="5"/>
+    <path id="Path_32" data-name="Path 32" d="M0,5.541V16.412" transform="translate(62 141.768)" fill="none" stroke="#45425f" stroke-width="5"/>
+    <path id="Path_30" data-name="Path 30" d="M0,5.541V26.271" transform="translate(74.5 131.909)" fill="none" stroke="#ffa114" stroke-width="5"/>
+    <path id="Path_31" data-name="Path 31" d="M0,5.541v40.18" transform="translate(87 112.459)" fill="none" stroke="#45425f" stroke-width="5"/>
+  </g>
+</svg>

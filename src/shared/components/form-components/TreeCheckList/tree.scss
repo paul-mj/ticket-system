@@ -1,0 +1,98 @@
+.colpsArrow {
+    cursor: pointer;
+    transform: rotateZ(0deg);
+    transition: all .3s ease;
+    position: absolute;
+    left: 0;
+    top: .5rem;
+    transform-origin: center;
+
+    &.collaps {
+        transform: rotateZ(-90deg);
+    }
+}
+
+.tree-menu {
+    overflow: hidden;
+
+    li {
+        position: relative;
+        padding-left: 1.5rem;
+    }
+}
+
+.ckecklist-menu {
+    list-style: none;
+}
+
+
+
+
+/* ======== Sajin ======= */
+.div_input {
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 13px;
+    cursor: pointer;
+
+    &.input_val_error {
+        border-color: #db2f36;
+    }
+
+    .input_val {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.exp_icon_up {
+    transform: rotate(180deg);
+}
+
+.tree__check__overlay__close {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: transparent;
+    z-index: 1;
+}
+
+.option_block {
+    background: #ffffff;
+    box-shadow: 0 1px 3px #c2c2c2;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.tree-label {
+    font-size: .7rem;
+    color: rgba(0, 0, 0, 0.6);
+    &.blue-text{
+        color: var(--main-blue);
+        font-size: .8rem;
+        font-weight: 500;
+    }
+}
+
+.checklist-title {
+    padding-top: 0.7rem;
+    padding-bottom: .5rem;
+    margin: 0;
+}
+
+.tree-outer-box {
+    overflow: auto;
+    max-height: 40vh;
+}
+
+.tree-controls-group {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1;
+}

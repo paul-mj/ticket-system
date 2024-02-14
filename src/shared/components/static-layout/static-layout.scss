@@ -1,0 +1,43 @@
+.full-view-wrapp {
+    .full-view-head {
+        padding: 12px 0;
+
+        .toolbar {
+            button.filter-grid {
+                height: 35px;
+                width: 35px;
+                background: var(--main-blue);
+                box-shadow: 0 1px 3px #b1b1b1;
+                border-radius: 5px;
+
+                svg {
+                    fill: white;
+                }
+            }
+        }
+    }
+
+    .full-view-grid {
+        height: calc(100% - 65px);
+       /*  overflow-x: auto; */
+        min-height: 450px;
+        background-color: #fff;
+        border-radius: 6px;
+
+        .full-view-grid-wrapper {
+            height: 100%;
+            min-height: 450px;
+            overflow: hidden;
+        }
+
+
+    }
+}
+
+
+.dx-overlay-wrapper {
+    .dx-menu-item-text {
+        color: var(--main-blue);
+        font-weight: 400;
+    }
+}

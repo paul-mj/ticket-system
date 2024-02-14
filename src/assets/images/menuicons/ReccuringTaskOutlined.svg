@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40.96" height="47.289" viewBox="0 0 40.96 47.289">
+  <g id="ReccuringTaskOutlined" transform="translate(-294 -349)">
+    <g id="Rectangle_190" data-name="Rectangle 190" transform="translate(294 352)" fill="none" stroke="#003a5d" stroke-width="2">
+      <rect width="35" height="41" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="33" height="39" rx="4" fill="none"/>
+    </g>
+    <g id="Ellipse_13" data-name="Ellipse 13" transform="translate(300 362.539)" fill="none" stroke="#f66d6d" stroke-width="2">
+      <circle cx="2" cy="2" r="2" stroke="none"/>
+      <circle cx="2" cy="2" r="1" fill="none"/>
+    </g>
+    <g id="Ellipse_15" data-name="Ellipse 15" transform="translate(300 370.539)" fill="none" stroke="#f66d6d" stroke-width="2">
+      <circle cx="2" cy="2" r="2" stroke="none"/>
+      <circle cx="2" cy="2" r="1" fill="none"/>
+    </g>
+    <line id="Line_80" data-name="Line 80" x2="14" transform="translate(309.5 364.539)" fill="none" stroke="#003a5d" stroke-width="2"/>
+    <path id="Path_87" data-name="Path 87" d="M0,0H14" transform="translate(309.5 372.039)" fill="none" stroke="#003a5d" stroke-width="2"/>
+    <line id="Line_82" data-name="Line 82" x2="14" transform="translate(309.5 381.039)" fill="none" stroke="#003a5d" stroke-width="2"/>
+    <g id="Rectangle_196" data-name="Rectangle 196" transform="translate(303 352)" fill="none" stroke="#003a5d" stroke-width="2">
+      <rect width="17" height="6" rx="2" stroke="none"/>
+      <rect x="1" y="1" width="15" height="4" rx="1" fill="none"/>
+    </g>
+    <g id="Ellipse_14" data-name="Ellipse 14" transform="translate(310 349)" fill="#fff" stroke="#003a5d" stroke-width="1">
+      <circle cx="2" cy="2" r="2" stroke="none"/>
+      <circle cx="2" cy="2" r="1.5" fill="none"/>
+    </g>
+    <path id="Path_60" data-name="Path 60" d="M5220.11,8825.405l1.584,1.584,3.922-3.922" transform="translate(-4920 -8444.528)" fill="none" stroke="#47d668" stroke-linecap="round" stroke-width="2"/>
+    <path id="Path_101" data-name="Path 101" d="M.924.619S4.356-1.747,7.25-.48s3.187,5.1,3.187,5.1" transform="translate(323.604 384.122) rotate(11)" fill="none" stroke="#707070" stroke-linecap="square" stroke-width="1.5"/>
+    <path id="Path_102" data-name="Path 102" d="M.924.6S4.482-1.735,7.482-.485s3.3,5.029,3.3,5.029" transform="translate(332.159 394.715) rotate(-171)" fill="none" stroke="#707070" stroke-width="1.5"/>
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+.btnLoader {
+    padding-right: 30px !important;
+    position: relative;
+
+    &:disabled {
+        color: rgb(255 255 255 / 47%) !important;
+    }
+
+    .btn-label {
+        transition: transform .5s ease;
+        transform: translateX(8px);
+    }
+
+    .btn-spinner {
+        transform: translateX(10px);
+        position: absolute;
+        right: 16px;
+        top: 8px;
+
+        span {
+            color: #ffffff;
+        }
+    }
+
+    &-active {
+        .btn-label {
+            transform: translateX(0);
+        }
+    }
+}
+
+.head-dwnd-bttn {
+    svg {
+        fill: #ff9800;
+        height: 17px;
+        width: 17px;
+    }
+}
+
+.reset-btn {
+    color: var(--action-widget-text) !important;
+}
+
+.btn-reject {
+    background: var(--revoked);
+}

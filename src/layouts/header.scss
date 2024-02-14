@@ -1,0 +1,114 @@
+
+
+button.noticeboard-icon img {
+    width: 20px !important;
+    filter: invert(19%) sepia(57%) saturate(7%) hue-rotate(71deg) brightness(102%) contrast(90%);
+}
+
+
+.fav-icon-wrap ul.MuiList-root.MuiList-padding.MuiMenu-list {
+    padding: 14px 10px !important;
+    flex-wrap: wrap !important;
+    display: flex !important;
+    gap: 5px 3px !important;
+    max-width: 30em !important;
+    padding-bottom: 6px !important;
+}
+
+.each-icon-wrap li.MuiMenuItem-root.MuiMenuItem-gutters.MuiButtonBase-root.each-icon-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 8em !important;
+}
+
+.fav-title {
+    max-width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: black;
+    font-size: 10px;
+    text-decoration: none !important;
+}
+
+.fav-icon-img {
+    width: 24px;
+    height: 24px;
+}
+
+.each-icon-wrap svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.muiltr-havevq-MuiSvgIcon-root {
+    width: 1.3em;
+    height: 1.3em;
+    margin-right: 0px !important;
+}
+
+.favlist {
+    a {
+        text-decoration: none !important;
+    }
+}
+
+.fav-icon-wrap .MuiPaper-root.MuiMenu-paper.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiPopover-paper.muiltr-1cjpqna-MuiPaper-root-MuiMenu-paper-MuiPopover-paper {
+    // top: 66px !important;
+    // left: 924px !important;
+    box-shadow: 0px 2px 6px rgba(149, 146, 146, 0.88) !important;
+}
+
+.each-icon-wrap {
+    border: 1px solid #f2f2f2;
+    border-radius: 10px;
+    background-image: linear-gradient(to left bottom, #d2dceb, #d8e6ff, #e6efff, #d1d6e0, #ced7f0);
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.featured-icons {
+    @media (max-width: 750px) {
+        display: none;
+    }
+}
+
+.home-icon {
+    @media (max-width: 700px) {
+        display: none;
+    }
+}
+.hamburger-icon {
+    display: none;
+    @media (max-width: 700px) {
+        display: block;
+    }
+}
+.search-sec {
+    @media (max-width: 750px) {
+        display: none;
+    }
+}
+
+.Menulink{
+    &-active,&-inactive{
+        border-bottom: 2px solid;
+        padding-bottom: .5rem;
+    }
+    &-active {
+        border-color: var(--action-widget-text);
+    }
+    &-inactive{
+        border-color:transparent;
+    }
+}
+
+.no-fav p{
+    color: red;
+}
+
+/* 
+
+    width: 23rem;
+    max-height: 26rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+*/

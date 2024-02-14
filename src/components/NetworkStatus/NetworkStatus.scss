@@ -1,0 +1,49 @@
+.network {
+    &-wrapper {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+        background-color: rgba(0, 0, 0, .5);
+        backdrop-filter: blur(2px);
+    }
+
+    &-body {
+        max-height: 20rem;
+        max-width: 40rem;
+        background: #fff;
+        width: 100%;
+        flex: 1;
+        padding: 1rem;
+        border-radius: .5rem;
+    }
+
+    &-message {
+        gap: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        svg {
+            font-size: 6rem;
+        }
+
+        &-success {
+            svg {
+                color: #60ed60;
+            }
+        }
+
+        &-error {
+            svg {
+                color: #f91b1b;
+            }
+        }
+    }
+}

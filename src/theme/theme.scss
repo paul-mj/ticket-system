@@ -1,0 +1,48 @@
+@use "sass:map";
+@import './colors.scss';
+
+
+:root {
+    --header-bg: #{map.get($primary-colors, "white")};
+    --panel-bg: #{map.get($primary-colors, "white")};
+    --print-btn: #{map.get($primary-colors, "white")};
+    --main-blue: #{map.get($primary-colors, "blue")};
+    --main-yellow: #{map.get($primary-colors, "yellow")};
+    --button-color: #{map.get($button-colors, "blue")};
+    --approved: #{map.get($secondary-colors, "approved-green")};
+    --draft: #{map.get($secondary-colors, "draft-navy")};
+    --submitted: #{map.get($secondary-colors, "submitted-orange")};
+    --published: #{map.get($secondary-colors, "published-green")};
+    --revoked: #{map.get($secondary-colors, "revoked-red")};
+    --success: #{map.get($secondary-colors, "published-green")};
+    --error: #{map.get($secondary-colors, "revoked-red")};
+    --secondary-blue: #{map.get($secondary-colors, "blue")};
+    --light-sky-blue: #{map.get($secondary-colors, "light-sky-blue")};
+    --action-widget-text: #{map.get($primary-colors, "orange")};
+    --text-dull:#{map.get($text-colors, "gray")};
+    --text-blue:#{map.get($primary-colors, "blue")};
+    
+    --chart-published:#{map.get($chart-colors, "w-gray")};
+    --chart-draft:#{map.get($chart-colors, "yellow")};
+    --chart-approved:#{map.get($chart-colors, "green")};
+
+    --chart-inProcess:#{map.get($chart-colors, "w-blue")};
+    --chart-assigned:#{map.get($chart-colors, "w-green")};
+    --chart-yanked:#{map.get($chart-colors, "w-purple")};
+    --chart-support:#{map.get($chart-colors, "w-green-100")};
+    --chart-moved:#{map.get($primary-colors, "orange")};
+    --chart-returned:#{map.get($chart-colors, "w-orange-100")};
+    --chart-closed:#{map.get($chart-colors, "w-green-200")};
+    --chart-rejected:#{map.get($chart-colors, "w-orange")};
+    --chart-submitted:#{map.get($chart-colors, "w-green-100")};
+
+    --status-text-rejeted:#{map.get($statusText-colors, "Red")};
+    --status-text-completon:#{map.get($statusText-colors, "Green")};
+    --status-text-Confirmed:#{map.get($statusText-colors, "SkyBlue")};
+    --status-text-InProcess:#{map.get($statusText-colors, "Yellow")};
+    --status-text-Completed:#{map.get($statusText-colors, "Blue")};
+    --status-text-Pending:#{map.get($statusText-colors, "Orange")};
+    --status-text-Light:#{map.get($statusText-colors, "White")};
+    --status-text-Dark:#{map.get($statusText-colors, "DarkBlue")};
+
+}

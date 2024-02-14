@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="41.831" height="47.227" viewBox="0 0 41.831 47.227">
+  <defs>
+    <filter id="Path_25" x="1.647" y="0" width="35.019" height="36.123" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="AnalyticsOutlined" transform="translate(-48.834 -110.953)">
+    <g id="Path_78" data-name="Path 78" transform="translate(49.188 118)" fill="none">
+      <path d="M11.293,0A11.293,11.293,0,1,1,0,11.293,11.293,11.293,0,0,1,11.293,0Z" stroke="none"/>
+      <path d="M 11.29345703125 2.999996185302734 C 6.720426559448242 2.999996185302734 2.999996185302734 6.720426559448242 2.999996185302734 11.29345703125 C 2.999996185302734 15.86648750305176 6.720426559448242 19.58691787719727 11.29345703125 19.58691787719727 C 15.86648750305176 19.58691787719727 19.58691787719727 15.86648750305176 19.58691787719727 11.29345703125 C 19.58691787719727 6.720426559448242 15.86648750305176 2.999996185302734 11.29345703125 2.999996185302734 M 11.29345703125 -3.814697265625e-06 C 17.53066635131836 -3.814697265625e-06 22.58691787719727 5.056247711181641 22.58691787719727 11.29345703125 C 22.58691787719727 17.53066635131836 17.53066635131836 22.58691787719727 11.29345703125 22.58691787719727 C 5.056247711181641 22.58691787719727 -3.814697265625e-06 17.53066635131836 -3.814697265625e-06 11.29345703125 C -3.814697265625e-06 5.056247711181641 5.056247711181641 -3.814697265625e-06 11.29345703125 -3.814697265625e-06 Z" stroke="none" fill="#d6c69c"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 48.83, 110.95)" filter="url(#Path_25)">
+      <path id="Path_25-2" data-name="Path 25" d="M7.071.267l7.426,12.5H0A18.56,18.56,0,0,1,1.891,5.356,15.745,15.745,0,0,1,7.071.267Z" transform="translate(27.91 10.78) rotate(112)" fill="#fff"/>
+    </g>
+    <path id="Path_28" data-name="Path 28" d="M0,5.541v7.39" transform="translate(51.334 145.249)" fill="none" stroke="#fff" stroke-width="5"/>
+    <path id="Path_32" data-name="Path 32" d="M0,5.541V16.412" transform="translate(64.834 141.768)" fill="none" stroke="#d6c69c" stroke-width="5"/>
+    <path id="Path_30" data-name="Path 30" d="M0,5.541V26.271" transform="translate(76.5 131.909)" fill="none" stroke="#fff" stroke-width="5"/>
+    <path id="Path_31" data-name="Path 31" d="M2.166,5.541v41" transform="translate(86 111.412)" fill="none" stroke="#d6c69c" stroke-width="5"/>
+  </g>
+</svg>

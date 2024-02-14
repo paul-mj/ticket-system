@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="968" height="506" viewBox="0 0 968 506">
+  <defs>
+    <filter id="Path_3" x="-9" y="-21.463" width="1010.5" height="160.281" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_4" x="-13.445" y="-6" width="994.891" height="213.858" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_88" x="781.981" y="231" width="421.038" height="337.788" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Artboard_1">
+      <rect width="968" height="506"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_1" data-name="Artboard – 1" clip-path="url(#clip-Artboard_1)">
+    <rect width="968" height="506" fill="#fff"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_3)">
+      <path id="Path_3-2" data-name="Path 3" d="M4806,2652.274s254.388-25.345,326.816,70.951,241.426-46.32,353.361-21.941,244.719,36.064,303.979-49.01c19.022-27.309-.5-2.036,0-8.28.992-12.255,0-29.255,0-29.255H4806Z" transform="translate(-4806 -2630.2)" fill="rgba(91,78,214,0.04)"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_4)">
+      <path id="Path_4-2" data-name="Path 4" d="M4806,2666.408s250.387-34.889,321.676,97.668,237.629-63.762,347.8-30.2,240.87,49.644,299.2-67.465c18.723-37.592-.489-2.8,0-11.4.976-16.87,0-40.271,0-40.271H4806Z" transform="translate(-4810.45 -2614.74)" fill="rgba(91,78,214,0.04)"/>
+    </g>
+    <path id="Rectangle_85" data-name="Rectangle 85" d="M43,0H429a0,0,0,0,1,0,0V47a43,43,0,0,1-43,43H0a0,0,0,0,1,0,0V43A43,43,0,0,1,43,0Z" transform="matrix(0.819, 0.574, -0.574, 0.819, 80.603, 401.106)" fill="rgba(208,223,243,0.17)"/>
+    <path id="Rectangle_87" data-name="Rectangle 87" d="M43,0H429a0,0,0,0,1,0,0V47a43,43,0,0,1-43,43H0a0,0,0,0,1,0,0V43A43,43,0,0,1,43,0Z" transform="matrix(0.819, 0.574, -0.574, 0.819, 749.603, 215.106)" fill="rgba(208,223,243,0.17)"/>
+    <path id="Rectangle_86" data-name="Rectangle 86" d="M43,0H429a0,0,0,0,1,0,0V47a43,43,0,0,1-43,43H0a0,0,0,0,1,0,0V43A43,43,0,0,1,43,0Z" transform="matrix(0.819, 0.574, -0.574, 0.819, 80.603, 346.106)" fill="rgba(208,223,243,0.15)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_88)">
+      <path id="Rectangle_88-2" data-name="Rectangle 88" d="M43,0H429a0,0,0,0,1,0,0V47a43,43,0,0,1-43,43H0a0,0,0,0,1,0,0V43A43,43,0,0,1,43,0Z" transform="matrix(0.82, 0.57, -0.57, 0.82, 842.6, 237)" fill="rgba(208,223,243,0.15)"/>
+    </g>
+  </g>
+</svg>

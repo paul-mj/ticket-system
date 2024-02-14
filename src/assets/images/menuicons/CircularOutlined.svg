@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="41" viewBox="0 0 35 41">
+  <g id="CircularOutlined" transform="translate(-50 -406)">
+    <g id="Rectangle_190" data-name="Rectangle 190" transform="translate(50 406)" fill="none" stroke="#003a5d" stroke-width="2">
+      <rect width="35" height="41" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="33" height="39" rx="4" fill="none"/>
+    </g>
+    <g id="Ellipse_13" data-name="Ellipse 13" transform="translate(67 430)" fill="none" stroke="#2f83f2" stroke-width="2">
+      <circle cx="7" cy="7" r="7" stroke="none"/>
+      <circle cx="7" cy="7" r="6" fill="none"/>
+    </g>
+    <line id="Line_80" data-name="Line 80" x2="19" transform="translate(60.5 414.5)" fill="none" stroke="#003a5d" stroke-width="2"/>
+    <line id="Line_81" data-name="Line 81" x2="24.5" transform="translate(55.5 420.5)" fill="none" stroke="#003a5d" stroke-width="2"/>
+    <line id="Line_82" data-name="Line 82" x2="24.5" transform="translate(55.5 426.5)" fill="none" stroke="#003a5d" stroke-width="2"/>
+    <path id="Path_56" data-name="Path 56" d="M5077.986,8846.541c-.076-.3-1.32-1.263-.98-2.413s1.188-3.149,2.338-2.187,1.452,5.618,2.263,6.033-.358-2.62.98-4.374,4.374-2.64,4.374-2.64" transform="translate(-5021 -8408)" fill="none" stroke="#003a5d" stroke-width="1"/>
+    <line id="Line_105" data-name="Line 105" y1="3" x2="7" transform="translate(70.5 435.668)" fill="none" stroke="#2f83f2" stroke-width="1"/>
+  </g>
+</svg>
