@@ -380,7 +380,7 @@ const SubEntities = (props: FranchiseRequestDialogProps) => {
                                {t("Ded Activity Code")}
                             </h5>
                             {!viewMenu &&
-                                <Button onClick={() => addNewRowItem()}>
+                                <Button className="user-btn-section" onClick={() => addNewRowItem()}>
                                    {t("Add")}
                                 </Button>
                             }
@@ -390,7 +390,7 @@ const SubEntities = (props: FranchiseRequestDialogProps) => {
                             <div className="dedtable-outer">
                                 <div className="dedtable-header">
                                     <div className="dedelement">{t("Activity Code")}</div>
-                                    <div className="dedelement">{t("Activity Description")}</div>
+                                    {/* <div className="dedelement">{t("Activity Description")}</div> */}
                                     {!viewMenu &&
                                     <div className="dedelement"></div>
                                 }
@@ -408,7 +408,7 @@ const SubEntities = (props: FranchiseRequestDialogProps) => {
 
                                             />
                                         </div>
-                                        <div className="dedelement">
+                                        {/* <div className="dedelement">
                                             <FormInputText
                                                 name={`list.${index}.DedDesc`}
                                                 control={control}
@@ -416,7 +416,7 @@ const SubEntities = (props: FranchiseRequestDialogProps) => {
                                                 errors={errors}
                                                 readOnly={viewMenu}
                                             />
-                                        </div>
+                                        </div> */}
                                         {!viewMenu &&
                                             <div className="dedelement">
                                                 <div className="d-flex align-items-center justify-content-between row-action-btns h-100">
