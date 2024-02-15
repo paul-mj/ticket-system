@@ -3,7 +3,7 @@ import CommonUtils from "../../../../../common/utils/common.utils";
 import ApiService from "../../../../../core/services/axios/api";
 import ReportUtils from "../../report.utils";
 import { useTranslation } from "react-i18next";
-import DataGrid, { Column, ColumnChooser, Export, FilterBuilderPopup, FilterPanel, FilterRow, GroupPanel, Grouping, HeaderFilter, Pager, Paging, Scrolling, Selection, Sorting } from "devextreme-react/data-grid";
+import DataGrid, { ColumnChooser, Export, FilterBuilderPopup, FilterPanel, FilterRow, GroupPanel, Grouping, HeaderFilter, Pager, Paging, Scrolling, Selection, Sorting } from "devextreme-react/data-grid";
 import DataSource from "devextreme/data/data_source";
 import ArrayStore from "devextreme/data/array_store";
 import { Card, CardContent } from '@mui/material';

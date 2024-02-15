@@ -11,9 +11,8 @@ import { isObjectEmpty } from "../../../core/services/utility/utils";
 import { popupComponent } from "../pageviewer/popup-component";
 import PageViewer from "../pageviewer/pageviewer";
 import { fullViewRowDataContext } from '../../../common/providers/viewProvider'
-import { MasterId, MenuId } from "../../../common/database/enums";
+import { MenuId } from "../../../common/database/enums";
 import { toast } from "react-toastify";
-import { A } from "@fullcalendar/core/internal-common";
 import { deleteObject } from "../../../common/api/masters.api";
 import localStore from "../../../common/browserstore/localstore";
 import { useConfirm } from "../dialogs/confirmation";

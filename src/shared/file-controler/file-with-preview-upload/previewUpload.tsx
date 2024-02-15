@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { HiOutlinePencilSquare, HiOutlineTrash } from "react-icons/hi2";
-import { toast } from 'react-toastify';
 import { useConfirm } from '../../components/dialogs/confirmation';
 import { fileUploadMaxSizeCheck, fileUploadaMimeTypeCheck } from '../../../core/validators/imageValidators';
 import { AddNewPhoto } from '../../../assets/images/svgicons/svgicons';

@@ -3,10 +3,8 @@ import { useTranslation } from "react-i18next";
 import cookies from "js-cookie";
 import i18next from "i18next";
 import { IconButton, Switch } from "@mui/material";
-import { LanguageNewSvg, LanguageSvg } from "../../../assets/images/svgicons/svgicons";
-import LanguageIcon from '@mui/icons-material/Language';
+import { LanguageNewSvg } from "../../../assets/images/svgicons/svgicons";
 import './language.scss';
-import axios from "axios";
 
 const Language = (props: any) => {
     const { uiType } = props;

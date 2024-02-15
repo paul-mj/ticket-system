@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
@@ -8,7 +8,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import reportWebVitals from "./reportWebVitals";
-import { ThemeProvider } from "@mui/material";
 import { Provider } from "react-redux";
 
 import { BrowserRouter } from "react-router-dom";

@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import PrimaryButton from "../../../Buttons/TextButtons/Curved/PrimaryButton";
 import ReportFilterUtils from "./reportFilterUtils";
 import './ReportFilter.scss';
-import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import CommonUtils from "../../../../../common/utils/common.utils";
 import { useSelector } from "react-redux";

@@ -2,40 +2,25 @@ import styled from "@emotion/styled";
 import CloseIcon from "@mui/icons-material/Close";
 import {
     TextField,
-    Select,
-    MenuItem,
     Checkbox,
-    FormControlLabel,
-    Radio,
-    RadioGroup,
-    FormControl,
-    FormLabel,
     Button,
     Grid,
-    Box,
-    Typography,
     IconButton,
     Autocomplete,
 } from "@mui/material";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { CultureId } from "../../../common/application/i18n";
-import { CriteriaInputMode } from "../../../common/database/enums";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import dayjs from "dayjs";
-
 import * as Yup from "yup";
 import { useForm, Controller } from "react-hook-form";
-import { FormInputText } from "../form-components/FormInputText";
 import { setActiveFilter } from "../../../redux/reducers/sidebar.reducer";
 import { useDispatch, useSelector } from "react-redux";
-import { ThunkDispatch } from "@reduxjs/toolkit";
-import { format, formatISO, parseISO } from "date-fns";
-import { t } from "i18next";
+import { format, parseISO } from "date-fns";
 import { useTranslation } from "react-i18next";
 
 const FilterWrapper = styled.div` 

@@ -1,5 +1,4 @@
 
-
 import '../loader.scss';
 
 export const CircleLoader = () => {

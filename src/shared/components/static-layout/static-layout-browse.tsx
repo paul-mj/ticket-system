@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import './static-layout.scss'
 import StaticLayoutToolbar from "./static-layout-toolbar";
-import DataGridActionContext from "../../../common/providers/datagridActionProvider";
 
 const StaticLayout = () => {
 

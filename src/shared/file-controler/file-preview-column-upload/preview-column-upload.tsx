@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
 import { useConfirm } from '../../components/dialogs/confirmation';
 import { fileUploadMaxSizeCheck, fileUploadaMimeTypeCheck } from '../../../core/validators/imageValidators';
-import { AddNewPhoto } from '../../../assets/images/svgicons/svgicons';
 import { useSelector } from 'react-redux';
 
 

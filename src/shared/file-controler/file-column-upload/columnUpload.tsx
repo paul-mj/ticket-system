@@ -1,5 +1,5 @@
 import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { useConfirm } from '../../components/dialogs/confirmation';
 import { fileUploadMaxSizeCheck, fileUploadaMimeTypeCheck } from '../../../core/validators/imageValidators';
 

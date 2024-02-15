@@ -7,7 +7,6 @@ import { MenuId, UserType } from "../../../common/database/enums";
 import AppConfigs from "../../../config/app.configs";
 import CommonUtils from "../../../common/utils/common.utils";
 import { isObjectEmpty } from "../../../core/services/utility/utils";
-
 import './static-layout.scss'
 import { Drawer, IconButton, Stack } from "@mui/material";
 import TextIconAnimButton from "../Buttons/TextIconButtons/Curved/TextIconAnim";
@@ -20,8 +19,6 @@ import { DxGridFilter } from "../fullview/dx-grid-filter";
 import RotateLeftIcon from '@mui/icons-material/RotateLeft';
 import { updateConfig } from "../../../redux/reducers/common.reducer";
 import { useDispatch } from "react-redux";
-
-
 
 
 const StaticLayoutToolbar = () => {

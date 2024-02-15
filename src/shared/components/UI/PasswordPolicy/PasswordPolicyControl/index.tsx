@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import PasswordPolicy from "..";
 import InfoIcon from '@mui/icons-material/Info';
 import "../passwordPolicy.scss";
-import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 
 const PasswordPolicyControl = ({ list, onValidate }: { list: any[], onValidate?: any }) => {

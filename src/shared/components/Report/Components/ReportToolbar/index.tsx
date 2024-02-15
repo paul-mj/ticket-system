@@ -18,7 +18,6 @@ import CommonUtils from "../../../../../common/utils/common.utils";
 import { toast } from "react-toastify";
 import { useConfirm } from "../../../dialogs/confirmation";
 import { useTranslation } from "react-i18next";
-import { Anchor } from "react-bootstrap";
 
 const ReportToolbar = ({
     saveLayout,

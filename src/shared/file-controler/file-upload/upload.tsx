@@ -9,7 +9,6 @@ import Input from "@mui/material/Input";
 import FormControl from "@mui/material/FormControl";
 import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
-import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 
 export const UploadFile = (props: any) => {

@@ -5,7 +5,6 @@ import * as yup from "yup";
 import { FormInputDate } from "../../../form-components/FormInputDate";
 import ReportUtils from "../../report.utils";
 import FormToggle from "../../../form-components/FormToggle";
-import { FormInputCheckbox } from "../../../form-components/FormInputCheckbox";
 import { formatOptionsArray } from "../../../../../common/application/shared-function";
 import { FormInputMultiSelect } from "../../../form-components/FormInputMultiSelect";
 import FormInputSelectWithClose from "../../../form-components/FormInputSelectWithClose";
