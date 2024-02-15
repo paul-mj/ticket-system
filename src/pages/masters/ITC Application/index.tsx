@@ -387,7 +387,7 @@ export const ItcApplication = (props: FranchiseRequestDialogProps) => {
                                 <FormInputText
                                     name="objNameArabic"
                                     control={methords.control}
-                                    label={t("ITC Applications In Arabic")}
+                                    label={t("Applications In Arabic")}
                                     errors={methords.formState.errors}
                                     align={{ textAlign: 'right' }}
                                     readOnly={activeAction.MenuId === MenuId.View}
@@ -397,7 +397,7 @@ export const ItcApplication = (props: FranchiseRequestDialogProps) => {
                                 <FormInputText
                                     name="objName"
                                     control={methords.control}
-                                    label={t("ITC Applications In English")}
+                                    label={t("Applications In English")}
                                     errors={methords.formState.errors}
                                     align={{ textAlign: 'right' }}
                                     readOnly={activeAction.MenuId === MenuId.View}

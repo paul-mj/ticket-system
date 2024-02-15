@@ -121,7 +121,7 @@ export const UserForm = (props: any) => {
                             label={t("User Type")}
                             errors={errors}
                             options={userType}
-                            disabled={true}
+                            // disabled={true}
                             onChange={chgUserRole}
                         />
                     </Col>

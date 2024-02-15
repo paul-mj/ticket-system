@@ -409,7 +409,9 @@ const UserRoles = (props: FranchiseRequestDialogProps) => {
                                     <Col md={2} className="mb-3 ps-0" >
                                         <div className="d-flex justify-content-center">
                                             <FormControl size={"small"} variant="outlined"  >
-                                                <Button onClick={AddtoDataGrid}  >
+                                                <Button 
+                                                className="user-btn-section"
+                                                 onClick={AddtoDataGrid}  >
                                                     {t("Add")}
                                                 </Button>
                                             </FormControl>

@@ -823,7 +823,7 @@ const EmailGroup = (props: FranchiseRequestDialogProps) => {
 
                                 <Col md={2} className="mb-3" >
                                     <FormControl size={"small"} variant="outlined" fullWidth>
-                                        <Button onClick={AddtoDataGrid} sx={{ mr: 1 }}>
+                                        <Button className="user-btn-section" onClick={AddtoDataGrid} sx={{ mr: 1 }}>
                                             {t("Add")}
                                         </Button>
                                     </FormControl>

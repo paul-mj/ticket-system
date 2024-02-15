@@ -336,7 +336,7 @@ const SubEntities = (props: FranchiseRequestDialogProps) => {
                                 <FormInputText
                                     name="objNameArabic"
                                     control={control}
-                                    label={t("ITC Sub Entity Name in Arabic")}
+                                    label={t("Sub Entity Name in Arabic")}
                                     errors={errors}
                                     align={{ textAlign: 'right' }}
                                     readOnly={viewMenu}
@@ -347,7 +347,7 @@ const SubEntities = (props: FranchiseRequestDialogProps) => {
                                 <FormInputText
                                     name="objName"
                                     control={control}
-                                    label={t("ITC Sub Entity Name in English")}
+                                    label={t("Sub Entity Name in English")}
                                     errors={errors}
                                     readOnly={viewMenu}  
                                 />
