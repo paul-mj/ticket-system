@@ -9,7 +9,6 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import store from "./redux/store/store";
