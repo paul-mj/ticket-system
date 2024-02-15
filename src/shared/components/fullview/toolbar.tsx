@@ -1,5 +1,5 @@
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import "./fullview.scss";
@@ -14,27 +14,19 @@ import { Drawer, IconButton, Menu, MenuItem } from "@mui/material";
 import { CultureId } from "../../../common/application/i18n";
 import { useTheme } from '@mui/material/styles';
 import { DxGridFilter } from "./dx-grid-filter";
-import TextIconWhiteCloseButton from "../Buttons/TextIconButtons/Curved/TextIconWhiteButton";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { FileUpload } from "../../../assets/images/svgicons/svgicons";
 import AppConfigs from "../../../config/app.configs";
 import CommonUtils from "../../../common/utils/common.utils";
 import TextIconAnimButton from "../Buttons/TextIconButtons/Curved/TextIconAnim";
-import ResetButton from "../Buttons/IconButtons/ResetButton";
 import RotateLeftIcon from '@mui/icons-material/RotateLeft';
 import { useTranslation } from "react-i18next";
 import BackupTableIcon from '@mui/icons-material/BackupTable';
 import SaveIcon from '@mui/icons-material/Save';
-import SaveAsIcon from '@mui/icons-material/SaveAs';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SettingsIcon from '@mui/icons-material/Settings';
-import ApiService from "../../../core/services/axios/api";
-import PrimaryButton from "../Buttons/TextButtons/Curved/PrimaryButton";
 import GridLayoutOptionsMenu from "../common/GridLayoutOptionsMenu";
-import ViewColumnIcon from '@mui/icons-material/ViewColumn';
-import ViewWeekOutlinedIcon from '@mui/icons-material/ViewWeekOutlined';
 import { useConfirm } from "../dialogs/confirmation";
 
 type Anchor = "left" | "right";
@@ -178,7 +170,7 @@ const FullviewToolbar: React.FC<any> = ({ searchText, setSearchText, onExport, o
                         </h5>
                     )}
                 </Col>
-                <Col md={8} className="search-export-section"> 
+                <Col md={8} className="search-export-section">
                     <Stack
                         direction="row"
                         alignItems="center"
@@ -209,7 +201,7 @@ const FullviewToolbar: React.FC<any> = ({ searchText, setSearchText, onExport, o
                                 <ViewWeekOutlinedIcon />
                             </IconButton> */}
                         </div>
-                        <div className="add-button-outer">
+                        <div className="add-button-outer d-flex">
                             {/* <div className="frm-toolbar-icons">
                                 <TextIconAnimButton icon={FileDownloadOutlinedIcon} text={`${t("Export")}`} onClick={onExport} fontSize="9px" />
                             </div> */}
@@ -231,12 +223,22 @@ const FullviewToolbar: React.FC<any> = ({ searchText, setSearchText, onExport, o
                         </div>
                         {isNewMenu && (
                             <div className="add-button-outer">
-                                <div className="frm-toolbar-icons">
-                                    <TextIconAnimButton icon={AddOutlinedIcon} text={`${t("Add New")}`} onClick={handleClickCreateNew} fontSize="9px" />
+                                <div className="">
+                                    <div className="frm-toolbar-icons">
+                                        <TextIconAnimButton icon={AddOutlinedIcon} text={`${t("Add New")}`} onClick={handleClickCreateNew} fontSize="9px" />
+                                    </div>
                                     {/* <button className="icon-button">
                                         <AddOutlinedIcon />
                                         <span className="button-text">Add New</span>
                                     </button> */}
+                                    <IconButton
+                                        aria-label="Refresh Grid"
+                                        size="large"
+                                        className="add-new-hide add-grid"
+                                        onClick={handleClickCreateNew}
+                                    >
+                                        <AddOutlinedIcon />
+                                    </IconButton>
                                 </div>
                             </div>
                         )}
@@ -247,7 +249,7 @@ const FullviewToolbar: React.FC<any> = ({ searchText, setSearchText, onExport, o
                                 <div className="frm-toolbar-icons">
                                     <TextIconAnimButton icon={FilterAltOutlinedIcon} text={`${t("Filter")}`} onClick={handleOpenDrawer} fontSize="9px" />
                                 </div>
-                                <IconButton aria-label="favorite" size="large" className="add-new-btn" title={`${t("Filter")}`} onClick={handleOpenDrawer}>
+                                <IconButton aria-label="favorite" size="large" className="add-new-btn add-grid" title={`${t("Filter")}`} onClick={handleOpenDrawer}>
                                     <FilterAltOutlinedIcon />
                                 </IconButton>
                             </div>

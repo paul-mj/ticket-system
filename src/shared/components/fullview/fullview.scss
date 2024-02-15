@@ -430,6 +430,20 @@ body.rtl {
     }
 }
 
+@media (min-width: 951px) and (max-width: 3000px) {
+    .add-new-hide {
+        padding: 7px !important;
+        display: none !important;
+    }
+}
+
+.add-grid {
+    background: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 3px !important;
+}
+
 button.layout-menu-btn {
     background: #fff;
     width: 32px;
