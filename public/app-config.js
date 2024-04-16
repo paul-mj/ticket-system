@@ -1,5 +1,5 @@
 window["config"] = {
-  BASE_URL: "http://91.74.99.146/frm/proxy/",
+  BASE_URL: "http://accingesms.com/helpdesk/proxy/",
   FILE_URL: "http://accingesms.com/",
   uploadFileSize: 2,
   jpgExtensions: ["jpg", "jpeg"],

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react"; 
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import ApiService from "../../core/services/axios/api";
 import { CultureId } from "../../common/application/i18n";
@@ -8,18 +8,16 @@ import { isObjectEmpty } from "../../core/services/utility/utils";
 import PageViewer from "../../shared/components/pageviewer/pageviewer";
 import { fullViewRowDataContext } from "../../common/providers/viewProvider";
 import { Badge, IconButton } from "@mui/material";
-import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { resetUpdatedRow } from "../../redux/reducers/gridupdate.reducer";
 import { MasterId } from "../../common/database/enums";
-import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 import RotateLeftIcon from '@mui/icons-material/RotateLeft';
-import { GridLoader } from "../../assets/images/gif";
 import { CircleLoader } from "../../shared/components/UI/Loader/CircleLoader/CircleLoader";
-import { ForwardArrow, NextArrowBtn, PrevArrowBtn, Sort } from "../../assets/images/svgicons/svgicons";
+import { NextArrowBtn, PrevArrowBtn } from "../../assets/images/svgicons/svgicons";
 import { Asc, Des } from "../../assets/images/png/pngimages";
+import './action-queue.scss';
 
 const SortObject = {
     "CUR_STATUS_NAME": false,

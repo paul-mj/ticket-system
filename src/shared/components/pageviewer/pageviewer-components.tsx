@@ -20,7 +20,7 @@ import { ApprovalEscalationPeriod } from "../../../pages/masters/configurations/
 import { LocalizationForm } from "../../../pages/masters/configurations/localization/localization-form";
 import { MailTemplate } from "../../../pages/masters/Mail Template/MailTemplate";
 import { MailtypeEmailTemplate } from "../../../pages/masters/configurations/mailtype-emailtemplate/MailtypeEmailTemplate";
-  import { ItcApplication } from "../../../pages/masters/ITC Application"; 
+import { ItcApplication } from "../../../pages/masters/ITC Application"; 
 import UserResetPassword from "../../../pages/masters/Reset Password";
 
 

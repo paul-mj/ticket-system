@@ -2,7 +2,6 @@ import React from "react";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 
 export const menu = [
