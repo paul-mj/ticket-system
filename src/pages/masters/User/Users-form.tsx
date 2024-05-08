@@ -17,6 +17,8 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { CultureId } from "../../../common/application/i18n";
 import localStore from "../../../common/browserstore/localstore";
 import moment from 'moment';
+import CommonUtils from "../../../common/utils/common.utils";
+import ApiService from "../../../core/services/axios/api";
 
 interface Props {
     userRoleChange: (optionValue: any) => void;
@@ -31,14 +33,17 @@ export const UserForm = (props: any) => {
         control,
         formState: { errors }, register, watch, setValue
     } = useFormContext();
+    const { UserId, CultureId } = CommonUtils.userInfo;
     const [passWdChange, setPassWdChange] = useState<any>(false);
     const [userType, setUserType] = useState([]);
     const { t, i18n } = useTranslation();
     const [changedDate, setChangedDate] = useState<any>();
     const [exptxtPWD, setexpTxtPWD] = useState<any>(0);
     const [entityAccessType, setEntityAccessType] = useState<any>();
-    const [conditionLoad, setConditionLoad] = useState<boolean>(true)
-    const lang = CultureId();
+    const [conditionLoad, setConditionLoad] = useState<boolean>(true);
+    const [selectedUserRole, setSelectedUserRole] = useState<number>();
+    const [userList, setUserlist] = useState<number>();
+    const lang = CultureId;
     const userData = localStore.getLoggedInfo();
     const userID = userData && JSON.parse(userData).USER_ID;
     const readUserType = async () => {
@@ -64,14 +69,32 @@ export const UserForm = (props: any) => {
         responseEnum.Data.map((e: any) =>
             optionValue.push({ value: e.ENUM_ID, label: e.ENUM_NAME })
         );
-        setUserType(optionValue);
+        setUserType(optionValue); 
+    }
 
+
+
+    /* Read Customer List */ 
+    const readCustomerList = async() => { 
+        const payload = {
+            Procedure: "APP_MASTER.FRANCHISE_LOOKUP_SPR",
+            UserId,
+            CultureId,
+            Criteria: []
+        };
+        const response = await ApiService.httpPost('data/getTable', payload);
+        const optionValue: any = [];
+        response.Data.map((e: any) =>
+            optionValue.push({ value: e.FRANCHISE_ID, label: e.FRANCHISE_NAME })
+        );
+        setUserlist(optionValue); 
     }
 
     useEffect(() => {
         readUserType();
-
+        readCustomerList();
     }, []);
+
     useEffect(() => {
         const showCommentsField = watch("UserForm.IsPwdExpires");
         if (showCommentsField && conditionLoad) {
@@ -82,9 +105,18 @@ export const UserForm = (props: any) => {
         }
     });
 
-    const chgUserRole = (event: any) => {
+    const chgUserRole = (event: any) => { 
+        if (event !== 31402) {
+            setValue("UserForm.FranchiseID", null);
+        }
+        setSelectedUserRole(event);
         userRoleChange(event);
     };
+
+    useEffect(() => { 
+        const userType = watch("UserForm.UserType")
+        chgUserRole(userType);
+    }, [watch("UserForm.UserType")]); 
 
     const chgAccessType = (event: any) => {
         EntityAccess(event);
@@ -109,6 +141,7 @@ export const UserForm = (props: any) => {
     const changePwd = (event: any) => {
         setPassWdChange(event);
     };
+ 
 
     return (
         <>
@@ -156,6 +189,24 @@ export const UserForm = (props: any) => {
                             readOnly={modeViewAccess}
                         />
                     </Col>
+
+ 
+                    {
+                        (selectedUserRole === 31402) &&
+                        <Col md={12} className="mb-3">
+                            <FormInputSelect
+                                name="UserForm.FranchiseID"
+                                control={control}
+                                label={t("Customers")}
+                                errors={errors}
+                                options={userList}
+                                onChange={chgAccessType}
+                                hideError={false}
+                                readOnly={modeViewAccess}
+                        />
+                        </Col>
+                    }
+
 
                     <Col md={12} className="mb-3">
                         <FormInputText

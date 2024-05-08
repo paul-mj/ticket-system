@@ -11,9 +11,10 @@
 .image-list-sec {
     &.border-box {
         padding: 4px 10px;
-        background: #7F8FA6;
+        /* background: #7F8FA6; */
+        background: linear-gradient(to right bottom, #d0d2f7, #dfd4f1, #e9d7ec, #eedce8, #efe2e7);
         border-radius: 5px;
-        border: 2px solid#7F8FA6;
+        /* border: 2px solid#7F8FA6; */
         min-height: 126px;
     }
 }
@@ -24,7 +25,7 @@
         //background: #ffffff;
         margin-bottom: 8px !important;
         border-radius: 6px;
-        border: 1px solid #7f8fa6; 
+        /* border: 1px solid #7f8fa6;  */
         //border-radius: 5px;
         //box-shadow: 0 2px 3px #b6b6b6;
         //box-shadow: 0 1px 3px #b6b6b6;

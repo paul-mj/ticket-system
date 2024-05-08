@@ -18,6 +18,6 @@ export const OperatorRoutes = () => {
             <Outlet />
         </>
     ) : (
-        <Navigate to="/auth/itclogin" replace />
+        <Navigate to="/auth/login" replace />
     );
 };

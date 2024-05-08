@@ -89,6 +89,6 @@ export const ProtectedRoutes = () => {
     return isAuthenticated ? (
         <Outlet />
     ) : (
-        <Navigate to="/auth/itclogin" replace />
+        <Navigate to="/auth/login" replace />
     );
 };

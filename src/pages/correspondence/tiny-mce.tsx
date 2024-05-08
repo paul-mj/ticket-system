@@ -68,7 +68,7 @@ const TinyMceEditor = ({ control, name, isExpanded, tinyLanguage, onFullscreenCh
         setValue(name, htmlContent(content));
     };
 
-    const htmlContent = (changedContent: string) => { 
+    const htmlContent = (changedContent: string) => {
         return `<!DOCTYPE html>
         <html>
           <head> 
@@ -99,14 +99,18 @@ const TinyMceEditor = ({ control, name, isExpanded, tinyLanguage, onFullscreenCh
                             apiKey={window["config"]?.tinyMCE}
                             onEditorChange={handleChange}
                             init={{
-                                relative_urls:false,
-                                remove_script_host : false,
-                                document_base_url : window['config'].FILE_URL,
+                                relative_urls: false,
+                                remove_script_host: false,
+                                document_base_url: window['config'].FILE_URL,
                                 height: "420px",
                                 width: "100%",
                                 telemetry: false,
-                                language: isEditorLangArabic ? "ar" : "en",
-                                directionality: isEditorLangArabic ? "rtl" : "ltr",
+                                language: "en",
+                                directionality: "ltr",
+                                /*  language: isEditorLangArabic ? "ar" : "en",
+                                 directionality: isEditorLangArabic ? "rtl" : "ltr", */
+
+
                                 //menubar: "file edit view insert format tools table help",
                                 //menubar: true,
                                 image_title: true,
@@ -193,7 +197,7 @@ const TinyMceEditor = ({ control, name, isExpanded, tinyLanguage, onFullscreenCh
                                             var base64 = reader.result?.toString()!.split(',')[1];
                                             var blobInfo = blobCache.create(id, file, base64!);
                                             blobCache.add(blobInfo);
-                                            console.log(file,'file')
+                                            console.log(file, 'file')
                                             cb(blobInfo.blobUri(), { title: file.name });
                                         };
                                         reader.readAsDataURL(file);

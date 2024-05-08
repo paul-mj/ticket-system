@@ -124,7 +124,7 @@ export const ItcApplication = (props: FranchiseRequestDialogProps) => {
             objNameArabic: '',
             shortName: '',
             remarks: '',
-            Active: true,
+            Active: true, 
             UserRights: '',
             objectId: ''
         }
@@ -150,7 +150,7 @@ export const ItcApplication = (props: FranchiseRequestDialogProps) => {
                 objNameArabic: item.OBJECT_NAME_AR,
                 shortName: item.SHORT_NAME,
                 remarks: item.REMARKS,
-                Active: item.Active === 1 ? true : false,
+                Active: item.IS_ACTIVE === 1 ? true : false,
                 objectId: item.OBJECT_ID,
             }
             methords.reset(patchObj);

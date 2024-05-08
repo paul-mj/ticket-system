@@ -24,7 +24,7 @@ export const isGridCellCustomized = (field: any, masterId: any) => {
         case MasterId.WorkFlow:
         case MasterId.EmailGroup:
         case MasterId.Contact:
-        case MasterId.Operators:
+        case MasterId.Customers:
             if (field === "Trans No") {
                 cellComponentName = TransNumberComponent;
             }

@@ -1,0 +1,420 @@
+.emirates-id-upload {
+    border: 1px solid rgba(0, 0, 0, 0.1215686275);
+    border-radius: 5px;
+    width: 100%;
+    padding: 0.55em 1em;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: space-between;
+
+    .eid-name {
+        max-width: 7em;
+        color: #878787;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 20px;
+        line-height: 23px;
+    }
+
+    .eidimagePreview {
+        width: 3em;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+}
+
+.transaction-info-wrapper {
+    display: flex;
+    align-items: center;
+
+    .transaction-info {
+        flex: 8;
+    }
+
+    .upload-info {
+        flex: 4;
+    }
+}
+
+.container-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+
+    .avatar-uploads {
+        position: relative;
+        max-width: 205px;
+
+        .avatar-preview {
+            width: 192px;
+            height: 192px;
+            position: relative;
+            border-radius: 8px;
+            border: 1px solid #e7e7e7;
+            padding: 8px;
+            box-shadow: 0 2px 1px #ded0d0;
+
+            img {
+                width: 34px;
+                height: 28px;
+                margin-bottom: 0;
+                background: white;
+                color: black;
+                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+                cursor: pointer;
+                border-radius: 5px;
+                border: none;
+                padding: 3px 3px;
+                position: absolute;
+                /* top: 0; */
+                bottom: -10px;
+                left: 80px;
+            }
+
+            svg {
+                position: absolute;
+                top: 4px;
+                right: 7px;
+            }
+
+            >div {
+                width: 100%;
+                height: 100%;
+                // border-radius: 100%;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+    }
+
+    .btn-sec {
+        display: flex;
+        flex-direction: row;
+        gap: 2em;
+        position: relative;
+
+        .avatar-edit {
+            width: 34px;
+            height: 27px;
+            margin-bottom: 0;
+            background: white;
+            color: black;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            padding: 2px 3px;
+            position: absolute;
+            top: -33px;
+            left: 67px;
+
+            input {
+                display: none;
+
+                +button {
+                    background: white;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    border: none;
+
+                    svg {
+                        width: 16px;
+                        height: 16px;
+                        color: green;
+                    }
+                }
+            }
+        }
+
+        .upload-delete-btn {
+            width: 34px;
+            height: 27px;
+            margin-bottom: 0;
+            background: white;
+            color: black;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            padding: 2px 3px;
+            position: absolute;
+            top: -33px;
+            left: 26px;
+
+            svg {
+                width: 16px;
+                height: 16px;
+                color: #d6302a;
+            }
+        }
+    }
+
+}
+
+.user-creation {
+    margin: 0em 0.75em;
+
+    .element:nth-child(1) {
+        width: 7%;
+        padding-left: 1em !important;
+
+        @media (max-width: 700px) {
+            min-width: 35px;
+        }
+    }
+
+    .element:nth-child(2) {
+        width: 83%;
+        padding-left: 1em !important;
+
+        @media (max-width: 700px) {
+            width: 63%;
+        }
+    }
+
+    .element:last-child {
+        width: 10%;
+        border-right: none !important;
+        padding-left: 1em !important;
+
+        @media (max-width: 700px) {
+            width: 33%;
+        }
+    }
+}
+
+.title-wraap {
+    display: flex;
+
+    .user-deatils {
+        display: flex;
+        gap: 0.50em;
+        justify-content: center;
+
+        @media (max-width: 700px) {
+            display: none;
+        }
+
+        .transation-id {
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25em;
+
+            .try {
+                svg {
+                    width: 2em;
+                    height: 1.5em;
+                }
+            }
+        }
+
+        .transation-id-no {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    }
+}
+
+.errorVal-border {
+    border: 2px solid #f44336 !important;
+}
+
+.direct {
+    direction: rtl;
+}
+
+.input-wrapper {
+    position: relative;
+    padding: 10px;
+
+    .border-sec {
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        left: 2em;
+        background-color: white;
+        color: #666666;
+        padding: 0 9px;
+        width: 8em;
+    }
+
+    .border-body {
+        border: 1px solid #d7d7d7;
+        border-radius: 6px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+}
+
+.column-sec {
+    button {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+    }
+}
+
+.disabled-view {
+    .Mui-disabled {
+        color: #545454 !important;
+        -webkit-text-fill-color: #545454 !important;
+    }
+
+    .muiltr-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {
+        -webkit-text-fill-color: #545454 !important;
+    }
+}
+
+.pass-policy {
+    position: relative;
+
+    .div-pass-policy {
+        position: absolute;
+        background-color: white;
+        z-index: 9;
+        padding: 13px 4px 10px 10px;
+        box-shadow: 0px 1px 3px #bdbdbd;
+        border-radius: 5px;
+
+        .password-heading {
+            font-size: 11px;
+            margin-left: 3px;
+            margin-bottom: 5px;
+        }
+
+        .each-policy {
+            display: flex;
+            gap: 5px;
+
+            .close-icon {
+                color: red;
+                width: 14px;
+            }
+
+            .done-icon {
+                color: green;
+                width: 14px;
+            }
+
+            .expiry-radio-btn {
+                width: 14px;
+                padding-bottom: 6px;
+            }
+
+            p {
+                margin-bottom: 0em;
+                font-size: 10px;
+                margin-bottom: 5px
+            }
+        }
+    }
+}
+
+.rejct-red {
+    background: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: white !important;
+}
+
+.error-input {
+    border: 1px solid #d32f2f !important;
+}
+
+.elip-class {
+    word-break: break-all;
+    line-height: 19px;
+    overflow: hidden;
+    display: block;
+    max-height: 4.4rem;
+    -webkit-line-clamp: 1;
+    display: box;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-transform: capitalize !important;
+    font-size: 0.8rem;
+    width: 18rem;
+}
+
+.arrow-style {
+    position: absolute;
+    top: 17px;
+    right: 0px;
+    left: 22px;
+    cursor: pointer;
+    img {
+        width: 1.85em;
+        height: 1.85em;
+    }
+}
+
+.approve-green {
+    background: #4cae4c !important;
+    border-color: #4cae4c !important;
+    color: white !important;
+}
+
+
+.outer-box-ss {
+    min-height: 15rem;
+    width: 31rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--main-blue);
+    border-radius: 30px;
+    padding: 1rem;
+    gap: 1rem;
+
+    .ss-text {
+        font-size: 16px;
+        margin: 0;
+        font-weight: 600;
+        color: var(--main-blue);
+    }
+
+    .ss-select-box {
+
+        .ss-btn-wrap {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .validate-section {
+            display: flex;
+            gap: 1rem;
+
+            input {
+                padding: 6px 5px;
+                border: 1px solid var(--main-blue);
+                border-radius: 5px;
+                font-size: 13px;
+            }
+
+            input:focus {
+                outline: none;
+                border-color: 1px solid var(--main-blue);
+            }
+        }
+    }
+}
+.setUserNameTag {
+    position: relative;
+}
+.emailUserName {
+    position: absolute;
+    top: 38px;
+    left: 15px;
+    right: 0;
+    font-size: 10px;
+    color: #f66d6d;
+}

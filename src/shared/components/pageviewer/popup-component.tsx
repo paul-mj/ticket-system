@@ -13,7 +13,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "DesignationDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -25,7 +25,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "FranchiseRequestTypeDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -36,7 +36,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "ITCApplicationsDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -47,7 +47,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "DepartmentDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -59,7 +59,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "MeetingLocationDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -71,7 +71,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "ITCEntityDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -81,6 +81,17 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                 case MasterId.ITCSubEntities:
                     config = {
                         DialogName: "ITCSubEntityDialog",
+                        FullWidth: true,
+                        MaxWidth: "md",
+                        DialogHeading: DialogHeading(masterDetails, actionMenu),
+                        IsFullPage: false,
+                        action: actionMenu,
+                        MasterId: masterDetails.MASTER_ID
+                    };
+                    break;
+                case MasterId.Customers:
+                    config = {
+                        DialogName: "CustomersDialog",
                         FullWidth: true,
                         MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
@@ -227,7 +238,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "MailtemplateDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -245,7 +256,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "DesignationDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -257,7 +268,18 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "ITCSubEntityDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
+                        DialogHeading: DialogHeading(masterDetails, actionMenu),
+                        IsFullPage: false,
+                        action: actionMenu,
+                        MasterId: masterDetails.MASTER_ID
+                    };
+                    break;
+                    case MasterId.Customers:
+                    config = {
+                        DialogName: "CustomersDialog",
+                        FullWidth: true,
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -268,7 +290,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "FranchiseRequestTypeDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -279,7 +301,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "ITCApplicationsDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -291,7 +313,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "DepartmentDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -303,7 +325,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "MeetingLocationDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -314,7 +336,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "ITCEntityDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -458,7 +480,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "MailtemplateDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -474,7 +496,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "DesignationDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -485,7 +507,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "ITCEntityDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -496,7 +518,18 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "ITCSubEntityDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
+                        DialogHeading: DialogHeading(masterDetails, actionMenu),
+                        IsFullPage: false,
+                        action: actionMenu,
+                        MasterId: masterDetails.MASTER_ID
+                    };
+                    break;
+                    case MasterId.Customers:
+                    config = {
+                        DialogName: "CustomersDialog",
+                        FullWidth: true,
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -507,7 +540,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "ITCApplicationsDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -518,7 +551,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "FranchiseRequestTypeDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -529,7 +562,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "DepartmentDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -539,8 +572,8 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                 case MasterId.MeetingLocations:
                     config = {
                         DialogName: "MeetingLocationDialog",
-                        FullWidth: true,
-                        MaxWidth: "sm",
+                        FullWidth: true, 
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -715,7 +748,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
                     config = {
                         DialogName: "MailtemplateDialog",
                         FullWidth: true,
-                        MaxWidth: "sm",
+                        MaxWidth: "md",
                         DialogHeading: DialogHeading(masterDetails, actionMenu),
                         IsFullPage: false,
                         action: actionMenu,
@@ -757,7 +790,7 @@ export const popupComponent = (masterDetails: any, actionMenu: any, rowData?: an
             config = {
                 DialogName: "UserResetPassword",
                 FullWidth: false,
-                MaxWidth: "sm",
+                MaxWidth: "md",
                 DialogHeading: DialogHeading(masterDetails, actionMenu),
                 IsFullPage: false,
                 action: actionMenu,

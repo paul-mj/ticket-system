@@ -36,7 +36,7 @@ export interface FranchiseRequestDialogProps {
     onCloseDialog: (value: boolean) => void;
     popupConfiguration: any;
 }
-
+ 
 
 const SubEntities = (props: FranchiseRequestDialogProps) => {
     const [enumName, setEnumName] = useState<string>()
@@ -44,12 +44,12 @@ const SubEntities = (props: FranchiseRequestDialogProps) => {
         objEnumBooolean: yup.boolean(),
         objObjectBoolean: yup.boolean(),
         objName: yup.string().required(""),
-        list: yup.array().of(
+        /* list: yup.array().of(
             yup.object().shape({
                 firstName: yup.string().nullable().required(""),
                 DedDesc: yup.string().nullable().required(""),
             })
-        ),
+        ), */
         objNameArabic: yup.string().required(""),
         objParentID: yup.string().nullable().required(""),
     });
@@ -76,7 +76,7 @@ const SubEntities = (props: FranchiseRequestDialogProps) => {
             remarks: '',
             subEntity: [],
             Active: true,
-            list: [{ firstName: "", DedDesc: "" }],
+            /* list: [{ firstName: "", DedDesc: "" }], */
         }
     });
 
@@ -242,7 +242,8 @@ const SubEntities = (props: FranchiseRequestDialogProps) => {
             IsActive: data?.Active ? 1 : 0,
             UserId: userID,
             MasterId: masterID,
-            Codes: dedCode
+            Codes: []
+            //Codes: dedCode
         }
         const choice = await confirm({
             ui: 'confirmation',
@@ -374,7 +375,7 @@ const SubEntities = (props: FranchiseRequestDialogProps) => {
                         </Row>
                     </div>
 
-                    <div className="outlined-box pb-3">
+                   {/*  <div className="outlined-box pb-3">
                         <div className="d-flex justify-content-between align-items-center w-100 mt-2 mb-3">
                             <h5 className="outlined-box-head">
                                {t("Ded Activity Code")}
@@ -390,8 +391,7 @@ const SubEntities = (props: FranchiseRequestDialogProps) => {
                             <div className="dedtable-outer">
                                 <div className="dedtable-header">
                                     <div className="dedelement">{t("Activity Code")}</div>
-                                    {/* <div className="dedelement">{t("Activity Description")}</div> */}
-                                    {!viewMenu &&
+                                     {!viewMenu &&
                                     <div className="dedelement"></div>
                                 }
                                 </div>
@@ -408,15 +408,7 @@ const SubEntities = (props: FranchiseRequestDialogProps) => {
 
                                             />
                                         </div>
-                                        {/* <div className="dedelement">
-                                            <FormInputText
-                                                name={`list.${index}.DedDesc`}
-                                                control={control}
-                                                label=""
-                                                errors={errors}
-                                                readOnly={viewMenu}
-                                            />
-                                        </div> */}
+                                        
                                         {!viewMenu &&
                                             <div className="dedelement">
                                                 <div className="d-flex align-items-center justify-content-between row-action-btns h-100">
@@ -448,7 +440,7 @@ const SubEntities = (props: FranchiseRequestDialogProps) => {
                             </div>
                         </div>
 
-                    </div>
+                    </div> */}
                 </Row>
 
             </DialogContent>

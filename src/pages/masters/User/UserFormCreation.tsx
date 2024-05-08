@@ -56,17 +56,6 @@ const defValues = {
 
 };
 
-const UserSchema = yup.object().shape({
-    UserForm: yup.object().shape({
-        UserName: yup.string().required(""),
-        EntityAccessType: yup.string().required(""),
-        FullName: yup.string().required(""),
-        MailID: yup.string().email("Enter Valid Email").optional(),
-        FullNameAr: yup.string().required(""),
-    }),
-
-});
-
 export const UserFormCreation = (props: any) => {
     const { onCloseDialog, popupConfiguration } = props;  
     const { t, i18n } = useTranslation(); 
@@ -79,6 +68,25 @@ export const UserFormCreation = (props: any) => {
         onCloseDialog(true);
     };
 
+    const UserSchema = yup.object().shape({
+        UserForm: yup.object().shape({
+            UserName: yup.string().required(""),
+            EntityAccessType: yup.string().required(""),
+            FullName: yup.string().required(""),
+            MailID: yup.string().email("Enter Valid Email").optional(),
+            FullNameAr: yup.string().required(""),  
+            UserType: yup.number().required(),
+            FranchiseID: yup.number().transform((value) => Number.isNaN(value) ? null : value ).when(['UserType'], {
+                is: ((userType: any) =>  {
+                    console.log(userType);
+                    return userType === 31402;
+                }),
+                then: yup.number().required("Franchise ID is required"),
+                otherwise: yup.number().nullable()
+            }),
+        }), 
+    });
+    
     const [subEntity, setSubEntity] = useState([]);
     const [role, setRole] = useState([]);
     const [roleChange, setRoleChange] = useState<number>(31401)
@@ -232,7 +240,7 @@ export const UserFormCreation = (props: any) => {
     };
 
 
-    const entityAccssType = (e: any) => {
+    const entityAccssType = (e: any) => { 
         if (e === 31301) {
             setEntityVisible(false);
         }
@@ -358,7 +366,7 @@ export const UserFormCreation = (props: any) => {
                             <div className="outlined-box mb-3 px-3 h-100">
                                 <h5 className="outlined-box-head my-3">
                                     {t("User Details")}
-                                </h5>
+                                </h5> 
                                 <Row>
                                     <UserForm userRoleChange={userRoleChangeApi} 
                                     EntityAccess={entityAccssType}  

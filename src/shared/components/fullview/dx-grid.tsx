@@ -90,6 +90,8 @@ const DxDataGrid: React.FC<any> = () => {
             setDataSource(newDataSource)
         });
     }, []);
+
+
     const relodGrid = useCallback(() => {
         const masterDetails = activeDetails[0];
         const Master = masterDetails.Master;
@@ -116,9 +118,9 @@ const DxDataGrid: React.FC<any> = () => {
             if (!action) {
                 buildFullview(param);
             } else {
-                if(action.status === fullGridDataAction.FullReload){
+                if (action.status === fullGridDataAction.FullReload) {
                     relodGrid();
-                }else{
+                } else {
                     const response = await getGrid(param);
                     if (action.id > 0) {
                         if (action.status === fullGridDataAction.InsertRow) {
@@ -134,21 +136,24 @@ const DxDataGrid: React.FC<any> = () => {
                         } else if (action.status === fullGridDataAction.UpdateRow) {
                             setDataSource((prev: any) => {
                                 prev.store().update(action.id, response.Data[0])
+                                console.log(prev, 'prev');
                                 return prev
                             })
+                            if (gridRef.current?.instance) {
+                                gridRef.current?.instance.refresh();
+                            }
+                            console.log(dataSource, 'dataSource dataSource');
                         }
                     }
                 }
             }
-        } catch (error) {
-            console.log(error, 'DXGRIDLOAD')
+        } catch (error) { 
         } finally {
             setDtGridLoader(false);
         }
     }, [buildFullview, relodGrid])
     const gridActionChangeEvent = useCallback((event: any) => {
-        const Master = activeMasterDetails.Master;
-        console.log(Master, 'Master');
+        const Master = activeMasterDetails.Master; 
         const criteriaArray = filterCriteria.find((obj: any) => obj.masterId === Master?.MASTER_ID)?.criteria;
         const criteriaParam = criteriaArray && criteriaArray.map(({ DbType, EditorType, ParamName, Value }: any) => ({ DbType, EditorType, ParamName, Value }));
         /* Updated Id Add to The Filter Param */

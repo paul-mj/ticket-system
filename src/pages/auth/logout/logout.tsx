@@ -27,7 +27,7 @@ export const FrmLogout = async (confirm: any) => { // pass confirm as a prop
         const response = await ApiService.httpPost('user/logout', paramData);
         if (response.Id > 0) {
             localStore.clearAll(); 
-            navigate('/auth/itclogin');
+            navigate('/auth/login');
         }
         clearStore();
     } catch (error) {

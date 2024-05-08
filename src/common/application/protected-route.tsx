@@ -12,7 +12,7 @@ export const ProtectedRoutes = () => {
     setAuthState(isAuthenticated)
     if (!isAuthenticated) {
       const redirectUrl = location.pathname + location.search;
-      navigate(`/auth/itclogin?redirect=${encodeURIComponent(redirectUrl)}`);
+      navigate(`/auth/login?redirect=${encodeURIComponent(redirectUrl)}`);
     }
   }, [location.pathname, location.search, navigate])
 

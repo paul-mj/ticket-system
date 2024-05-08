@@ -170,9 +170,11 @@ const LoginScreen = ({ onOTPTrigger }: any) => {
                             onKeyDown={handleEnterKeyPress}
                         />
                     </Col>
-                    {isOperatorLogin && <Col md={12}>
-                        <p className="forgot-para cursor-pointer" onClick={() => { navigate('/auth/forgot-password') }}>{t("Forgot Password?")}</p>
-                    </Col>}
+                    {/* {isOperatorLogin &&  */}
+                        <Col md={12}>
+                            <p className="forgot-para cursor-pointer" onClick={() => { navigate('/auth/forgot-password') }}>{t("Forgot Password?")}</p>
+                        </Col>
+                   {/*  } */}
                     <Col md={12}>
                         <Button
                             className="login-bttn py-2 mt-4"

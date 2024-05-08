@@ -6,28 +6,28 @@ import "./arabic.scss";
 import DxDataGrid from "./shared/components/fullview/dx-grid";
 import FullCalender from "./pages/event/fullcalendar/calender";
 import { useTranslation } from "react-i18next";
-import CorrespondenceBrowse from "./pages/correspondence/correspondence-browse"; 
+import CorrespondenceBrowse from "./pages/correspondence/correspondence-browse";
 import { prefixer } from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";
 import createCache from "@emotion/cache";
 import { CacheProvider, ThemeProvider } from "@emotion/react";
 import { createTheme, CssBaseline } from "@material-ui/core";
- import DynamicFormTest from "./pages/masters/dynamic-form-test";
- import PublicRoutes from "./common/application/public-route";
+import DynamicFormTest from "./pages/masters/dynamic-form-test";
+import PublicRoutes from "./common/application/public-route";
 import { ProtectedRoutes } from "./common/application/protected-route";
 import "./assets/fonts/font-file.scss";
 import i18next from "i18next";
- import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useConfirm } from "./shared/components/dialogs/confirmation";
 import localStore from "./common/browserstore/localstore";
 import { updateConfig } from "./redux/reducers/common.reducer";
 import ApiService from "./core/services/axios/api";
- import MyActionQueue from "./pages/MyActionQueue";
-import ForgotPassword from "./pages/auth/ForgotPassword"; 
-  import Acknowledgement from "./pages/auth/Acknowledgement";
+import MyActionQueue from "./pages/MyActionQueue";
+import ForgotPassword from "./pages/auth/ForgotPassword";
+import Acknowledgement from "./pages/auth/Acknowledgement";
 import { DashboardOne } from "./pages/dashboard/Dashboard/dashboardOne";
 import NetworkStatus from "./components/NetworkStatus";
- import { UserType } from "./common/database/enums";
+import { UserType } from "./common/database/enums";
 import StaticLayout from "./shared/components/static-layout/static-layout-browse";
 import CommonUtils from "./common/utils/common.utils";
 import ReportLayout from "./shared/components/Report/ReportLayout";
@@ -35,14 +35,15 @@ import ReportGrid from "./shared/components/Report/Pages/ReportGrid";
 import ReportChart from "./shared/components/Report/Pages/ReportChart";
 import ReportPivot from "./shared/components/Report/Pages/ReportPivot";
 import ReportViewerLayout from "./shared/components/Report/ReportViewerLayout";
-  
+import { CorrespondenceView } from "./pages/correspondence/correspondance-view";
+
 const Login = React.lazy(() => import("./pages/auth/login/login"));
 const NotFoundPage = React.lazy(() => import("./pages/errors/404"));
 const DefaultLayout = React.lazy(() => import("./layouts/DefaultLayout"));
 const Dashboard = React.lazy(() => import("./pages/dashboard/Dashboard"));
 
 
- const App = () => {
+const App = () => {
     const { t, i18n } = useTranslation();
     const { configs } = useSelector((state: any) => state.commonReducer);
     const dispatch = useDispatch();
@@ -67,7 +68,7 @@ const Dashboard = React.lazy(() => import("./pages/dashboard/Dashboard"));
             const logData = localStore.getItem('frmLoginData')
             const loginData = logData && JSON.parse(logData);
             if (loginData?.USER_TYPE !== UserType.Franchise) {
-                navigate(`/auth/itclogin`)
+                navigate(`/auth/login`)
                 localStore.clearAll();
             } else {
                 navigate(`/auth/operatorlogin`);
@@ -81,7 +82,7 @@ const Dashboard = React.lazy(() => import("./pages/dashboard/Dashboard"));
         if (configs?.isLogout401) {
             triggerPopup();
         }
-    }, [configs?.isLogout401, triggerPopup]) 
+    }, [configs?.isLogout401, triggerPopup])
 
     const cacheLtr = createCache({
         key: "muiltr",
@@ -161,16 +162,17 @@ const Dashboard = React.lazy(() => import("./pages/dashboard/Dashboard"));
                     <CssBaseline />
                     <NetworkStatus />
                     <Routes>
-                        <Route path="/" element={<Navigate to="/auth/itclogin" />} /> 
+                        <Route path="/" element={<Navigate to="/auth/login" />} />
                         <Route path="/" element={<ProtectedRoutes />}>
                             <Route path="/" element={<DefaultLayout />}>
                                 <Route path="dashboard" element={<Dashboard />} />
                                 <Route path="fullview/:id" element={<DxDataGrid />} />
-                                <Route path="event" element={<FullCalender />} /> 
-                                 <Route path="correspondence" element={<CorrespondenceBrowse />} />
+                                <Route path="event" element={<FullCalender />} />
+                                <Route path="correspondence" element={<CorrespondenceBrowse />} />
                                 <Route path="action-queue" element={<MyActionQueue />} />
-                                <Route path="dynamicform" element={<DynamicFormTest />} /> 
-                                  <Route path="report/:type/:id" element={<ReportLayout />} />
+                                <Route path="correspondenceview/:transid" element={<CorrespondenceView />} />
+                                <Route path="dynamicform" element={<DynamicFormTest />} />
+                                <Route path="report/:type/:id" element={<ReportLayout />} />
                             </Route>
                         </Route>
                         <Route path="/" element={<ProtectedRoutes />}>
@@ -179,15 +181,15 @@ const Dashboard = React.lazy(() => import("./pages/dashboard/Dashboard"));
                                 <Route path="pivot/:id" element={<ReportPivot />} />
                                 <Route path="chart/:id" element={<ReportChart />} />
                             </Route>
-                        </Route> 
+                        </Route>
 
                         <Route path="auth" element={<PublicRoutes />}>
                             <Route path="operatorlogin" element={<Login />} />
-                            <Route path="itclogin" element={<Login />} />
+                            <Route path="login" element={<Login />} />
                             <Route path="forgot-password" element={<ForgotPassword />} />
                             <Route path="acknowledgement" element={<Acknowledgement />} />
-                        </Route> 
- 
+                        </Route>
+
                         <Route path="404" element={<NotFoundPage />} />
                         <Route path="*" element={<Navigate replace to="/404" />} />
                     </Routes>

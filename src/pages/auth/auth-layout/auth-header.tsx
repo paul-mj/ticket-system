@@ -15,7 +15,7 @@ function AuthHeader() {
         </Col>
         <Col md={6} className="lang-sec-res">
           <Row className="justify-content-end">
-            <Language uiType={'switch'}/>
+            {/* <Language uiType={'switch'}/> */}
           </Row>
         </Col>
       </Row>

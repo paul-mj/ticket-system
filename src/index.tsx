@@ -42,9 +42,9 @@ const loadingMarkup = (
 );
 
 
-console.log = function() {};
+/* console.log = function() {};
 console.error = function() {};
-console.warn = function() {}; 
+console.warn = function() {};  */
 
 let root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 

@@ -22,7 +22,7 @@ const Transition = React.forwardRef(function Transition(
 const PageViewer = (props: PageviewerDialogProps) => {
     const { onClose, open, popupConfiguration } = props;
 
-    const handleCloseDialogControl = (event: any, reason: any) => { 
+    const handleCloseDialogControl = (event: any, reason: any) => {
         if (reason && reason === "backdropClick") return;
         onClose(false);
     };
@@ -42,7 +42,7 @@ const PageViewer = (props: PageviewerDialogProps) => {
                     fullWidth={popupConfiguration.FullWidth}
                     maxWidth={popupConfiguration.MaxWidth}
                     /* onClose={handleCloseDialogControl} */
-                    open={open} 
+                    open={open}
                 >
                     <ComponentToRender
                         onCloseDialog={handleCloseChild}

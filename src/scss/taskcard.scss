@@ -2,9 +2,10 @@
 
 .task-card-wrapper {
     padding: 4px 10px;
-    background: #E3B061;
+    /* background: #E3B061; */
     border-radius: 5px;
-    border: 2px dashed #E3B061;
+    /* border: 2px dashed #E3B061; */
     min-height: 126px;
+    background: linear-gradient(to right bottom, #d0d2f7, #dfd4f1, #e9d7ec, #eedce8, #efe2e7);
 }
 

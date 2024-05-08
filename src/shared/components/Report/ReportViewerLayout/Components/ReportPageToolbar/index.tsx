@@ -27,7 +27,7 @@ const ReportPageToolbar = () => {
                     <div className="icons-section">
                         <div className="frm-icons featured-icons">
                             <div className="report-language-icon">
-                                <Language uiType={"icon"} />
+                                {/* <Language uiType={"icon"} /> */}
                             </div>
                         </div>
                         <div className="frm-profile">

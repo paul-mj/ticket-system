@@ -37,7 +37,7 @@ const AxiosInterceptor = () => {
                             const logData = localStore.getItem('frmLoginData')
                             const loginData = logData && JSON.parse(logData);
                             if (loginData?.USER_TYPE !== UserType.Franchise) {
-                                navigate(`/auth/itclogin`)
+                                navigate(`/auth/login`)
                                 localStore.clearAll();
                             } else {
                                 navigate(`/auth/operatorlogin`);

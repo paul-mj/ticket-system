@@ -1,0 +1,29 @@
+.timeline {
+    &-log {
+        &-group {
+            display: flex;
+            gap: .5rem;
+            align-items: center;
+            p {
+                margin-bottom: 0;
+                margin-top: .5rem;
+            }
+        }
+
+        &-title {
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        &-content {
+            color: var(--main-blue);
+        }
+    }
+    &-card{
+        background: linear-gradient(35deg,rgb(0 58 93 / 8%),#fff,rgb(0 58 93 / 8%));
+        max-width: 50rem;
+    }
+    &-notification-card{
+        background: linear-gradient(35deg,rgb(0 58 93 / 8%),#fff,rgb(0 58 93 / 8%));
+        max-width: 60rem;
+    }
+}

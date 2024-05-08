@@ -246,7 +246,7 @@ const AppHeader = (props: any) => {
                 </div>
                 <div className="icons-section">
                     <div className="frm-icons featured-icons">
-                        <Language uiType={"icon"} />
+                        {/* <Language uiType={"icon"} /> */}
                         <IconButton aria-label="favorite" size="large" className="header-fav" title={`${t("Favorites")}`} onClick={handleClick}>
                             <img src={FavoriteSvg} alt="" />
                         </IconButton>

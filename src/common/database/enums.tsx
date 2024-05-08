@@ -18,7 +18,7 @@ export const MasterId = {
     UserRemovalRequest: 2027,
     UserAdditonal: 2030,
     OperatorRegistrationRequests: 2028,
-    Operators: 1011,
+    Customers: 1011,
     Contact: 2029,
     Correspondence: 2014,
     Announcements: 2015,
