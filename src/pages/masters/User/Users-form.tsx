@@ -19,16 +19,12 @@ import localStore from "../../../common/browserstore/localstore";
 import moment from 'moment';
 import CommonUtils from "../../../common/utils/common.utils";
 import ApiService from "../../../core/services/axios/api";
-
-interface Props {
-    userRoleChange: (optionValue: any) => void;
-    EntityAccess: (optionValue: any) => void;
-
-}
+import { MenuId } from "../../../common/database/enums";
+ 
 
 
 export const UserForm = (props: any) => {
-    const { userRoleChange, EntityAccess, modeViewAccess } = props;
+    const { userRoleChange, EntityAccess, modeViewAccess, usertypeChange, activeAction } = props;
     const {
         control,
         formState: { errors }, register, watch, setValue
@@ -69,13 +65,17 @@ export const UserForm = (props: any) => {
         responseEnum.Data.map((e: any) =>
             optionValue.push({ value: e.ENUM_ID, label: e.ENUM_NAME })
         );
-        setUserType(optionValue); 
+        if (activeAction.MenuId === MenuId.New) {
+            setValue("UserForm.UserType", optionValue[0].value);
+            chgUserRole(optionValue[0].value);
+        }
+        setUserType(optionValue);
     }
 
 
 
-    /* Read Customer List */ 
-    const readCustomerList = async() => { 
+    /* Read Customer List */
+    const readCustomerList = async () => {
         const payload = {
             Procedure: "APP_MASTER.FRANCHISE_LOOKUP_SPR",
             UserId,
@@ -87,7 +87,7 @@ export const UserForm = (props: any) => {
         response.Data.map((e: any) =>
             optionValue.push({ value: e.FRANCHISE_ID, label: e.FRANCHISE_NAME })
         );
-        setUserlist(optionValue); 
+        setUserlist(optionValue);
     }
 
     useEffect(() => {
@@ -105,18 +105,20 @@ export const UserForm = (props: any) => {
         }
     });
 
-    const chgUserRole = (event: any) => { 
+    const chgUserRole = (event: any, isDefaultEvent?:boolean) => { 
         if (event !== 31402) {
             setValue("UserForm.FranchiseID", null);
         }
         setSelectedUserRole(event);
-        userRoleChange(event);
+        const isChange = isDefaultEvent !== undefined ? isDefaultEvent : true; 
+        userRoleChange(event, isChange);
     };
 
-    useEffect(() => { 
-        const userType = watch("UserForm.UserType")
-        chgUserRole(userType);
-    }, [watch("UserForm.UserType")]); 
+    useEffect(() => {
+        if (usertypeChange) {
+            chgUserRole(usertypeChange, false);
+        }
+    }, [usertypeChange]);
 
     const chgAccessType = (event: any) => {
         EntityAccess(event);
@@ -141,7 +143,7 @@ export const UserForm = (props: any) => {
     const changePwd = (event: any) => {
         setPassWdChange(event);
     };
- 
+
 
     return (
         <>
@@ -190,7 +192,7 @@ export const UserForm = (props: any) => {
                         />
                     </Col>
 
- 
+
                     {
                         (selectedUserRole === 31402) &&
                         <Col md={12} className="mb-3">
@@ -203,7 +205,7 @@ export const UserForm = (props: any) => {
                                 onChange={chgAccessType}
                                 hideError={false}
                                 readOnly={modeViewAccess}
-                        />
+                            />
                         </Col>
                     }
 

@@ -81,8 +81,8 @@ const RequestInterceptor: React.FC<RequestInterceptorProps> = ({ children }: Req
                     RefreshToken: refreshToken
                 };
                 const refreshedTokenResponse = await ApiService.httpPost('user/renewToken', paramData);
-                localStore.addItem('frmAccessToken', refreshedTokenResponse.AccessToken);
-                localStore.addItem('frmRefreshToken', refreshedTokenResponse.RefreshToken);
+                localStore.addItem('helpdeskAccessToken', refreshedTokenResponse.AccessToken);
+                localStore.addItem('helpdeskRefreshToken', refreshedTokenResponse.RefreshToken);
                 return refreshedTokenResponse.AccessToken; 
             } catch (error: any) {
                 console.log('Error:', error.message);

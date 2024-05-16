@@ -213,7 +213,7 @@ export const AddCommentsDialog = (props: any) => {
                 LOG_TYPE: SaveCommentLogType(popupConfigurationView.MasterId),
                 FRANCHISE_ID: franchiseId ? franchiseId : null,
                 SEND_TO_CONFIGURED_ROLES: 0,
-                CONTENT_EDITOR_CULTURE_ID: data.LanguageSwitcher ? 1 : 0,
+                CONTENT_EDITOR_CULTURE_ID: 0, //data.LanguageSwitcher ? 1 : 0,
                 TRANS_CONTENT: data.TransContent,
                 TASK_ID: rowData.TASK_ID_ ? rowData.TASK_ID_ : null
             },
@@ -337,7 +337,7 @@ export const AddCommentsDialog = (props: any) => {
             <Dialog onClose={onCloseHandle}
                 open={open}
                 fullWidth={true}
-                maxWidth={'md'}
+                maxWidth={'xl'}
             >
                 <DialogTitle sx={{ m: 0, p: 2 }} className="dialog_title_wrapper">
                     <div className="add-comments-heading">
@@ -346,9 +346,9 @@ export const AddCommentsDialog = (props: any) => {
                             </span>
                         </p>
                         <div className="switch-lang">
-                            <div className="lang-name">{t("English")}</div>
+                          {/*   <div className="lang-name">{t("English")}</div>
                             <SwitchField name="LanguageSwitcher" control={control} label="" onChange={handleOnEditorChange} />
-                            <div className="lang-name">{t("Arabic")}</div>
+                            <div className="lang-name">{t("Arabic")}</div> */}
                         </div>
                     </div>
                     <IconButton
@@ -377,7 +377,7 @@ export const AddCommentsDialog = (props: any) => {
                         </div>
                     )}
                     <div className="dialog-body-sec dialog-with-drop">
-                        <LimitTagsGroupController
+                        {/* <LimitTagsGroupController
                             name="Receipts"
                             control={control}
                             label={t("Recipients")}
@@ -387,7 +387,7 @@ export const AddCommentsDialog = (props: any) => {
                             isOnchangeNew={false}
                             errors={errors}
                             optionList={optionsrecipts}
-                            handleAutocompleteChange={handleAutocompleteReceiptsChange} />
+                            handleAutocompleteChange={handleAutocompleteReceiptsChange} /> */}
 
                         <CorrespondanceEditorContext.Provider value={{ width: 800, height: 600 }}>
                             <TinyMceEditor

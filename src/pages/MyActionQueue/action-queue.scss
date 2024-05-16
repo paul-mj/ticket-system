@@ -1,4 +1,3 @@
-
 // Action Queue Styling
 
 .action-queue-wrap {
@@ -168,7 +167,7 @@
 
                 .action-item {
                     padding: 8px 4px 8px;
-                    font-size: 13px;
+                    font-size: 0.75rem;
                     font-weight: 500;
                     cursor: pointer;
 
@@ -207,7 +206,7 @@
 
                     .action-item {
                         padding: 8px 4px 8px;
-                        font-size: 13px;
+                        font-size: 0.75rem;
                         font-weight: 500;
 
                         .action-status {
@@ -266,31 +265,39 @@
 
     .action-table {
         .action-item:nth-child(1) {
-            width: 10%;
+            width: 12%;
         }
 
         .action-item:nth-child(2) {
-            width: 10%;
+            width: 11%;
         }
 
         .action-item:nth-child(3) {
-            width: 20%;
+            width: 16.5%;
         }
 
         .action-item:nth-child(4) {
-            width: 15%;
+            width: 11%;
         }
 
         .action-item:nth-child(5) {
-            width: 15%;
+            width: 13%;
         }
 
         .action-item:nth-child(6) {
-            width: 15%;
+            width: 11%;
+        }
+
+        .action-item:nth-child(7) {
+            width: 13.5%;
+        }
+
+        .action-item:nth-child(8) {
+            width: 11%;
         }
 
         .action-item:last-child {
-            width: 15%;
+            width: 11%;
         }
     }
 

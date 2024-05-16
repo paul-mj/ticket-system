@@ -36,7 +36,7 @@ const ViewHeader = ({ editFormattedData, showOrgin, headerName, masterId }: View
             {showOrgin && <div className="det-name">{t("Trans No:")} : <span className="transdata"> {editFormattedresponse?.TransNo}</span> </div>}
             {editFormattedresponse?.CreatedUser && <div className="det-name">{t("By")} : <span>{editFormattedresponse?.CreatedUser}</span> </div>}
 
-            {editFormattedresponse?.franchiseName && <div className="det-name">{t("Operator")} : <span>{editFormattedresponse?.franchiseName}</span> </div>}
+            {editFormattedresponse?.franchiseName && <div className="det-name">{t("Customer")} : <span>{editFormattedresponse?.franchiseName}</span> </div>}
 
 
             {editFormattedresponse?.TransDate && <div className="det-name">{t("On")} : <span><FormatDate date={editFormattedresponse?.TransDate} /></span> </div>}

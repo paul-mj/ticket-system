@@ -190,34 +190,11 @@ const DxGridActions: React.FC<any> = (props) => {
                 description: `${t("Edit is not allowed in this stage")}`,
                 confirmBtnLabel: `${t('Close')}`,
             });
-        } else {
-            /* const popupConfig = popupComponent(activeDetails[0].Master, actionMenu);
-            setrowDataValue(props.rowData)
-            if (!isObjectEmpty(popupConfig)) {
-                setOpen(true);
-                setPopupConfiguration(popupConfig);
-            } */
+        } else { 
             pageviewerDialog(actionMenu);
         }
     }
-
-    /* const ToggleStatus = async (actionMenu: any) => { 
-        const popupConfig = popupComponent(activeDetails[0].Master, actionMenu, props.rowData);
-        setrowDataValue(props.rowData)
-        if (!isObjectEmpty(popupConfig)) {
-            setOpen(true);
-            setPopupConfiguration(popupConfig);
-        }
-    }
-
-    const ViewGridRow = async (actionMenu: any) => { 
-        const popupConfig = popupComponent(activeDetails[0].Master, actionMenu, props.rowData);
-        setrowDataValue(props.rowData)
-        if (!isObjectEmpty(popupConfig)) {
-            setOpen(true);
-            setPopupConfiguration(popupConfig);
-        }
-    } */
+ 
 
     const pageviewerDialog = (actionMenu: any) => {
         const popupConfig = popupComponent(activeDetails[0].Master, actionMenu, props.rowData);

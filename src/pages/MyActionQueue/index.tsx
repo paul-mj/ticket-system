@@ -26,7 +26,9 @@ const SortObject = {
     "REQ_TYPE_NAME": false,
     "dt_STATUS_TIME": false,
     "TRANS_DATE": false,
-    "TRANS_NO": false
+    "TRANS_NO": false,
+    'ASSIGNED_USER': false,
+    'CUSTOMER_NAME': false
 }
 
 const MyActionQueue = () => {
@@ -331,31 +333,39 @@ const MyActionQueue = () => {
                         <div className="table-sec-header">
                             <div className="action-item" onClick={() => sortAlphabetical('REQ_TYPE_NAME')}>
                                 {t("Request Type")}
-                                <img src={objSort.REQ_TYPE_NAME ? Asc : Des} alt="" />
+                                <img src={objSort.REQ_TYPE_NAME ? Asc : Des} alt="" className="mx-2" />
                             </div>
                             <div className="action-item" onClick={() => sortAlphabetical('TRANS_NO')}>
                                 {t("Trans No")}
-                                <img src={objSort.TRANS_NO ? Asc : Des} alt="" />
+                                <img src={objSort.TRANS_NO ? Asc : Des} alt="" className="mx-2" />
                             </div>
                             <div className="action-item" onClick={() => sortAlphabetical('SUBJECT_TEXT')}>
                                 {t("Subject")}
-                                <img src={objSort.SUBJECT_TEXT ? Asc : Des} alt="" />
+                                <img src={objSort.SUBJECT_TEXT ? Asc : Des} alt="" className="mx-2" />
                             </div>
                             <div className="action-item" onClick={() => sortAlphabetical('TRANS_DATE')}>
                                 {t("Trans Date")}
-                                <img src={objSort.TRANS_DATE ? Asc : Des} alt="" />
+                                <img src={objSort.TRANS_DATE ? Asc : Des} alt="" className="mx-2" />
                             </div>
-                            <div className="action-item" onClick={() => sortAlphabetical('NEXT_ACTION')}>
+                           {/*  <div className="action-item" onClick={() => sortAlphabetical('NEXT_ACTION')}>
                                 {t("Next Action")}
-                                <img src={objSort.NEXT_ACTION ? Asc : Des} alt="" />
-                            </div>
+                                <img src={objSort.NEXT_ACTION ? Asc : Des} alt="" className="mx-2" />
+                            </div> */}
                             <div className="action-item" onClick={() => sortAlphabetical('CUR_STATUS_NAME')} >
                                 {t("Current Status")}
-                                <img src={objSort.CUR_STATUS_NAME ? Asc : Des} alt="" />
+                                <img src={objSort.CUR_STATUS_NAME ? Asc : Des} alt="" className="mx-2" />
+                            </div>
+                            <div className="action-item" onClick={() => sortAlphabetical('ASSIGNED_USER')} >
+                                {t("Action Owner")}
+                                <img src={objSort.ASSIGNED_USER ? Asc : Des} alt="" className="mx-2" />
+                            </div>
+                            <div className="action-item" onClick={() => sortAlphabetical('CUSTOMER_NAME')} >
+                                {t("Customer")}
+                                <img src={objSort.CUSTOMER_NAME ? Asc : Des} alt="" className="mx-2" />
                             </div>
                             <div className="action-item" onClick={() => sortAlphabetical('dt_STATUS_TIME')}>
                                 {t("Status Time")}
-                                <img src={objSort.dt_STATUS_TIME ? Asc : Des} alt="" />
+                                <img src={objSort.dt_STATUS_TIME ? Asc : Des} alt="" className="mx-2" />
                             </div>
                         </div>
                         {/* {JSON.stringify(arraygridData)} */}
@@ -377,17 +387,26 @@ const MyActionQueue = () => {
                                         {new Date(item.TRANS_DATE).toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" }).split('/').join('-')}
                                     </div>
 
-                                    <div className="action-item">
+                                   {/*  <div className="action-item">
                                         <div className={`action-status ${item.NEXT_ACTION === 'Publishing' ? 'publishing-class' : item.NEXT_ACTION === 'Approval' ? 'approval-class' : ''}`}>
                                             {item.NEXT_ACTION}
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="action-item">
                                         <div className="action-status-user">
                                             <div className="action-user-name">{item.CUR_STATUS_NAME}</div>
                                         </div>
+                                    </div> 
+                                    <div className="action-item">
+                                        <div className="subject-txt">
+                                            {item.ASSIGNED_USER}
+                                        </div>
                                     </div>
-
+                                    <div className="action-item">
+                                        <div className="subject-txt">
+                                            {item.CUSTOMER_NAME}
+                                        </div>
+                                    </div> 
                                     <div className="action-item">
                                         {new Date(item.dt_STATUS_TIME).toLocaleString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: true }).split('/').join('-')}
                                     </div>

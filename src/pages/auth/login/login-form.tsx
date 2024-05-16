@@ -52,7 +52,7 @@ const LoginScreen = ({ onOTPTrigger }: any) => {
     const location = useLocation();
     useEffect(() => {
         getDomainList();
-        setIsOperatorLogin(location.pathname === '/auth/operatorlogin' ? true : false);
+        setIsOperatorLogin(location.pathname === '/auth/login' ? true : false);
     }, []);
 
     const { t, i18n } = useTranslation();
@@ -106,9 +106,9 @@ const LoginScreen = ({ onOTPTrigger }: any) => {
             if (Data.TwoFactorAuthentication) {
                 onOTPTrigger(loginResponse);
             } else {
-                localStore.addItem('frmAccessToken', loginResponse.Tokens.AccessToken);
-                localStore.addItem('frmRefreshToken', loginResponse.Tokens.RefreshToken);
-                localStore.addItem('frmLoginData', JSON.stringify(loginResponse.Data));
+                localStore.addItem('helpdeskAccessToken', loginResponse.Tokens.AccessToken);
+                localStore.addItem('helpdeskRefreshToken', loginResponse.Tokens.RefreshToken);
+                localStore.addItem('helpdeskLoginData', JSON.stringify(loginResponse.Data));
                 navigate(`/dashboard`);
             }
             setIsLoading(false);

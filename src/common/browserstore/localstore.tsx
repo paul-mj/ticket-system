@@ -1,9 +1,9 @@
 
 
-const FRM_TOKEN = 'frmAccessToken';
+const FRM_TOKEN = 'helpdeskAccessToken';
 const FRM_OPERATOR_TOKEN = 'frmOperatorToken';
-const FRM_REFRESH_TOKEN = 'frmRefreshToken';
-const FRM_LOGGED_DATA = 'frmLoginData';
+const FRM_REFRESH_TOKEN = 'helpdeskRefreshToken';
+const FRM_LOGGED_DATA = 'helpdeskLoginData';
 
 /* For Localstorage */
 const addItem = (key: any, value: any) => {

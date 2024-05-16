@@ -42,15 +42,15 @@ api.interceptors.response.use((response) => {
         };
 
         try {
-            const response = await axios.post('user/renewToken', param, { headers: { 'frmRefreshToken': refreshToken } });
-            const frmAccessToken = response.data.AccessToken;
-            const frmRefreshToken = response.data.RefreshToken;
+            const response = await axios.post('user/renewToken', param, { headers: { 'helpdeskRefreshToken': refreshToken } });
+            const helpdeskAccessToken = response.data.AccessToken;
+            const helpdeskRefreshToken = response.data.RefreshToken;
 
-            localStore.addItem('frmAccessToken', frmAccessToken);
-            localStore.addItem('frmRefreshToken', frmRefreshToken);
+            localStore.addItem('helpdeskAccessToken', helpdeskAccessToken);
+            localStore.addItem('helpdeskRefreshToken', helpdeskRefreshToken);
 
-            api.defaults.headers.common['Authorization'] = 'Bearer ' + frmAccessToken;
-            originalRequest.headers['Authorization'] = 'Bearer ' + frmAccessToken;
+            api.defaults.headers.common['Authorization'] = 'Bearer ' + helpdeskAccessToken;
+            originalRequest.headers['Authorization'] = 'Bearer ' + helpdeskAccessToken;
 
             return api(originalRequest);
         } catch (error) {

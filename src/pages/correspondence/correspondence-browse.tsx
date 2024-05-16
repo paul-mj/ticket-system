@@ -59,6 +59,7 @@ type Image = {
 
 const CorrespondenceBrowse = (props: any) => {
     const { onCloseDialog, popupConfiguration } = props;
+    const { userType } = CommonUtils.userInfo;
     const confirm = useConfirm();
     const { t, i18n } = useTranslation();
     const { rowData, activeAction } = useContext(fullViewRowDataContext);
@@ -107,21 +108,24 @@ const CorrespondenceBrowse = (props: any) => {
         application: [],
         sequence: [],
         transSubType: [],
+        Customers: [],
+        Users: []
     });
     const [dialogLoader, setDialogLoader] = useState<any>(false);
     const handleSwitchChange = (checked: any) => {
         console.log(checked);
     };
     let templateSchema: any;
+    console.log(USER_TYPE, 'USER_TYPE USER_TYPE USER_TYPE USER_TYPE USER_TYPE USER_TYPE USER_TYPE USER_TYPE')
     if (USER_TYPE === UserType.ITC) {
         templateSchema = {
             ...CorrespondanceSchema.TemplateSchema(initialApiDropdownResponse),
-            ...CorrespondanceSchema.ItcSchema(),
+            ...CorrespondanceSchema.ItcSchema(initialApiDropdownResponse),
         };
     } else {
         templateSchema = {
             ...CorrespondanceSchema.TemplateSchema(initialApiDropdownResponse),
-            ...CorrespondanceSchema.FranchiseSchema(),
+            ...CorrespondanceSchema.FranchiseSchema(initialApiDropdownResponse),
         };
     }
     const emailSchema = yup.object().shape({
@@ -246,8 +250,12 @@ const CorrespondenceBrowse = (props: any) => {
             CultureId: lang,
             Criteria:[]
         }
-
-
+        const CustomersParam = {
+            Procedure:"APP_MASTER.FRANCHISE_LOOKUP_SPR",
+            UserId: userID,
+            CultureId: lang,
+            Criteria:[]
+        } 
 
         axios.all([
             /* ApiService.httpPost(API.transaction.getOperators, operatorDropdownParam), */
@@ -264,10 +272,11 @@ const CorrespondenceBrowse = (props: any) => {
             ApiService.httpPost(API.getEnums, sequenceParams),
             ApiService.httpPost(API.getTable, transSubType),
             ApiService.httpPost(API.getTable, operators),
+            ApiService.httpPost(API.getTable, CustomersParam),
         ])
             .then((responses: any) => {
                 console.log(responses, 'api responses');
-                const [tags, relatedItems, recipients, priority, reminder, department, location, buttons, requests, application, sequences, transSubType, operators] = responses;
+                const [tags, relatedItems, recipients, priority, reminder, department, location, buttons, requests, application, sequences, transSubType, operators, Customers] = responses;
                 setInitialApiDropdownResponse({
                     /* operator: operators.items?.length ? operators.items : [], */
                     operator: operators.Data?.length ? formatAutoCompleteOptionsArray(operators.Data, 'FRANCHISE_NAME', 'FRANCHISE_ID') : [],
@@ -283,6 +292,7 @@ const CorrespondenceBrowse = (props: any) => {
                     application: application.Data?.length ? formatAutoCompleteOptionsArray(application.Data, 'OBJECT_NAME', 'OBJECT_ID') : [],
                     sequence: sequences.Data?.length ? formatAutoCompleteOptionsArray(sequences.Data, 'ENUM_NAME', 'ENUM_ID') : [],
                     transSubType: transSubType.Data?.length ? formatAutoCompleteOptionsArray(transSubType.Data, 'ENUM_NAME', 'ENUM_ID') : [],
+                    Customers: transSubType.Data?.length ? formatAutoCompleteOptionsArray(Customers.Data, 'FRANCHISE_NAME', 'FRANCHISE_ID') : [], 
                 });
                 console.log(buttons);
                 setButtonList(buttons.Data);
@@ -296,6 +306,24 @@ const CorrespondenceBrowse = (props: any) => {
             .catch((error: Error) => {
                 setDialogLoader(false)
             });
+    }
+
+    const onchnageCustomerSelect = async (event: any) => { 
+        const CustomersParam = {
+            Procedure:"FRM_TRANS.CUSTOMER_USERS_SPR",
+            UserId: userID,
+            CultureId: lang,
+            Criteria: [{
+                Name: "@CUSTOMER_ID",
+                Value: event,
+                IsArray: false
+            }]
+        };
+        const userList = await ApiService.httpPost(API.getTable, CustomersParam);   
+        setInitialApiDropdownResponse((prevValue: any) => ({
+            ...prevValue,
+            Users: userList.Data?.length ? formatAutoCompleteOptionsArray(userList.Data, 'USER_NAME', 'USER_ID') : [],
+        }));
     }
 
 
@@ -332,7 +360,10 @@ const CorrespondenceBrowse = (props: any) => {
         }
         try {
             const responses: any = await axios.all(Fork);
-            const [editHeader, editTasks, editTags, editRelations, editAttachments, recipientsParam, editDocs, operator] = responses;
+            const [editHeader, editTasks, editTags, editRelations, editAttachments, recipientsParam, editDocs, operator] = responses; 
+
+            onchnageCustomerSelect(editHeader.Data[0].FRANCHISE_ID);
+
             setEditResponse({
                 tags: editTags?.Data,
                 relations: editRelations?.Data,
@@ -343,7 +374,7 @@ const CorrespondenceBrowse = (props: any) => {
                 Operator: getMarkedOperatorIds(operator?.items),
             });
             taskWithAttachmentsFormatter(editTasks?.Data, editAttachments?.Data)
-            const formattedResponse: any = popupConfiguration.MasterId === MasterId.Tasks ? TaskEditFormatter(responses) : MailEditFormatter(responses);
+            const formattedResponse: any =  MailEditFormatter(responses, userType);
             setEditFormattedresponse(formattedResponse);
             methods.reset(formattedResponse);
             setDialogLoader(false);
@@ -490,6 +521,8 @@ const CorrespondenceBrowse = (props: any) => {
 
     const saveMail = async (id: number, data: any) => {
         console.log(data, 'data inside')
+  
+
         data.TransContent = await CommonUtils.convertMSO(data.TransContent)
         const attachmentsArray: any = [];
         taskList.forEach(obj => {
@@ -498,16 +531,21 @@ const CorrespondenceBrowse = (props: any) => {
             });
         });
         const mergedAttachments = [...attachmentsArray, ...data.Attachments];
-        setSaveLoader(true);
+        setSaveLoader(true); 
+
+        const usrId = ((userType === UserType.ITC) && data.Users) ?  data.Users : userID; 
+        const franshiseId = (data?.Customers) ? data?.Customers : (Franchise_id) ? Franchise_id : null;
+
         const json = {
-            UserId: userID,
+            UserId: usrId,
+            ActCrUserId: userID,
             StatusId: id,
             CultureId: lang,
             TestMailId: data?.email ? data?.email : null,
             Data: {
                 TRANS_ID: rowData ? rowData?.ID_ : -1,
                 SERVICE_TYPE: SaveMailServiceType(USER_TYPE, popupConfiguration.MasterId),
-                FRANCHISE_ID: Franchise_id ? Franchise_id : null,
+                FRANCHISE_ID: franshiseId,
                 REF_TRANS_ID: null,
                 REF_NO: data.ReferenceNumber ? data.ReferenceNumber : "",
                 SUBJECT_TEXT: data?.Subject ? data?.Subject : "",
@@ -528,7 +566,7 @@ const CorrespondenceBrowse = (props: any) => {
                 TASK_SEQUENCE: 30301,
                 LOCATION_ID: data?.Location ? data?.Location : null,
                 SEND_TO_CONFIGURED_ROLES: Number(data?.configureRole),
-                CONTENT_EDITOR_CULTURE_ID: data?.editorLang ? 1 : 0,
+                CONTENT_EDITOR_CULTURE_ID: 0, //data?.editorLang ? 1 : 0,
                 LOCATION_DESCR: data?.LocationDECR ? data?.LocationDECR : "",
                 TRANS_CONTENT: (popupConfiguration?.MasterId !== MasterId.Tasks && data.TransContent) ? data.TransContent : "",
                 REQUEST_TYPE_ID: data.RequestType ? data.RequestType : null,
@@ -543,11 +581,11 @@ const CorrespondenceBrowse = (props: any) => {
             Recipients: generateRecipients(data),
             Attachments: FormattedAttachmentList(mergedAttachments),
             Docs: FormattedDocs(data?.Docs)
-        }
-
-        console.log(json);
+        } 
+        console.log(json)
 
         const response = await ApiService.httpPost(API.transaction.save, json);
+
         if (response.Id > 0) {
             setMailSuccess(response?.Message);
             methods.reset(CorrespondanceDefaultValue.DefaultValue());
@@ -687,6 +725,7 @@ const CorrespondenceBrowse = (props: any) => {
                                     initialApiDropdownResponse={initialApiDropdownResponse}
                                     USER_TYPE={USER_TYPE}
                                     MasterIdProp={popupConfiguration.MasterId}
+                                    onchnageCustomer={onchnageCustomerSelect}
                                 />
                             </CorrespondanceEditorContext.Provider>
                         </form>
@@ -766,7 +805,7 @@ const CorrespondenceBrowse = (props: any) => {
                     </div>
                     <div className="crr-btn-section-wrap">
                         <TextCurvedCloseButton onClick={() => onCloseDialog(true)} />
-                        {
+                        {/* {
                             buttonList?.length ? (
                                 buttonList.map((x: any) => (
                                     <Button
@@ -782,7 +821,16 @@ const CorrespondenceBrowse = (props: any) => {
                             ) : (
                                 <p> </p>
                             )
-                        }
+                        } */}
+                        <Button
+                                        key={1}
+                                        type="submit"
+                                        variant="contained"
+                                        className={`colored-btn mx-2 `}
+                                        onClick={methods.handleSubmit(onSubmit(12), onError)}
+                                    >
+                                        test bttn
+                                    </Button>
                     </div>
                 </div>
             </DialogActions>

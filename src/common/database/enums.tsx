@@ -26,7 +26,7 @@ export const MasterId = {
     Tasks: 2031,
     Resolutions: 2032,
     Events: 2033, 
-    Requests: 2034,  
+    Requests: 2034,   
     Meetings: 2035,  
     Mailtemplate:2036,
     Communication:2037,  
@@ -104,8 +104,8 @@ export const CriteriaInputMode = Object.freeze({
     Other: 3
 });
 export const UserType = {
-    ITC: 31401,
-    Franchise: 31402
+    ITC: 31401, //	Organization User	
+    Franchise: 31402 //Customer User
 }
  export const sideBarMenu = {
     Report: 13

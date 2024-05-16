@@ -102,8 +102,8 @@ type Anchor = "right" | "left";
 
 
 const CorrespondenceForm = (props: any) => {
-    const { isTinyExpanded, tinyLanguage, resetTinyExpansion, onImagesChange, resetChildItems, currentPage, popupConfiguration, schema, initialApiDropdownResponse, USER_TYPE, MasterIdProp } = props;
-
+    const { isTinyExpanded, tinyLanguage, resetTinyExpansion, onImagesChange, resetChildItems, currentPage, popupConfiguration, schema, initialApiDropdownResponse, USER_TYPE, MasterIdProp, onchnageCustomer } = props;
+ 
     const fields = Object.keys(schema.fields);
     const { t, i18n } = useTranslation();
     const currLang = i18n.dir();
@@ -318,7 +318,6 @@ const CorrespondenceForm = (props: any) => {
     const isApplicationControl = (requestType: any, requestList: any) => {
         const foundObject = requestList.find((item: any) => item.OBJECT_ID === Number(requestType));
         const found = foundObject ? foundObject.OBJECT_TYPE === 33102 : null;
-
         return found || false;
     };
 
@@ -376,7 +375,7 @@ const CorrespondenceForm = (props: any) => {
                                     hideError={true}
                                 />
                             </Col>
-                        )}
+                        )} 
 
 
 
@@ -547,9 +546,33 @@ const CorrespondenceForm = (props: any) => {
                                 />
                             </Col>
                         )}
+  
+                        {fields.includes('Customers') && (
+                            <Col md={2} className="mb-3">
+                                <FormInputSelect
+                                    name="Customers"
+                                    control={control}
+                                    label={t("Customers")}
+                                    options={initialApiDropdownResponse.Customers}
+                                    onChange={onchnageCustomer}
+                                    errors={errors}
+                                    hideError={true}
+                                />
+                            </Col>
+                        )} 
 
-
-
+                        {(fields.includes('Customers') && fields.includes('Users')) && (
+                            <Col md={2} className="mb-3">
+                                <FormInputSelect
+                                    name="Users"
+                                    control={control}
+                                    label={t("Users")}
+                                    options={initialApiDropdownResponse.Users}
+                                    errors={errors}
+                                    hideError={true}
+                                />
+                            </Col>
+                        )} 
 
                         {fields.includes('Schedule') && (
                             <Col md={1} className="mb-3 red">

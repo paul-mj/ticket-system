@@ -81,13 +81,14 @@ const FullviewToolbar: React.FC<any> = ({ searchText, setSearchText, onExport, o
                         (item: any) => item.MenuId === MenuId.New
                     )
                 );
-                let isincluded = true;
+                /* let isincluded = true;
                 if (userType === UserType.ITC) {
                     isincluded = AppConfigs.newButtonDisabledMastersITC.includes(activeDetails[0].Master.MASTER_ID)
                 } else if (userType === UserType.Franchise) {
                     isincluded = AppConfigs.newButtonDisabledMastersFranchise.includes(activeDetails[0].Master.MASTER_ID)
                 }
-                setIsNewMenu(isNewMenu && !isincluded);
+                setIsNewMenu(isNewMenu && !isincluded); */
+                setIsNewMenu(isNewMenu);
             }
             const isFilter = activeDetails[0].Criteria?.length && activeDetails[0].Criteria?.some((criteria: any, index: number) => criteria.ShowInEditor === 1);
             setisFullViewFilter(isFilter);
@@ -222,7 +223,7 @@ const FullviewToolbar: React.FC<any> = ({ searchText, setSearchText, onExport, o
                             </IconButton>
                         </div>
                         {isNewMenu && (
-                            <div className="add-button-outer">
+                            <div className="add-button-outer"> 
                                 <div className="">
                                     <div className="frm-toolbar-icons">
                                         <TextIconAnimButton icon={AddOutlinedIcon} text={`${t("Add New")}`} onClick={handleClickCreateNew} fontSize="9px" />
@@ -304,7 +305,7 @@ const FullviewToolbar: React.FC<any> = ({ searchText, setSearchText, onExport, o
                 }}
             >
                 <DxGridFilter handleCloseFilter={handleCloseDrawer} CriteriaDetails={criteriaDetails} ActiveDetails={activeDetails} />
-            </Drawer>
+            </Drawer> 
             <fullViewRowDataContext.Provider value={fullViewContext}>
                 {popupConfiguration && (
                     <PageViewer

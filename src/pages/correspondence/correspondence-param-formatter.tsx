@@ -254,6 +254,8 @@ interface MailEditValues {
     to: any;
     cc: any;
     TaskSubType?: any;
+    Customers?: any;
+    Users?: any;
 }
 
 
@@ -321,13 +323,9 @@ export const TaskEditFormatter = (responses: any) => {
 }
 
 
-export const MailEditFormatter = (responses: any) => {
+export const MailEditFormatter = (responses: any, userType: any) => {
     const [editHeader, editTasks, editTags, editRelations, editAttachments, recipientsParam, editDocs, operator] = responses;
-    /* const updatedData = editRelations?.Data.map((obj: any) => ({...obj, DESCR: "new description"}));
-    console.log(editRelations.Data, 'related'); */
-
-    /*  console.log(relatedFormattedResponse(recipientsParam?.Data), 'relatedFormattedResponse (recipientsParam?.Data)'); */
-    console.log(operator?.items, 'operator?.items operator?.items operator?.items operator?.items operator?.items')
+ 
     const headerResponse = editHeader.Data[0];
     const editValue: MailEditValues = {
         ReferenceNumber: headerResponse.REF_NO,
@@ -379,7 +377,9 @@ export const MailEditFormatter = (responses: any) => {
         sequence: headerResponse.TASK_SEQUENCE,
         tasklistLength: editTasks?.Data ? editTasks?.Data?.length : 0,
         Schedule: headerResponse?.IS_SCHEDULE === 1 ? true : false,
-        ScheduleDate: headerResponse?.SCHEDULED_DATE,
+        ScheduleDate: headerResponse?.SCHEDULED_DATE, 
+        Customers: headerResponse?.FRANCHISE_ID,
+        Users: headerResponse?.USER_ID,
         /* to: recipientsParam?.Data.filter((x: any) => x.MAIL_TO_CC_BCC_FLAG === 31501 ? x.ID : null),
         cc: recipientsParam?.Data.filter((x: any) => x.MAIL_TO_CC_BCC_FLAG === 31502 ? x.ID : null) */
         to: recipientsParam?.Data?.length ? relatedFormattedResponse(recipientsParam?.Data).filter((x: any) => x.MAIL_TO_CC_BCC_FLAG === 31501) : [],

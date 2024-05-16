@@ -8,7 +8,7 @@ import {
 import { Col, Row } from "react-bootstrap";
 import CloseIcon from "@mui/icons-material/Close";
 import PixOutlinedIcon from "@mui/icons-material/PixOutlined";
-import { FormProvider,  useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useSelector } from "react-redux";
@@ -17,7 +17,7 @@ import ApiService from "../../../core/services/axios/api";
 import axios from "axios";
 import { UserForm } from "./Users-form";
 import { UserRights } from "./User-rights";
-import {  userGetUserRoles, userSave, userSubEntity } from "../../../common/api/masters.api";
+import { userGetUserRoles, userSave, userSubEntity } from "../../../common/api/masters.api";
 import { toast } from "react-toastify";
 import { MasterId, MenuId, fullGridDataAction } from "../../../common/database/enums";
 import { fullViewRowDataContext } from "../../../common/providers/viewProvider";
@@ -57,8 +57,8 @@ const defValues = {
 };
 
 export const UserFormCreation = (props: any) => {
-    const { onCloseDialog, popupConfiguration } = props;  
-    const { t, i18n } = useTranslation(); 
+    const { onCloseDialog, popupConfiguration } = props;
+    const { t, i18n } = useTranslation();
     const currentPage = popupConfiguration && popupConfiguration.action.MenuId;
     const { gridActionChangeEvent } = useContext(DataGridActionContext);
     const { activeDetails } = useSelector(
@@ -74,22 +74,22 @@ export const UserFormCreation = (props: any) => {
             EntityAccessType: yup.string().required(""),
             FullName: yup.string().required(""),
             MailID: yup.string().email("Enter Valid Email").optional(),
-            FullNameAr: yup.string().required(""),  
+            FullNameAr: yup.string().required(""),
             UserType: yup.number().required(),
-            FranchiseID: yup.number().transform((value) => Number.isNaN(value) ? null : value ).when(['UserType'], {
-                is: ((userType: any) =>  {
+            FranchiseID: yup.number().transform((value) => Number.isNaN(value) ? null : value).when(['UserType'], {
+                is: ((userType: any) => {
                     console.log(userType);
                     return userType === 31402;
                 }),
                 then: yup.number().required("Franchise ID is required"),
                 otherwise: yup.number().nullable()
             }),
-        }), 
+        }),
     });
-    
+
     const [subEntity, setSubEntity] = useState([]);
     const [role, setRole] = useState([]);
-    const [roleChange, setRoleChange] = useState<number>(31401)
+    const [roleChange, setRoleChange] = useState<number>()
     const [entitySelected, setEntitySelected] = useState([]);
     const [rolesSelected, setRolesSelected] = useState([]);
     const { rowData, activeAction } = useContext(fullViewRowDataContext);
@@ -104,6 +104,8 @@ export const UserFormCreation = (props: any) => {
     const confirm = useConfirm();
     const [selectedRoleRowKeys, setSelectedRoleRowKeys] = useState<any>([]);
     const [selectedEntityRowKeys, setSelectedEntityRowKeys] = useState<any>([]);
+
+
     const SubEntityRet = (e: any) => {
         setEntitySelected(e)
     }
@@ -118,15 +120,16 @@ export const UserFormCreation = (props: any) => {
 
     });
 
-
     useEffect(() => {
         if (activeAction.MenuId === MenuId.Edit || activeAction.MenuId === MenuId.View) {
             readEditValue();
+            /*  userRolesOnType(); */
         }
         else {
-            userRolesOnType(roleChange);
+            /* userRolesOnType(roleChange); */
             subEntityValue();
         }
+
     }, []);
 
     const fullviewRowAddUpdate = (responseId: number) => {
@@ -137,22 +140,22 @@ export const UserFormCreation = (props: any) => {
                     ? fullGridDataAction.InsertRow
                     : fullGridDataAction.UpdateRow,
         });
-      //  onCloseDialog(true);
+        //  onCloseDialog(true);
     };
 
     const readEditValue = async () => {
         if (activeAction.MenuId === MenuId.View) {
-            setViewMenu(true);           
+            setViewMenu(true);
         }
         const Param = {
             MasterId: activeDetails[0]?.Master.MASTER_ID,
             ObjectId: rowData.ID_,
             UserId: userID
         }
-        const RoleParam = {
-            CultureId: lang,
-            UserId: rowData.ID_
-        }
+        /*  const RoleParam = {
+             CultureId: lang,
+             UserId: rowData.ID_
+         } */
         const EntityParam = {
             Id: rowData.ID_,
             CultureId: lang
@@ -160,17 +163,18 @@ export const UserFormCreation = (props: any) => {
 
         try {
 
-            const [responseUser, responseRole, responseEntity] = await axios.all([
+            const [responseUser, /* responseRole, */ responseEntity] = await axios.all([
                 ApiService.httpPost('user/read', Param),
-                ApiService.httpPost(`user/getUserRoles`, RoleParam),
+                /* ApiService.httpPost(`user/getUserRoles`, RoleParam), */
                 ApiService.httpPost(`user/getSubEntities`, EntityParam)
             ]);
-            setRole(responseRole?.Data)
-            setSelectedRoleRowKeys(responseRole?.Data.filter((e: any) => e.IS_MARKED === 1).map((e: any) => e.ID_))
-
+            /*  setRole(responseRole?.Data)
+             setSelectedRoleRowKeys(responseRole?.Data.filter((e: any) => e.IS_MARKED === 1).map((e: any) => e.ID_))
+  */
             setSubEntity(responseEntity?.Data)
-            setSelectedEntityRowKeys(responseEntity?.Data.filter((e: any) => e.IS_MARKED === 1).map((e: any) => e.ID_))
+            setSelectedEntityRowKeys(responseEntity?.Data.filter((e: any) => e.IS_MARKED === 1).map((e: any) => e.ID_));
             methods.reset(FillEditData(responseUser?.Data));
+            setRoleChange(responseUser?.Data.USER_TYPE)
             setExpiryPWD(responseUser?.Data?.IS_PWD_EXPIRES)
             setEditValue(true);
         }
@@ -221,18 +225,25 @@ export const UserFormCreation = (props: any) => {
         }
     };
 
-    const userRolesOnType = async (e: any) => {
-        const param = {
-            CultureId: lang,
-            TypeId: e,
-            UserId: -1
+    const userRolesOnType = async (e: any, isSelectionChange?: boolean) => {
+
+        let param = {} 
+        if (activeAction.MenuId === MenuId.New) {
+            param = { CultureId: lang, TypeId: e, UserId: -1 }
+        } else if (activeAction.MenuId === MenuId.Edit) {
+            if (isSelectionChange) {
+                param = { CultureId: lang, TypeId: e }
+            } else {
+                param = { CultureId: lang, UserId: rowData?.ID_ }
+            }
+        } else {
+            param = { CultureId: lang, UserId: rowData?.ID_ }
         }
-        console.log(param);
+
         try {
             const rolesResponse = await userGetUserRoles(param);
-            console.log(rolesResponse);
-            setRole(rolesResponse.Valid > 0 ? rolesResponse.Data : null)
-
+            setRole(rolesResponse.Valid > 0 ? rolesResponse.Data : null);
+            setSelectedRoleRowKeys(rolesResponse.Data.filter((e: any) => e.IS_MARKED === 1).map((e: any) => e.ID_))
         }
         catch (error: any) {
             toast.error(error?.message);
@@ -240,15 +251,15 @@ export const UserFormCreation = (props: any) => {
     };
 
 
-    const entityAccssType = (e: any) => { 
+    const entityAccssType = (e: any) => {
         if (e === 31301) {
             setEntityVisible(false);
         }
         else { setEntityVisible(true); }
     }
 
-    const userRoleChangeApi = (e: any) => {
-        userRolesOnType(e)
+    const userRoleChangeApi = (e: any, isSelectionChange: boolean) => {
+        userRolesOnType(e, isSelectionChange)
     }
 
 
@@ -269,15 +280,15 @@ export const UserFormCreation = (props: any) => {
             entitySelected?.map((e: any) => SubEntityArray.push(e?.ID_));
         }
         rolesSelected?.map((e: any) => RolesArray.push(e?.ID_));
-        
-        const PWD_EXPIRY_DATE = data?.UserForm?.PwdExprireDate? new Date(data?.UserForm?.PwdExprireDate).toDateString() : null
-      
+
+        const PWD_EXPIRY_DATE = data?.UserForm?.PwdExprireDate ? new Date(data?.UserForm?.PwdExprireDate).toDateString() : null
+
         const param = {
             MasterId: MasterId.UserID,
             UserId: userID,
             SubEntities: SubEntityArray,
             Roles: RolesArray,
-           
+
             Data: {
 
                 USER_ID: editValue ? rowData.ID_ : -1,
@@ -300,7 +311,7 @@ export const UserFormCreation = (props: any) => {
                 FRANCHISE_ID: data?.UserForm?.FranchiseID
             }
         }
-        
+
         const choice = await confirm({
             ui: 'confirmation',
             title: `${t('You Are About To Save')}`,
@@ -366,15 +377,17 @@ export const UserFormCreation = (props: any) => {
                             <div className="outlined-box mb-3 px-3 h-100">
                                 <h5 className="outlined-box-head my-3">
                                     {t("User Details")}
-                                </h5> 
+                                </h5>
                                 <Row>
-                                    <UserForm userRoleChange={userRoleChangeApi} 
-                                    EntityAccess={entityAccssType}  
-                                    modeViewAccess={viewMenu} />
+                                    <UserForm userRoleChange={userRoleChangeApi}
+                                        EntityAccess={entityAccssType}
+                                        modeViewAccess={viewMenu}
+                                        usertypeChange={roleChange}
+                                        activeAction={activeAction} />
                                 </Row>
                             </div>
                         </Col>
-                        <Col md={6} > 
+                        <Col md={6} >
                             <div className="outlined-box pb-3 px-3 h-100">
                                 <h5 className="outlined-box-head my-3">
                                     {t("User Rights")}
@@ -382,10 +395,10 @@ export const UserFormCreation = (props: any) => {
                                 <Row>
                                     <UserRights
                                         roles={role}
-                                        subentities={subEntity}                                        
+                                        subentities={subEntity}
                                         RoleRet={RoleRet}
                                         SubEntityRet={SubEntityRet}
-                                        accessEntity={entityVisible}                                        
+                                        accessEntity={entityVisible}
                                         modeView={viewMenu}
                                     />
                                 </Row>
@@ -407,7 +420,7 @@ export const UserFormCreation = (props: any) => {
                                 className="colored-btn"
                                 onClick={methods.handleSubmit(onSubmit, onError)}
                             >
-                               {t("Save")}
+                                {t("Save")}
                             </Button>
                         }
                     </div>

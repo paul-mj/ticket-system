@@ -80,13 +80,13 @@ const LogoutPopup = ({ show, onClose }: any) => {
             AppId: 2,
         };
         ApiService.httpPost('user/logout', paramData);
-        const logData = localStore.getItem('frmLoginData')
+        const logData = localStore.getItem('helpdeskLoginData')
         const loginData = logData && JSON.parse(logData);
         if (loginData?.USER_TYPE !== UserType.Franchise) {
             navigate(`/auth/login`)
             localStore.clearAll();
         } else {
-            navigate(`/auth/operatorlogin`);
+            navigate(`/auth/login`);
             localStore.clearAll();
         }
         window.location.reload();

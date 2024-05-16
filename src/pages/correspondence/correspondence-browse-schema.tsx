@@ -43,7 +43,9 @@ export class CorrespondanceDefaultValue {
             RequestType: "",
             Application: "",
             sequence: "",
-            tasklistLength: (taskList || []).length
+            tasklistLength: (taskList || []).length,
+            Customers: "",
+            Users: ""
         }
     }
     static SwitchDefaultValue(masterId: number) {
@@ -66,7 +68,7 @@ export class CorrespondanceDefaultValue {
 
 
 export class CorrespondanceSchema {
-    static ItcSchema() {
+    static ItcSchema(initialApiDropdownResponse: any) {
         return {
             [MasterId.Correspondence]: yup.object().shape({
                 ReferenceNumber: yup.string(),
@@ -80,31 +82,49 @@ export class CorrespondanceSchema {
                     then: yup.array().min(1).required(),
                     otherwise: yup.array().notRequired(),
                 }),
-                editorLang: yup.boolean(),
-                /* Receipts: yup.array().when('configureRole', {
-                    is: false,
-                    then: yup.array().min(1).required(),
-                    otherwise: yup.array().notRequired(),
-                }), */
-                Tags: yup.array(),
-                /* Relateditems: yup.array(), */
+                editorLang: yup.boolean(), 
+                Tags: yup.array(), 
                 Schedule: yup.boolean(),
                 ScheduleDate: yup.string().when('Schedule', {
                     is: true,
                     then: yup.string().required(),
                     otherwise: yup.string().nullable(),
                 }),
-                tasklistLength: yup.string(),
-                /* sequence: yup.string().when('tasklistLength', {
-                    is: (length: any) => length > 1,
-                    then: yup.string().required('Sequence is required'),
-                    otherwise: yup.string().nullable(),
-                }), */
+                tasklistLength: yup.string(), 
+            }),
+            /* Incident -> Request */
+            [MasterId.Requests]: yup.object().shape({
+                Subject: yup.string().required(),
+                ReferenceNumber: yup.string(),
+                DocumentDate: yup.date().required(),
+                RequestType: yup.string().required(),
+                configureRole: yup.boolean().default(true), 
+                Application: yup.string().nullable().when('RequestType', {
+                    is: (requestType: any) => {
+                        const foundObject = initialApiDropdownResponse.requestOriginal.find(
+                            (item: any) => Number(item.OBJECT_ID) === Number(requestType)
+                        );
+                        return foundObject ? foundObject?.OBJECT_TYPE === 33102 : false;
+                    },
+                    then: yup.string().required('Application is required'),
+                    otherwise: yup.string()
+                }),
+                Customers: yup.string().required(),
+                Users: yup.string().nullable().when('Customers', {
+                    is: (Customers: any) => {
+                        return Customers ? true : false;
+                    },
+                    then: yup.string().required('Users is required'),
+                    otherwise: yup.string()
+                }),
+                Tags: yup.array(),
+                editorLang: yup.boolean(),
+                TransContent: yup.string().required(), 
             }),
         }
     }
 
-    static FranchiseSchema() {
+    static FranchiseSchema(initialApiDropdownResponse: any) {
         return {
             [MasterId.Correspondence]: yup.object().shape({
                 ReferenceNumber: yup.string(),
@@ -113,26 +133,37 @@ export class CorrespondanceSchema {
                 TransContent: yup.string().required(),
                 Keywords: yup.string(),
                 editorLang: yup.boolean(),
-                configureRole: yup.boolean().default(true),
-                /* Receipts: yup.array().when('configureRole', {
-                    is: false,
-                    then: yup.array().min(1).required(),
-                    otherwise: yup.array().notRequired(),
-                }), */
-                Tags: yup.array(),
-                /* Relateditems: yup.array(), */
+                configureRole: yup.boolean().default(true), 
+                Tags: yup.array(), 
                 Schedule: yup.boolean(),
                 ScheduleDate: yup.string().when('Schedule', {
                     is: true,
                     then: yup.string().required(),
                     otherwise: yup.string().nullable(),
                 }),
-                tasklistLength: yup.string(),
-                /* sequence: yup.string().when('tasklistLength', {
-                    is: (length: any) => length > 1,
-                    then: yup.string().required('Sequence is required'),
-                    otherwise: yup.string().nullable(),
-                }), */
+                tasklistLength: yup.string(), 
+            }),
+            /* Incident -> Request */
+            [MasterId.Requests]: yup.object().shape({
+                Subject: yup.string().required(),
+                ReferenceNumber: yup.string(),
+                DocumentDate: yup.date().required(),
+                RequestType: yup.string().required(),
+                configureRole: yup.boolean().default(true),
+                /* Application: yup.string(), */
+                Application: yup.string().nullable().when('RequestType', {
+                    is: (requestType: any) => {
+                        const foundObject = initialApiDropdownResponse.requestOriginal.find(
+                            (item: any) => Number(item.OBJECT_ID) === Number(requestType)
+                        );
+                        return foundObject ? foundObject?.OBJECT_TYPE === 33102 : false;
+                    },
+                    then: yup.string().required('Application is required'),
+                    otherwise: yup.string()
+                }), 
+                Tags: yup.array(),
+                editorLang: yup.boolean(),
+                TransContent: yup.string().required(),  
             }),
         }
     }
@@ -304,38 +335,7 @@ export class CorrespondanceSchema {
                     otherwise: yup.string().nullable(),
                 }),
             }),
-            /* Incident -> Request */
-            [MasterId.Requests]: yup.object().shape({
-                Subject: yup.string().required(),
-                ReferenceNumber: yup.string(),
-                DocumentDate: yup.date().required(),
-                RequestType: yup.string().required(),
-                configureRole: yup.boolean().default(true),
-                /* Application: yup.string(), */
-                Application: yup.string().nullable().when('RequestType', {
-                    is: (requestType: any) => {
-                        const foundObject = initialApiDropdownResponse.requestOriginal.find(
-                            (item: any) => Number(item.OBJECT_ID) === Number(requestType)
-                        );
-                        console.log(foundObject, 'foundObject')
-                        console.log(foundObject?.OBJECT_TYPE, 'foundObject.OBJECT_TYPE')
-                        console.log(33102, 'condition')
-                        return foundObject ? foundObject?.OBJECT_TYPE === 33102 : false;
-                    },
-                    then: yup.string().required('Application is required'),
-                    otherwise: yup.string()
-                }),
-                Tags: yup.array(),
-                editorLang: yup.boolean(),
-                TransContent: yup.string().required(),
-               /*  Receipts: yup.array().when('configureRole', {
-                    is: false,
-                    then: yup.array().min(1).required(),
-                    otherwise: yup.array().notRequired(),
-                }),
-                Relateditems: yup.array(), */
-
-            }),
+            
             [MasterId.Meetings]: yup.object().shape({
                 Subject: yup.string().required(),
                 Operator: yup.array().min(1).required(),

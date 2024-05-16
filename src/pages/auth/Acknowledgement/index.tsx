@@ -40,7 +40,7 @@ const Acknowledgement = () => {
         const searchParams = new URLSearchParams(search);
         const guid: string = (searchParams.get('guid') || searchParams.get('GUID')) ?? '';
         try {
-            const user = localStorage.getItem('frmAccessToken')
+            const user = localStorage.getItem('helpdeskAccessToken')
             const apiData = { guid }
             const param = new URLSearchParams(apiData).toString();
             setViewMode(-1)

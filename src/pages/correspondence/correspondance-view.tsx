@@ -444,8 +444,8 @@ export const CorrespondenceView = (props: any) => {
             if (condition) { // Check if Reject button is clicked
 
                 if (button?.IS_REMARKS_REQUIRED && !Remarks) {
-                    setError('Remarks', { message: 'Field required when rejecting' });
-                    toast.error(`${t("Remarks is required when rejecting")}`, { autoClose: 3000 });
+                    setError('Remarks', { message: 'Remark mandatory for current status change' });
+                    toast.error(`${t("Remark required for current status change")}`, { autoClose: 3000 });
                     return;
                 }
 
@@ -762,10 +762,10 @@ export const CorrespondenceView = (props: any) => {
                     <div ref={printWrapRef}>
                         <div className="p-2 outlined-box my-2">
                             <div className="d-flex align-items-center justify-content-between">
-                                <h5 className="outlined-box-head">{t("Header")}</h5>
+                                <h5 className="outlined-box-head mb-4">{t("Header")}</h5>
 
                                 <div className="send-view-config print-disable">
-                                    <div className="send-config-sec">
+                                    {/* <div className="send-config-sec">
                                         <div className="send-config">
                                             {t("Send to default Roles")}
                                         </div>
@@ -775,9 +775,8 @@ export const CorrespondenceView = (props: any) => {
                                         </div>
                                     </div>
                                     <div className="view-config" onClick={viewConfigClick}>
-                                        <IconButton> <img src={Eye} alt="" /> </IconButton>
-                                        {/* <img src={Eye} alt="" /> */}
-                                    </div>
+                                        <IconButton> <img src={Eye} alt="" /> </IconButton> 
+                                    </div> */}
                                 </div>
 
                             </div>
@@ -848,13 +847,12 @@ export const CorrespondenceView = (props: any) => {
                                                 }
 
                                                 <div className="mail-roles mt-3">
-                                                    <ViewOperator
+                                                   {/*  <ViewOperator
                                                         editFormattedresponse={editFormattedresponse}
                                                         showMore={showMore}
                                                         editOperators={editOperators}
-                                                        handleSearch={handleSearch}
-                                                    //showMoreToggle={showMoreToggle}
-                                                    />
+                                                        handleSearch={handleSearch} 
+                                                    /> */}
                                                 </div>
                                                 {duplicateRecipiantsList?.length > 0 ?
                                                     <div className="mail-roles my-3">

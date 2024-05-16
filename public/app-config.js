@@ -6,9 +6,9 @@ window["config"] = {
   pngExtensions: ["png"],
   pdfExtensions: ["pdf"],
   ValidateAllExtension: ['jpg', 'jpeg', 'png', 'pdf', 'doc', 'docx', 'xlsx'],
-  tinyMCE: 'venmcx0h11u1x9e6gs3z9qse5wefo7g4gackuv33nt7imeop',
+  tinyMCE: 'gau41jzxq7uxgsefbbahaz3kump1u5kp1n75blhxl7xzbrph',
   isDedApiCall: false, //true for ded api, false for local Json
   version: '1.0.0',
 };
-
+ 
 

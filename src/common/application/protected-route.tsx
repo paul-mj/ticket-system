@@ -8,7 +8,7 @@ export const ProtectedRoutes = () => {
   const location = useLocation()
   const [authState, setAuthState] = useState(false)
   useEffect(() => {
-    const isAuthenticated = !!localStorage.getItem('frmAccessToken');
+    const isAuthenticated = !!localStorage.getItem('helpdeskAccessToken');
     setAuthState(isAuthenticated)
     if (!isAuthenticated) {
       const redirectUrl = location.pathname + location.search;

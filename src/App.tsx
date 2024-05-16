@@ -36,6 +36,8 @@ import ReportChart from "./shared/components/Report/Pages/ReportChart";
 import ReportPivot from "./shared/components/Report/Pages/ReportPivot";
 import ReportViewerLayout from "./shared/components/Report/ReportViewerLayout";
 import { CorrespondenceView } from "./pages/correspondence/correspondance-view";
+import { OperatorRegistrationView } from "./pages/transactions/operator-registration-requests/operatorResgistrationViewDialog";
+import Viewer from "./pages/Viewer";
 
 const Login = React.lazy(() => import("./pages/auth/login/login"));
 const NotFoundPage = React.lazy(() => import("./pages/errors/404"));
@@ -65,13 +67,13 @@ const App = () => {
             confirmBtnLabel: `${t('Okay')}`,
         });
         if (choice) {
-            const logData = localStore.getItem('frmLoginData')
+            const logData = localStore.getItem('helpdeskLoginData')
             const loginData = logData && JSON.parse(logData);
             if (loginData?.USER_TYPE !== UserType.Franchise) {
                 navigate(`/auth/login`)
                 localStore.clearAll();
             } else {
-                navigate(`/auth/operatorlogin`);
+                navigate(`/auth/login`);
                 localStore.clearAll();
             }
             window.location.reload();
@@ -163,6 +165,9 @@ const App = () => {
                     <NetworkStatus />
                     <Routes>
                         <Route path="/" element={<Navigate to="/auth/login" />} />
+                        <Route path="/">
+                            <Route path="view" element={<Viewer />} />
+                        </Route>
                         <Route path="/" element={<ProtectedRoutes />}>
                             <Route path="/" element={<DefaultLayout />}>
                                 <Route path="dashboard" element={<Dashboard />} />
@@ -182,9 +187,11 @@ const App = () => {
                                 <Route path="chart/:id" element={<ReportChart />} />
                             </Route>
                         </Route>
-
+                        <Route path="operator" element={<PublicRoutes />}>  
+                            <Route path="view/:transid" element={<OperatorRegistrationView />} />
+                        </Route>
                         <Route path="auth" element={<PublicRoutes />}>
-                            <Route path="operatorlogin" element={<Login />} />
+                            {/* <Route path="operatorlogin" element={<Login />} /> */}
                             <Route path="login" element={<Login />} />
                             <Route path="forgot-password" element={<ForgotPassword />} />
                             <Route path="acknowledgement" element={<Acknowledgement />} />

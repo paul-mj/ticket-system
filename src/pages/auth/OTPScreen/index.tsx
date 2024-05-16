@@ -36,9 +36,9 @@ const OTPScreen = ({ loginInfo, onBack, onSubmit, otpProps }: any) => {
             }
             const otpResponse = await ApiService.httpPost('user/verifyOtp', apiObj);
             if (otpResponse.Id > 0) {
-                localStore.addItem('frmAccessToken', Tokens.AccessToken);
-                localStore.addItem('frmRefreshToken', Tokens.RefreshToken);
-                localStore.addItem('frmLoginData', JSON.stringify(Data));
+                localStore.addItem('helpdeskAccessToken', Tokens.AccessToken);
+                localStore.addItem('helpdeskRefreshToken', Tokens.RefreshToken);
+                localStore.addItem('helpdeskLoginData', JSON.stringify(Data));
                 const searchParams = new URLSearchParams(location.search);
                 const redirectUrl = searchParams.get('redirect') || `/dashboard`;
                 navigate(redirectUrl);
@@ -253,8 +253,8 @@ const OTPScreen = ({ loginInfo, onBack, onSubmit, otpProps }: any) => {
                             <p className="otp-text">
                                 {
                                     (otpProps?.isPage === 'login' || otpProps?.isPage === 'forgotPassword') ?
-                                        `${t("A One-Time Passcode has been sent to your Email")} (${EMAIL_ID})` :
-                                        `${t("A One-Time Passcode has been sent to your Mobile")} (${MobileNo})`
+                                        `${t("A One-Time Passcode has been sent to your Email")}  ` :
+                                        `${t("A One-Time Passcode has been sent to your Mobile")}`
                                 }
                             </p>
                         </Col>

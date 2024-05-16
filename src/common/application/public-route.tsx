@@ -5,7 +5,7 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom'
 const useAuth = () => {
     const location = useLocation();
     const excludedPaths = ['acknowledgement']
-    const user = localStorage.getItem('frmAccessToken')
+    const user = localStorage.getItem('helpdeskAccessToken')
     if (user) {
         return !excludedPaths.some((path:any) => location.pathname.includes(path));
     } else {

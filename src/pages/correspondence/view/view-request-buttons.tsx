@@ -12,11 +12,11 @@ const ViewRequestButtons = ({requestButtons, onClickChangeStatus}: RequestButton
             {
                 requestButtons && requestButtons?.length ?
                     requestButtons.map((button: any, index: any) => (
-                        <div className="btn-sec-wrap" key={index}>
+                        <div className="btn-sec-wrap" key={index}> 
                             <Button
                                 type="submit"
                                 variant="contained"
-                                className={`colored-btn mx-2`}
+                                className={`stat-bttn mx-2  statid-${button?.STATUS_ID}`}
                                 onClick={() => onClickChangeStatus(button)}
                             >
                                 {button.ACTION_NAME}

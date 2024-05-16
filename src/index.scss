@@ -28,7 +28,12 @@ body {
 body.rtl {
     font-family: "NotoKufiArabic,Roboto-medium,sans-serif" !important;
 
-    h3, h4, h5, p, span, label,
+    h3,
+    h4,
+    h5,
+    p,
+    span,
+    label,
     .dx-theme-generic-typography .dx-font-s,
     .dx-theme-generic-typography h4,
     .dx-widget,
@@ -36,10 +41,11 @@ body.rtl {
     .dx-theme-generic-typography textarea {
         font-family: "NotoKufiArabic,Roboto-medium,sans-serif" !important;
     }
+
     .dx-pivotgrid-fields-container .dx-header-filter::before {
         font: 14px/1 DXIcons !important;
     }
-    
+
 }
 
 .no-gutters {
@@ -867,6 +873,32 @@ img.sized-img {
     button.head-close-bttn,
     svg.head-icon,
     span {
+        color: #fff;
+    }
+}
+
+.btn-sec-wrap {
+    .stat-bttn {
+        &.statid-30 {
+            background-color: #ff3232 !important;
+            color: #fff;
+        }
+
+        &.statid-7 {
+            background-color: #3F51B5 !important;
+            color: #fff !important;
+        }
+
+        &.statid-29 {
+            background-color: #FF5722 !important;
+            color: #fff;
+        }
+        &.statid-43 {
+            background-color: #107d27 !important;
+            color: #fff;
+        }
+
+        background-color: #000;
         color: #fff;
     }
 }
