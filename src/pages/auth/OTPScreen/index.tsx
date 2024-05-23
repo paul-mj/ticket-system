@@ -221,7 +221,11 @@ const OTPScreen = ({ loginInfo, onBack, onSubmit, otpProps }: any) => {
     }, [Guid, UserName]);
 
     const backToLoginScreen = () => {
-        onBack();
+        onBack(); 
+    }
+
+    const redirectLogin = () => {
+        navigate(`/auth/login`)
     }
 
     const resendOTPHandler = () => {
@@ -242,10 +246,10 @@ const OTPScreen = ({ loginInfo, onBack, onSubmit, otpProps }: any) => {
             {
                 showOtpScreen &&
                 <div className="login-form">
-                    <Row>
+                    <Row> 
                         <Col md={12}>
                             <div className="d-flex align-items-center  mb-4">
-                                <HomeIconButton onClick={onBack} />
+                                <HomeIconButton onClick={redirectLogin} />
                                 <h4 className="auth-title text-center  mb-0">{t("Verification")}</h4>
                             </div>
                         </Col>

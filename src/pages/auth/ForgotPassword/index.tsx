@@ -14,6 +14,9 @@ import { useTranslation } from "react-i18next";
 import ApiService from "../../../core/services/axios/api";
 import { v4 as uuidv4 } from "uuid";
 import { toast } from "react-toastify";
+import { PrevArrowBtn } from "../../../assets/images/svgicons/svgicons";
+import { Button } from "@mui/material";
+import { LoginPageBg } from "../../../assets/images/png/pngimages";
 const uuid = uuidv4();
 const validationSchema = yup.object().shape({
     UserName: yup.string().required()
@@ -61,12 +64,25 @@ const ForgotPwdFrm = ({ onOTPTrigger, uuid }: any) => {
             }
         })();
     }, [handleSubmit, onOTPTrigger, uuid])
+
+    const handleBackClick = () => {
+        window.history.back();
+    };
+
+
     return (
         <div className="login-form">
-            <Row>
-                <Col md={12}>
-                    <h4 className="auth-title text-center mb-5">{t("Forgot Password?")}</h4>
+            <Row className="align-items-center mb-5">
+                <Col md={3}>
+                    <Button className="prev-arrow-bttn" size="small" onClick={handleBackClick}>
+                        <img className="notice-arrw-btn" src={PrevArrowBtn} alt="" />
+                    </Button>
                 </Col>
+                <Col md={9}>
+                    <h4 className="auth-title text-start">{t("Forgot Password?")}</h4>
+                </Col>
+            </Row>
+            <Row>
                 <Col md={12} className="mb-3">
                     <FormInputText
                         name="UserName"
@@ -86,6 +102,7 @@ const ForgotPwdFrm = ({ onOTPTrigger, uuid }: any) => {
         </div>
     )
 }
+
 const ResetPasswordScreen = ({ Guid }: any) => {
     return (
         <div className="login-form">
@@ -100,27 +117,57 @@ const ResetPasswordScreen = ({ Guid }: any) => {
         </div>
     )
 }
+
 const ForgotPassword = () => {
     const [userInfo, setUserInfo] = useState<any>(null);
     const [otpUserInfo, setOtpUserInfo] = useState(null);
     return (
         <>
-            <div className="login-wrapper h-100">
+            {/* <div className="login-wrapper h-100">
                 <Container className="h-100">
-                    <div className="auth-header">
-                        <AuthHeader />
-                    </div>
-                    <div className="auth-form-body h-100">
-                        {userInfo ?
-                            (
-                                otpUserInfo ?
-                                    <ResetPasswordScreen Guid={uuid} /> :
-                                    <OTPScreen onBack={() => { setUserInfo(null) }} loginInfo={userInfo} onSubmit={setOtpUserInfo} otpProps={{ isPage: 'forgotPassword' }} />
+                <div className="auth-header">
+                    <AuthHeader />
+                </div>
+                <div className="auth-form-body h-100">
+                    <Row>
+                        <Col md={6}>
+                            Login Left Block
+                        </Col>
+                        <Col md={6}>
+                            {userInfo ?
+                                (
+                                    otpUserInfo ?
+                                        <ResetPasswordScreen Guid={uuid} /> :
+                                        <OTPScreen onBack={() => { setUserInfo(null) }} loginInfo={userInfo} onSubmit={setOtpUserInfo} otpProps={{ isPage: 'forgotPassword' }} />
 
-                            ) :
-                            <ForgotPwdFrm onOTPTrigger={setUserInfo} uuid={uuid} />}
-                    </div>
+                                ) :
+                                <ForgotPwdFrm onOTPTrigger={setUserInfo} uuid={uuid} />}
+                        </Col>
+                    </Row> 
+                </div>
                 </Container>
+            </div> */}
+            <div className="lg-wrapper">
+                <div className="lg-head">
+                    <AuthHeader />
+                </div>
+                <div className="lg-body">
+                    <div className="lg-body-wrapper">
+                        <div className="plain-img">
+                            <img src={LoginPageBg} />
+                        </div>
+                        <div className="lg-login-frm">
+                            {userInfo ?
+                                (
+                                    otpUserInfo ?
+                                        <ResetPasswordScreen Guid={uuid} /> :
+                                        <OTPScreen onBack={() => { setUserInfo(null) }} loginInfo={userInfo} onSubmit={setOtpUserInfo} otpProps={{ isPage: 'forgotPassword' }} />
+
+                                ) :
+                                <ForgotPwdFrm onOTPTrigger={setUserInfo} uuid={uuid} />}
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     )

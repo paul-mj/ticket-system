@@ -257,22 +257,22 @@ const AppHeaderUser: React.FC<any> = () => {
                     <EditIcon />
                     {t("User Details")}
                 </MenuItem>
-                {userType === UserType.Franchise && (
-                    <>
+              {/*   {userType === UserType.Franchise && (
+                    <> */}
                         <Divider sx={{ my: 0.5 }} />
                         <MenuItem onClick={() => handleClose('changepwd')} disableRipple>
                             <FileCopyIcon />
                             {t("Change Password")}
                         </MenuItem>
-                    </>
-                )} 
+                   {/*  </>
+                )}  */}
                 <Divider sx={{ my: 0.5 }} />
-                <MenuItem disableRipple>
+                {/* <MenuItem disableRipple>
                     <DownloadingOutlinedIcon />
                     <a className="usermanual" href={`${UserId === UserType.ITC ? OperatorUserManual : ItcUserManual}`} download="UserManual"> Download User Manual
                     </a>
                 </MenuItem> 
-                <Divider sx={{ my: 0.5 }} />
+                <Divider sx={{ my: 0.5 }} /> */}
                 <MenuItem onClick={() => handleClose('logout')} disableRipple>
                     <LogoutOutlinedIcon />
                     {t("Logout")}

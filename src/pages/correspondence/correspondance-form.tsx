@@ -29,7 +29,7 @@ import { TaskDetails } from "../../core/interfaces/task.interface";
 import styled from "@emotion/styled";
 import { FormInputSelect } from "../../shared/components/form-components/FormInputSelect";
 import CloseIcon from "@mui/icons-material/Close";
-import { MasterId, MenuId } from "../../common/database/enums";
+import { MasterId, MenuId, UserType } from "../../common/database/enums";
 import { Doc, Jpg, Pdf, Png, Xlsx, jpeg } from "../../assets/images/file/fileicon";
 import { CorrespondanceTask } from "./correspondance-task";
 import { API } from "../../common/application/api.config";
@@ -102,8 +102,8 @@ type Anchor = "right" | "left";
 
 
 const CorrespondenceForm = (props: any) => {
-    const { isTinyExpanded, tinyLanguage, resetTinyExpansion, onImagesChange, resetChildItems, currentPage, popupConfiguration, schema, initialApiDropdownResponse, USER_TYPE, MasterIdProp, onchnageCustomer } = props;
- 
+    const { isTinyExpanded, tinyLanguage, resetTinyExpansion, onImagesChange, resetChildItems, currentPage, popupConfiguration, schema, initialApiDropdownResponse, USER_TYPE, MasterIdProp, onchnageCustomer, onchnageItcRequestType } = props;
+
     const fields = Object.keys(schema.fields);
     const { t, i18n } = useTranslation();
     const currLang = i18n.dir();
@@ -321,6 +321,11 @@ const CorrespondenceForm = (props: any) => {
         return found || false;
     };
 
+    const onChangeUsers = (event: any) => {
+        setValue('RequestType', '')
+        setValue('Application', '')
+    }
+
 
     return (
         <>
@@ -375,37 +380,37 @@ const CorrespondenceForm = (props: any) => {
                                     hideError={true}
                                 />
                             </Col>
-                        )} 
+                        )}
 
 
 
                         {((popupConfiguration?.MasterId !== MasterId.Requests) || (userType !== 31401 && userType !== 31402)) &&
                             !((popupConfiguration?.MasterId === MasterId.Correspondence) && (userType === 31402)) && (
                                 <>
-                                   {/*  <Col md={5} className="mb-3">
+                                    {/*  <Col md={5} className="mb-3">
                                         <Row> */}
-                                            {fields.includes('configureRole') && (
-                                                <>
-                                                    <Col md={2} className="text-center">
-                                                        <SwitchField name="configureRole" control={control} label={`${currentPage !== MenuId.New ? t("Send to default Roles") : t("Send To Configured Roles")}`} fontSize="9px" />
-                                                    </Col>
-                                                    <Col md={2} className="mb-3">
-                                                        <TextIconWhiteCloseButton icon={RemoveRedEyeOutlinedIcon} text={`${t("View Config")}`} onClick={viewConfigClick} fontSize="9px" />
-                                                    </Col>
-                                                </>
-                                            )}
-                                            {
+                                    {fields.includes('configureRole') && (
+                                        <>
+                                            <Col md={2} className="text-center">
+                                                <SwitchField name="configureRole" control={control} label={`${currentPage !== MenuId.New ? t("Send to default Roles") : t("Send To Configured Roles")}`} fontSize="9px" />
+                                            </Col>
+                                            <Col md={2} className="mb-3">
+                                                <TextIconWhiteCloseButton icon={RemoveRedEyeOutlinedIcon} text={`${t("View Config")}`} onClick={viewConfigClick} fontSize="9px" />
+                                            </Col>
+                                        </>
+                                    )}
+                                    {
 
-                                                (![MasterId.NoticeBoardDesign].includes(popupConfiguration?.MasterId)) &&
-                                                <Col md={2}>
-                                                    <TextIconWhiteCloseButton icon={RemoveRedEyeOutlinedIcon} text={`${t("View Receipient")}`} onClick={receipientDet} fontSize="9px" />
-                                                </Col>
-                                            }
-                                        {/* </Row>
+                                        (![MasterId.NoticeBoardDesign].includes(popupConfiguration?.MasterId)) &&
+                                        <Col md={2}>
+                                            <TextIconWhiteCloseButton icon={RemoveRedEyeOutlinedIcon} text={`${t("View Receipient")}`} onClick={receipientDet} fontSize="9px" />
+                                        </Col>
+                                    }
+                                    {/* </Row>
                                     </Col> */}
                                 </>
                             )}
- 
+
 
                         {/* </Row>
                     <Row className="no-gutters"> */}
@@ -507,32 +512,92 @@ const CorrespondenceForm = (props: any) => {
                         )}
 
 
-
-                        {fields.includes('RequestType') && (
+                        {fields.includes('Customers') && (
                             <Col md={2} className="mb-3">
                                 <FormInputSelect
-                                    name="RequestType"
+                                    name="Customers"
                                     control={control}
-                                    label={t("Request Type")}
-                                    options={initialApiDropdownResponse.request}
+                                    label={t("Customers")}
+                                    options={initialApiDropdownResponse.Customers}
+                                    onChange={onchnageCustomer}
                                     errors={errors}
                                     hideError={true}
                                 />
                             </Col>
                         )}
 
-                        {isApplicationControl(watch('RequestType'), initialApiDropdownResponse.requestOriginal) && fields.includes('Application') && (
+                        {(fields.includes('Customers') && fields.includes('Users')) && (
+                            <Col md={2} className="mb-3">
+                                <FormInputSelect
+                                    name="Users"
+                                    control={control}
+                                    label={t("Users")}
+                                    options={initialApiDropdownResponse.Users}
+                                    onChange={onChangeUsers}
+                                    errors={errors}
+                                    hideError={true}
+                                />
+                            </Col>
+                        )}
+
+
+                        {fields.includes('RequestType') && (
+                            ((userType === UserType.ITC) && watch('Users')) && (
+                                <Col md={2} className="mb-3">
+                                    <FormInputSelect
+                                        name="RequestType"
+                                        control={control}
+                                        label={t("Request Type")}
+                                        options={initialApiDropdownResponse.request}
+                                        onChange={onchnageItcRequestType}
+                                        errors={errors}
+                                        hideError={true}
+                                    />
+                                </Col>
+                            )
+                        )}
+
+                        {fields.includes('RequestType') && (
+                            ((userType === UserType.Franchise)) && (
+                                <Col md={2} className="mb-3">
+                                    <FormInputSelect
+                                        name="RequestType"
+                                        control={control}
+                                        label={t("Request Type")}
+                                        options={initialApiDropdownResponse.request}
+                                        errors={errors}
+                                        hideError={true}
+                                    />
+                                </Col>
+                            )
+                        )}
+
+                        {watch('RequestType') && fields.includes('Application') && (
                             <Col md={2} className="mb-3">
                                 <FormInputSelect
                                     name="Application"
                                     control={control}
-                                    label={t("ITC Application")}
+                                    label="Application"
                                     options={initialApiDropdownResponse.application}
                                     errors={errors}
                                     hideError={true}
                                 />
                             </Col>
                         )}
+
+
+                       {/*  {isApplicationControl(watch('RequestType'), initialApiDropdownResponse.requestOriginal) && fields.includes('Application') && (
+                            <Col md={2} className="mb-3">
+                                <FormInputSelect
+                                    name="Application"
+                                    control={control}
+                                    label="Application"
+                                    options={initialApiDropdownResponse.application}
+                                    errors={errors}
+                                    hideError={true}
+                                />
+                            </Col>
+                        )} */}
 
                         {([MasterId.Tasks].includes(popupConfiguration?.MasterId)) && (
                             <Col md={2} className="mb-3">
@@ -546,33 +611,7 @@ const CorrespondenceForm = (props: any) => {
                                 />
                             </Col>
                         )}
-  
-                        {fields.includes('Customers') && (
-                            <Col md={2} className="mb-3">
-                                <FormInputSelect
-                                    name="Customers"
-                                    control={control}
-                                    label={t("Customers")}
-                                    options={initialApiDropdownResponse.Customers}
-                                    onChange={onchnageCustomer}
-                                    errors={errors}
-                                    hideError={true}
-                                />
-                            </Col>
-                        )} 
 
-                        {(fields.includes('Customers') && fields.includes('Users')) && (
-                            <Col md={2} className="mb-3">
-                                <FormInputSelect
-                                    name="Users"
-                                    control={control}
-                                    label={t("Users")}
-                                    options={initialApiDropdownResponse.Users}
-                                    errors={errors}
-                                    hideError={true}
-                                />
-                            </Col>
-                        )} 
 
                         {fields.includes('Schedule') && (
                             <Col md={1} className="mb-3 red">

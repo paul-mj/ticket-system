@@ -8,10 +8,10 @@
 }
 
 .login-form {
-    position: absolute;
+    /*  position: absolute;
     top: 50%;
     right: 50%;
-    transform: translate(50%, -50%);
+    transform: translate(50%, -50%); */
     background: #ffffff;
     min-height: 150px;
     width: 100%;
@@ -41,26 +41,82 @@ button.login-bttn {
 span.login-loader {
     color: white;
 }
-.otp{
-    &-text{
+
+.otp {
+    &-text {
         font-size: .8rem;
     }
-    &-resent{
+
+    &-resent {
         cursor: pointer;
         font-size: .9rem;
         font-weight: 600;
         transition: font-weight .5s ease;
     }
-    &-disableText{
+
+    &-disableText {
         cursor: not-allowed;
         pointer-events: none;
         color: #a3a3a3;
         font-weight: 600;
     }
 }
-.otpInput{
-    .MuiInputBase-input{
+
+.otpInput {
+    .MuiInputBase-input {
         height: 3rem;
         padding: 0;
     }
+}
+
+button.prev-arrow-bttn {
+    background: #dddddd;
+    height: 30px;
+    min-width: 45px !important;
+    display: inline-block;
+
+    img {
+        height: 22px;
+    }
+}
+
+
+
+/* New Css */
+.lg-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+.lg-head {
+    height: 12%;
+    width: 100%;
+}
+
+.lg-body {
+    flex-grow: 1;
+    display: flex;
+}
+
+.lg-body-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.lg-login-frm {
+    background: #9addc6;
+}
+
+.plain-img,
+.lg-login-frm {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -44,7 +44,7 @@ import DocsUpload from "../../shared/file-controler/docs-upload/docs-upload";
 import { CorrespondanceDefaultValue, CorrespondanceSchema } from "./correspondence-browse-schema";
 import SaveLoader from "./browse-components/save-loader";
 import SuccessBox from "./browse-components/success-box";
-import DocumentPercentageLoader from "./browse-components/doc-percentage-loader";
+import DocumentPercentageLoader from "./browse-components/doc-percentage-loader"; 
 
 type Image = {
     id: any;
@@ -309,6 +309,11 @@ const CorrespondenceBrowse = (props: any) => {
     }
 
     const onchnageCustomerSelect = async (event: any) => { 
+        methods.setValue('Users', '')
+        methods.setValue('RequestType', '')
+        methods.setValue('Application', '')
+
+
         const CustomersParam = {
             Procedure:"FRM_TRANS.CUSTOMER_USERS_SPR",
             UserId: userID,
@@ -323,6 +328,27 @@ const CorrespondenceBrowse = (props: any) => {
         setInitialApiDropdownResponse((prevValue: any) => ({
             ...prevValue,
             Users: userList.Data?.length ? formatAutoCompleteOptionsArray(userList.Data, 'USER_NAME', 'USER_ID') : [],
+        }));
+    }
+
+    const onchnageItcRequestTypeSelect = async (event: any) => {
+        methods.setValue('Application', '')
+        const user = methods.watch('Users');
+        const frId = methods.watch('Customers'); 
+        const applicationParams = {
+            Procedure: "FRM_MASTER.ITC_APP_LOOKUP_SPR",
+            UserId: user,
+            CultureId: lang,
+            Criteria: [{
+                Name: "@FRANCHISE_ID ",
+                Value: frId,
+                IsArray: false
+            }]
+        }
+        const appList = await ApiService.httpPost(API.getTable, applicationParams);   
+        setInitialApiDropdownResponse((prevValue: any) => ({
+            ...prevValue,
+            application: appList.Data?.length ? formatAutoCompleteOptionsArray(appList.Data, 'OBJECT_NAME', 'OBJECT_ID') : [],
         }));
     }
 
@@ -377,6 +403,7 @@ const CorrespondenceBrowse = (props: any) => {
             const formattedResponse: any =  MailEditFormatter(responses, userType);
             setEditFormattedresponse(formattedResponse);
             methods.reset(formattedResponse);
+            onchnageItcRequestTypeSelect(formattedResponse.RequestType);
             setDialogLoader(false);
         } catch (error) {
             setDialogLoader(false);
@@ -726,6 +753,7 @@ const CorrespondenceBrowse = (props: any) => {
                                     USER_TYPE={USER_TYPE}
                                     MasterIdProp={popupConfiguration.MasterId}
                                     onchnageCustomer={onchnageCustomerSelect}
+                                    onchnageItcRequestType={onchnageItcRequestTypeSelect}
                                 />
                             </CorrespondanceEditorContext.Provider>
                         </form>
@@ -805,7 +833,7 @@ const CorrespondenceBrowse = (props: any) => {
                     </div>
                     <div className="crr-btn-section-wrap">
                         <TextCurvedCloseButton onClick={() => onCloseDialog(true)} />
-                        {/* {
+                        {
                             buttonList?.length ? (
                                 buttonList.map((x: any) => (
                                     <Button
@@ -821,8 +849,8 @@ const CorrespondenceBrowse = (props: any) => {
                             ) : (
                                 <p> </p>
                             )
-                        } */}
-                        <Button
+                        }
+                        {/* <Button
                                         key={1}
                                         type="submit"
                                         variant="contained"
@@ -830,7 +858,7 @@ const CorrespondenceBrowse = (props: any) => {
                                         onClick={methods.handleSubmit(onSubmit(12), onError)}
                                     >
                                         test bttn
-                                    </Button>
+                                    </Button> */}
                     </div>
                 </div>
             </DialogActions>

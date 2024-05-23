@@ -7,9 +7,9 @@ import "./auth-layout.scss";
 function AuthHeader() {
   return (
     <>
-      <Row className="py-4">
+      <Row>
         <Col md={6} className="logo-sec-res">
-          <div className="app-logo">
+          <div className="app-logo px-5 py-3">
             <img src={ItcLogo} alt="" />
           </div>
         </Col>

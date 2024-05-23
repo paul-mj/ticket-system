@@ -13,7 +13,7 @@ const HomeIconButton = ({ onClick }: HomeIconButtonProps) => {
                 className="head-close-bttn"
                 onClick={onClick}
             >
-                <HouseIcon />
+                <HouseIcon /> 
             </IconButton>
         </>
 

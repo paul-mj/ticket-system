@@ -61,7 +61,7 @@ const ViewHeader = ({ editFormattedData, showOrgin, headerName, masterId }: View
             {(masterId === MasterId.Requests) && (
                 <>
                     {editFormattedresponse?.RequestType && <div className="det-name">{t("Request Type")}: <span>{editFormattedresponse?.RequestType}</span></div>}
-                    {editFormattedresponse?.ITCApplication && <div className="det-name">{t("ITC Application")}: <span>{editFormattedresponse?.ITCApplication}</span></div>}
+                    {editFormattedresponse?.ITCApplication && <div className="det-name">Application: <span>{editFormattedresponse?.ITCApplication}</span></div>}
                 </>
             )}
 
