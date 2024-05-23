@@ -91,7 +91,7 @@ button.prev-arrow-bttn {
 }
 
 .lg-head {
-    height: 12%;
+    /* height: 12%; */
     width: 100%;
 }
 
@@ -109,7 +109,7 @@ button.prev-arrow-bttn {
 }
 
 .lg-login-frm {
-    background: #9addc6;
+    background: #e6e6e6;
 }
 
 .plain-img,
@@ -132,4 +132,26 @@ button.prev-arrow-bttn {
         background-color: #fff;
         /* Full width */
     }
+}
+
+@media (min-width: 1400px) {
+    .login-form {
+        display: flex;
+        align-items: center;
+        height: 400px;
+        max-width: 450px;
+    }
+}
+
+p.sign-in {
+    color: #8d8d8d;
+}
+h4.auth-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+p.copy-right a {
+    color: #00a766;
+    text-decoration: none;
 }

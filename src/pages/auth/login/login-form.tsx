@@ -13,7 +13,7 @@ import { FormInputText } from "../../../shared/components/form-components/FormIn
 import ApiService from "../../../core/services/axios/api";
 import { CultureId } from "../../../common/application/i18n";
 import OTPScreen from "../OTPScreen";
-import { t } from "i18next"; 
+import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 
 
@@ -124,7 +124,10 @@ const LoginScreen = ({ onOTPTrigger }: any) => {
             <div className="login-form">
                 <Row>
                     <Col md={12}>
-                        <h4 className="auth-title text-center mb-5">{t("Sign In")}</h4>
+                        <h4 className="auth-title text-center mt-4">{t("Sign In")}</h4>
+                        <div className="d-flex align-items-center justify-content-center">
+                            <p className="sign-in mb-5">Please Enter Your Details</p>
+                        </div>
                     </Col>
                     {/* {isOperatorLogin ? null : (
                         <Col md={12} className="mb-3">
@@ -171,10 +174,10 @@ const LoginScreen = ({ onOTPTrigger }: any) => {
                         />
                     </Col>
                     {/* {isOperatorLogin &&  */}
-                        <Col md={12}>
-                            <p className="forgot-para cursor-pointer" onClick={() => { navigate('/auth/forgot-password') }}>{t("Forgot Password?")}</p>
-                        </Col>
-                   {/*  } */}
+                    <Col md={12}>
+                        <p className="forgot-para cursor-pointer" onClick={() => { navigate('/auth/forgot-password') }}>{t("Forgot Password?")}</p>
+                    </Col>
+                    {/*  } */}
                     <Col md={12}>
                         <Button
                             className="login-bttn py-2 mt-4"
@@ -186,6 +189,12 @@ const LoginScreen = ({ onOTPTrigger }: any) => {
                         >
                             {isLoading ? <CircularProgress className="login-loader" size={24} /> : `${t("Login")}`}
                         </Button>
+                    </Col>
+
+                    <Col md={12}>
+                        <div className="d-flex align-items-center justify-content-center">
+                            <p className="my-4 copy-right">&#169; <a href="https://www.accingeapps.com/" target="_blank">Accinge</a> All Rights Reserved</p>
+                        </div>
                     </Col>
                 </Row>
             </div>
@@ -199,5 +208,5 @@ export const LoginForm = () => {
         sendOtp: 'user/sendOtp',
         otpurl: 'user/verifyOtp'
     })
-    return loginOTP ? <OTPScreen onBack={() => { setLoginOTP(null) }} loginInfo={loginOTP} otpProps={otpProps}/> : <LoginScreen onOTPTrigger={setLoginOTP} />
+    return loginOTP ? <OTPScreen onBack={() => { setLoginOTP(null) }} loginInfo={loginOTP} otpProps={otpProps} /> : <LoginScreen onOTPTrigger={setLoginOTP} />
 }
